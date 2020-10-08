@@ -7,26 +7,28 @@ class Header extends React.Component {
   }
 
   render() {
-    <nav className="splash-nav">
-      <Link to="/">
-        <img src="" alt="" />
-      </Link>
-      <div>
-        <Link className="" to="/login" hidden={!!this.props.currentUser}>
-          Sign In
+    return (
+      <nav className="splash-nav">
+        <Link to="/">
+          <img src="" alt="" />
         </Link>
-        <Link className="" to="/signup" hidden={!!this.props.currentUser}>
-          Start Chatting
-        </Link>
+        <div>
+          <Link className="" to="/login" hidden={!!this.props.currentUser}>
+            Sign In
+          </Link>
+          <Link className="" to="/signup" hidden={!!this.props.currentUser}>
+            Start Chatting
+          </Link>
 
-        <Link className="" to="/" hidden={!this.props.currentUser}>
-          Check Out Workspace
-        </Link>
-        <button onClick={this.props.logout} hidden={!this.props.currentUser}>
-          Logout
-        </button>
-      </div>
-    </nav>;
+          <Link className="" to="/" hidden={!this.props.currentUser}>
+            Check Out Workspace
+          </Link>
+          <button onClick={this.props.logout} hidden={!this.props.currentUser}>
+            Logout
+          </button>
+        </div>
+      </nav>
+    );
   }
 }
 
