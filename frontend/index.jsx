@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { login, logout, signup } from "./actions/session_actions.js";
 import configureStore from "./store/store.js";
+import Root from "./components/root.jsx";
 
 document.addEventListener("DOMContentLoaded", () => {
   let root = document.getElementById("root");
@@ -11,5 +12,5 @@ document.addEventListener("DOMContentLoaded", () => {
   window.login = login;
   window.logout = logout;
   window.signup = signup;
-  ReactDOM.render(<h1>Dlack clone</h1>, root);
+  ReactDOM.render(<Root store={store} />, root);
 });
