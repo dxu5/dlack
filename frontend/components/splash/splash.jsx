@@ -8,7 +8,24 @@ class Splash extends React.Component {
   }
 
   render() {
-    return <HeaderContainer />;
+    return (
+      <div className="splash">
+        <HeaderContainer />
+        <div className="splash-content">
+          <div className="splash-picture">
+            {/* <img src={window.images.splashpic} id="splash-illustration" /> */}
+          </div>
+          <div className="text-col">
+            <h1>Welcome to your new HQ</h1>
+            <p>
+              Teamwork can be hard, messy, complicated... and still the best way
+              to work. Dlack is a place where teamwork thrives - a place where
+              people get work done, together
+            </p>
+          </div>
+        </div>
+      </div>
+    );
   }
 }
 export default Splash;
