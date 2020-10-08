@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { login, logout, signup } from "./util/session_api_util.js";
+import { login, logout, signup } from "./actions/session_actions.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   let root = document.getElementById("root");
