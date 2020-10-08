@@ -14,11 +14,11 @@ class User < ApplicationRecord
 
     def password=(password)
         @password = password
-        self.session_token = BCrypt::Password.create(password)
+        self.password_digest = BCrypt::Password.create(password)
     end
 
     def is_password?(password)
-        BCrypt::Password.new(self.session_token).is_password?(password)
+        BCrypt::Password.new(self.password_digest).is_password?(password)
     end
 
     def reset_session_token!
