@@ -3,18 +3,16 @@ import { logout } from "../../actions/session_actions.js";
 
 import Header from "./header.jsx";
 
-
 const mapStateToProps = (state) => {
-    return {
-        currentUser = state.entities.users[state.session.currentUserId]
-    }
-}
+  return {
+    currentUser: state.entities.users[state.session.currentUserId],
+  };
+};
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logout: () => dispatch(logout),
+  };
+};
 
-const mapDispatchToProps = dispatch => {
-    return {
-        logout: ()=> dispatch(logout)
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header)
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
