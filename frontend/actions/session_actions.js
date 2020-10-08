@@ -17,9 +17,30 @@ export const logoutCurrentUser = () => {
   };
 };
 
-export const RECEIVE_ERRORS = (errors) => {
+export const receiveErrors = (errors) => {
   return {
     type: RECEIVE_ERRORS,
     errors,
   };
+};
+
+export const signup = (user) => (dispatch) => {
+  return SessionAPIUtil.signup(user).then(
+    (res) => dispatch(receiveCurrentUser(res)),
+    (errors) => dispatch(receiveErrors(errors))
+  );
+};
+
+export const login = (user) => (dispatch) => {
+  return SessionAPIUtil.login(user).then(
+    (res) => dispatch(receiveCurrentUser(res)),
+    (errors) => dispatch(receiveErrors(errors))
+  );
+};
+
+export const logout = () => (dispatch) => {
+  return SessionAPIUtil.logout().then(
+    () => dispatch(logoutCurrentUser()),
+    (errors) => dispatch(receiveErrors(errors))
+  );
 };
