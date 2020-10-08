@@ -22,6 +22,17 @@ class Splash extends React.Component {
               to work. Dlack is a place where teamwork thrives - a place where
               people get work done, together
             </p>
+            <Link className="get-started-button" to="/signup">
+              Try Dlack for free
+            </Link>
+            <button className="guest-login-button">See the demo</button>
+            <p>
+              Have an account on Dlack?{" "}
+              <Link className="signin-link" to="/signin">
+                Sign In
+              </Link>
+              .
+            </p>
           </div>
         </div>
       </div>
