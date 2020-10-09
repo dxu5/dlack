@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { login } from "../../actions/session_actions.js";
-import SessionForm from './session_form.jsx'
+import LoginForm from './login_form.jsx/index.js'
 
 
 const mapStateToProps = (state) => {
@@ -16,4 +16,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SessionForm)
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)
