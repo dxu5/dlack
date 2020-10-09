@@ -9,6 +9,7 @@ class LoginForm extends React.Component {
       username: "",
       password: "",
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleInput(type) {
@@ -55,9 +56,7 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          <HeaderContainer />
-        </div>
+        <div>{/* <HeaderContainer /> */}</div>
         {this.renderErrors()}
         <div>
           <h1>Sign In To Dlack</h1>
