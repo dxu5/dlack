@@ -46,7 +46,8 @@ $h1-navy: #333646;
   color: $link-gray;
 }
 
-.signup-button {
+.signup-button,
+.demo-button {
   //   border: 1px solid gray;
   //   border-radius: 5px;
   //   background-color: $button-link-blue;
@@ -73,7 +74,8 @@ $h1-navy: #333646;
   transition-duration: 0.3s;
 }
 
-.signup-button::before {
+.signup-button::before,
+.demo-button::before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -96,13 +98,19 @@ $h1-navy: #333646;
 
 .signup-button:hover,
 .signup-button:focus,
-.signup-button:active {
+.signup-button:active,
+.demo-button:hover,
+.demo-button:focus,
+.demo-button:active {
   color: white;
 }
 
 .signup-button:hover::before,
 .signup-button:focus::before,
-.signup-button:active::before {
+.signup-button:active::before,
+.demo-button:hover::before,
+.demo-button:focus::before,
+.demo-button:active::before {
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
 }
@@ -112,8 +120,6 @@ nav .signup-button,
   margin: 10px;
   padding: 11px 15px;
 }
-
-//
 
 .splash-content {
   display: flex;
@@ -138,7 +144,7 @@ nav .signup-button,
 }
 
 .splash-picture-col {
-  margin-right: 60px;
+  margin-right: 2%;
 }
 
 #splash-illustration {
@@ -156,17 +162,18 @@ nav .signup-button,
   box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
 .text-col {
+  width: 40%;
 }
 
 .text-col h1 {
-  font-size: 75px;
+  font-size: 4em;
   font-weight: bold;
   color: $h1-navy;
   margin-bottom: 20px;
 }
 
 .text-col p {
-  font-size: 20px;
+  font-size: 1em;
   line-height: 1.8;
 }
 .text-col-2 h1 {
