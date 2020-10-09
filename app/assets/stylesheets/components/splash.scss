@@ -39,11 +39,16 @@ $h1-navy: #333646;
   width: 100px;
 }
 
-.login-button {
-  margin: 10px;
-  padding: 5px 8px;
+.login-button,
+.logout-button,
+.workspace-button {
   top: 15px;
+  padding: 9px;
+
+  border: 2px solid #a8a9b0;
+  border-radius: 5px;
   color: $link-gray;
+  font-size: 16px;
 }
 
 .signup-button,
