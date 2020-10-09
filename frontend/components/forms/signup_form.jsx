@@ -43,49 +43,47 @@ class SignupForm extends React.Component {
     this.props.clearErrors();
   }
 
-  // determineType() {
-  //   let final =
-  //     this.props.formType === "Log In" ? (
-  //       <div>
-  //         Got an account with us? <Link to="/login">Sign In</Link>
-  //       </div>
-  //     ) : (
-  //       <div>
-  //         Need an account with us? <Link to="signup">Sign Up</Link>
-  //       </div>
-  //     );
-  //   return final;
-  // }
-
   render() {
     return (
       <div className="login">
-        <div className="header">
-          <HeaderContainer />
-        </div>
+        <Link to="/">
+          <img className="nav-logo" src={window.images.dlacklogo} />
+        </Link>
         {this.renderErrors()}
         <div className="login-form">
-          <h1>Sign In To Dlack</h1>
+          <h1>Let's Get You Started</h1>
           <form onSubmit={this.handleSubmit}>
             <p>
               Enter your <strong>username</strong> and <strong>password</strong>
               .
             </p>
+            <label>
+              Username:
+              <input
+                type="text"
+                className="auth-credentials"
+                onChange={this.handleInput("username")}
+                value={this.state.username}
+                placeholder="Your Username"
+              />
+            </label>
+            <br />
+            <label>
+              Password:
+              <input
+                type="password"
+                className="auth-credentials"
+                onChange={this.handleInput("password")}
+                value={this.state.password}
+                placeholder="Your Password"
+              />
+            </label>
+
             <input
-              type="text"
-              className="auth-credentials"
-              onChange={this.handleInput("username")}
-              value={this.state.username}
-              placeholder="Your Username"
+              className="login-submit"
+              type="submit"
+              value="Create Your Account"
             />
-            <input
-              type="password"
-              className="auth-credentials"
-              onChange={this.handleInput("password")}
-              value={this.state.password}
-              placeholder="Your Password"
-            />
-            <input className="login-submit" type="submit" value="Sign Up" />
           </form>
           <div>
             Got an account with us?{" "}
