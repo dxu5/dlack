@@ -6,7 +6,7 @@ import SessionForm from './session_form.jsx'
 const mapStateToProps = (state) => {
     return {
         errors: state.errors.session,
-        formType = "Login"
+        formType = "Log In"
     }
 }
 
