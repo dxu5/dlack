@@ -26,7 +26,7 @@ class Splash extends React.Component {
             <button className="demo-button">See the demo</button>
             <p>
               Have an account on Dlack?{" "}
-              <Link className="signin-link" to="/signin">
+              <Link className="signup-alt" to="/login">
                 Sign In
               </Link>
               .

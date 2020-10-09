@@ -28,7 +28,7 @@ class LoginForm extends React.Component {
   renderErrors() {
     if (this.props.errors.length > 0) {
       return (
-        <div>
+        <div className="errors">
           <ul>
             {this.props.errors.map((error, idx) => {
               return <li key={idx}>{error}</li>;
@@ -55,29 +55,39 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>{/* <HeaderContainer /> */}</div>
+      <div className="login">
+        <div className="header">
+          <HeaderContainer />
+        </div>
         {this.renderErrors()}
-        <div>
+        <div className="login-form">
           <h1>Sign In To Dlack</h1>
           <form onSubmit={this.handleSubmit}>
-            <p>Enter your username and password.</p>
+            <p>
+              Enter your <strong>username</strong> and <strong>password</strong>
+              .
+            </p>
             <input
               type="text"
+              className="auth-credentials"
               onChange={this.handleInput("username")}
               value={this.state.username}
               placeholder="Your Username"
             />
             <input
               type="password"
+              className="auth-credentials"
               onChange={this.handleInput("password")}
               value={this.state.password}
               placeholder="Your Password"
             />
-            <input type="submit" value="Log In" />
+            <input className="login-submit" type="submit" value="Log In" />
           </form>
           <div>
-            Need an account with us? <Link to="signup">Sign Up</Link>
+            Need an account with us?{" "}
+            <Link className="signup-alt" to="signup">
+              Sign Up
+            </Link>
           </div>
         </div>
       </div>
