@@ -22,7 +22,7 @@ class Header extends React.Component {
     return (
       <nav className="splash-nav">
         <Link to="/">
-          <img src="" alt="" />
+          <img className="nav-logo" src={window.images.dlacklogo} />
         </Link>
         <div className="signup-login">
           <Link
