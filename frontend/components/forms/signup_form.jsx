@@ -45,12 +45,12 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div className="login">
+      <div className="signup">
         <Link to="/">
           <img className="nav-logo" src={window.images.dlacklogo} />
         </Link>
-        {this.renderErrors()}
-        <div className="login-form">
+
+        <div className="signup-form">
           <h1>Let's Get You Started</h1>
           <form onSubmit={this.handleSubmit}>
             <p>
@@ -75,19 +75,20 @@ class SignupForm extends React.Component {
                 className="auth-credentials"
                 onChange={this.handleInput("password")}
                 value={this.state.password}
-                placeholder="Your Password"
+                placeholder="Six characters please"
               />
             </label>
+            {this.renderErrors()}
 
             <input
-              className="login-submit"
+              className="signup-submit"
               type="submit"
               value="Create Your Account"
             />
           </form>
           <div>
             Got an account with us?{" "}
-            <Link className="signup-alt" to="/login">
+            <Link className="login-alt" to="/login">
               Sign In
             </Link>
           </div>

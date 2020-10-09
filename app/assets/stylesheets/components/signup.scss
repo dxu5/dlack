@@ -1,0 +1,92 @@
+$button-link-blue: #3f46ad;
+$text-dark: #2c2d30;
+$button-green: #108851;
+
+.signup {
+  margin: 4.5% auto;
+  font-family: "Poppins";
+  background-color: cream;
+}
+
+p strong {
+  font-weight: bold;
+}
+
+.signup-form .errors,
+.signup-form {
+  display: flex;
+  max-width: 630px;
+  margin: auto;
+
+  background-color: inherit;
+}
+
+.signup-form .errors {
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 30px;
+
+  color: #d30404;
+  line-height: 1.5;
+}
+
+#error-img {
+  height: 25px;
+  width: 25px;
+  padding: 10px 15px;
+}
+
+.signup-form {
+  flex-direction: column;
+  align-items: center;
+
+  padding: 30px 0;
+
+  text-align: center;
+  line-height: 2;
+}
+
+.signup-form h1 {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.auth-credentials,
+.signup-submit,
+form .demo-button {
+  margin: 10px;
+  padding: 5px 20px;
+  min-width: 300px;
+
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.auth-credentials {
+  border: 1px solid #777;
+  text-align: left;
+  font-family: "Poppins";
+}
+
+.signup-submit,
+form .demo-button {
+  background-color: #3f0f3f;
+  color: white;
+}
+
+.signup-submit:active,
+form .demo-button:active {
+  background-color: #ddd;
+}
+
+form .demo-button {
+  margin-top: 0px;
+}
+
+.login-alt {
+  color: $button-link-blue;
+}
+
+.login-alt:hover {
+  text-decoration: underline;
+}

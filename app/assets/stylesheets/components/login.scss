@@ -16,7 +16,7 @@ p strong {
   font-weight: bold;
 }
 
-.errors,
+.login .errors,
 .login-form {
   display: flex;
   max-width: 630px;
@@ -27,7 +27,7 @@ p strong {
   border-radius: 5px;
 }
 
-.errors {
+.login .errors {
   flex-direction: row;
   align-items: center;
   margin-bottom: 30px;
