@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import HeaderContainer from "./header_container";
+import SplashInfo from "./spashinfo.jsx";
 
 class Splash extends React.Component {
   constructor(props) {
@@ -41,6 +42,7 @@ class Splash extends React.Component {
             />
           </div>
         </div>
+        <SplashInfo />
       </div>
     );
   }

@@ -3,18 +3,12 @@ $text-gray: #5b5e6d;
 $link-gray: #6d6f7b;
 $h1-navy: #333646;
 
-.splash {
-  margin: 0 auto;
-  max-width: 100%;
-  font-family: "Poppins", sans-serif;
-}
-
+.splash,
 .splash-part2 {
   margin: 0 auto;
   max-width: 100%;
   font-family: "Poppins", sans-serif;
 }
-
 .splash-nav {
   display: flex;
   flex-direction: row;
@@ -118,7 +112,8 @@ nav .signup-button,
   padding: 14px 15px;
 }
 
-.splash-content {
+.splash-content,
+.splash-content-2 {
   display: flex;
   flex-direction: row;
   margin: 10px 0;
@@ -129,15 +124,6 @@ nav .signup-button,
   background: #f6efe8;
   justify-content: space-between;
   padding-top: 3%;
-}
-.splash-content-2 {
-  display: flex;
-  flex-direction: row;
-  margin: 20px 0;
-  color: $text-gray;
-  padding-left: 10%;
-  padding-right: 8%;
-  align-items: center;
 }
 
 .splash-picture-col {
