@@ -64,6 +64,7 @@ class SignupForm extends React.Component {
               value={this.state.username}
               placeholder="Your Username"
             />
+            <br />
             <input
               type="password"
               className="auth-credentials"
@@ -71,7 +72,7 @@ class SignupForm extends React.Component {
               value={this.state.password}
               placeholder="Six characters please"
             />
-            <br />
+
             {this.renderErrors()}
 
             <input
