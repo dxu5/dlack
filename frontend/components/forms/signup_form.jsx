@@ -54,30 +54,24 @@ class SignupForm extends React.Component {
           <h1>Let's Get You Started</h1>
           <form onSubmit={this.handleSubmit}>
             <p>
-              Enter your <strong>username</strong> and <strong>password</strong>
-              .
+              Create your <strong>username</strong> and{" "}
+              <strong>password</strong>.
             </p>
-            <label>
-              Username:
-              <input
-                type="text"
-                className="auth-credentials"
-                onChange={this.handleInput("username")}
-                value={this.state.username}
-                placeholder="Your Username"
-              />
-            </label>
+            <input
+              type="text"
+              className="auth-credentials"
+              onChange={this.handleInput("username")}
+              value={this.state.username}
+              placeholder="Your Username"
+            />
+            <input
+              type="password"
+              className="auth-credentials"
+              onChange={this.handleInput("password")}
+              value={this.state.password}
+              placeholder="Six characters please"
+            />
             <br />
-            <label>
-              Password:
-              <input
-                type="password"
-                className="auth-credentials"
-                onChange={this.handleInput("password")}
-                value={this.state.password}
-                placeholder="Six characters please"
-              />
-            </label>
             {this.renderErrors()}
 
             <input

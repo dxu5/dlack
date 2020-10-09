@@ -25,7 +25,7 @@ p strong {
   flex-direction: row;
   align-items: center;
   margin-bottom: 30px;
-
+  text-align: center;
   color: #d30404;
   line-height: 1.5;
 }
@@ -70,6 +70,7 @@ form .demo-button {
 
 .signup-submit,
 form .demo-button {
+  font-family: "Poppins";
   background-color: #3f0f3f;
   color: white;
 }
