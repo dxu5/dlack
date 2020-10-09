@@ -148,7 +148,8 @@ nav .signup-button,
   width: 40%;
 }
 
-.text-col h1 {
+.text-col h1,
+.text-col-2 h1 {
   font-size: 4em;
   font-weight: bold;
   color: $h1-navy;
@@ -168,7 +169,8 @@ nav .signup-button,
   color: $button-link-blue;
 }
 
-.text-col p {
+.text-col p,
+.text-col-2 p {
   font-size: 1em;
   line-height: 1.8;
 }
@@ -177,16 +179,7 @@ nav .signup-button,
   font-size: 1.25em;
 }
 
-.text-col-2 h1 {
-  font-size: 65px;
-  font-weight: bold;
-  color: $h1-navy;
-  margin-bottom: 20px;
-}
-
 .text-col-2 p {
-  font-size: 20px;
-  line-height: 1.8;
   width: 80%;
 }
 
