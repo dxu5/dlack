@@ -12,15 +12,12 @@ class Splash extends React.Component {
       <div className="splash">
         <HeaderContainer />
         <div className="splash-content">
-          <div className="splash-picture">
-            {/* <img src={window.images.splashpic} id="splash-illustration" /> */}
-          </div>
           <div className="text-col">
             <h1>Welcome to your new HQ</h1>
             <p className="intro">
               Teamwork can be hard, messy, complicated... and still the best way
-              to work. Dlack is a place where teamwork thrives - a place where
-              people get work done, together
+              to work. Dlack is where teamwork thrives - a place where people
+              get work done, together
             </p>
             <Link className="signup-button" to="/signup">
               Try Dlack for free
@@ -33,6 +30,15 @@ class Splash extends React.Component {
               </Link>
               .
             </p>
+          </div>
+          <div className="splash-picture-col">
+            <video
+              id="splash-illustration"
+              src={window.images.splashvideo}
+              autoPlay
+              loop
+              muted
+            />
           </div>
         </div>
       </div>

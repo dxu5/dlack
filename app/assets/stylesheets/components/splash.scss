@@ -5,85 +5,136 @@ $h1-navy: #333646;
 
 .splash {
   margin: 0 auto;
-  max-width: 1250px;
-  font-family: "Poppins";
+  max-width: 100%;
+  font-family: "Poppins", sans-serif;
 }
+
+.splash-part2 {
+  margin: 0 auto;
+  max-width: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+//
 
 .splash-nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding-left: 10%;
+  padding-right: 10%;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0;
+  width: 80%;
+  background: white;
+  z-index: 2;
+  height: 10%;
 }
 
 .nav-logo {
   display: flex;
-  padding: 15px 30px;
+  padding: 10px 30px;
   height: 30px;
-  width: 130px;
+  width: 100px;
 }
 
-.signup-login {
-  display: flex;
-}
-
-.signup-button,
-.demo-button {
-  border: 1px solid gray;
-  border-radius: 4px;
-  background-color: $button-link-blue;
-
-  font-weight: bold;
-  font-size: 13px;
-  color: white;
-  text-transform: uppercase;
-}
-
-nav .signup-button,
-.demo-button,
-.login-button,
-.logout-button {
-  margin: 15px;
-}
-
-nav .signup-button,
-.demo-button {
-  padding: 11px 15px;
-}
-
-.login-button,
-.logout-button,
-.workspace-button {
+.login-button {
+  margin: 10px;
+  padding: 5px 8px;
   top: 15px;
-  padding: 9px;
-
-  border: 2px solid #a8a9b0;
-  border-radius: 5px;
   color: $link-gray;
-  font-size: 16px;
 }
 
-.workspace-button {
-  height: fit-content;
+.signup-button {
+  //   border: 1px solid gray;
+  //   border-radius: 5px;
+  //   background-color: $button-link-blue;
+  //   color: white;
+  //   text-transform: uppercase;
+  //   font-size: 15px;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
   position: relative;
+  background: $button-link-blue;
+  color: white;
+  border-radius: 5px;
+  text-transform: uppercase;
+  border: 1px solid gray;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
 }
 
-.login-button:hover,
-.logout-button:hover,
-.workspace-button:hover {
-  color: $button-link-blue;
+.signup-button::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #3f0f3f;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 50%;
+  transform-origin: 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
 }
 
 .signup-button:hover,
-.demo-button:hover {
-  background-color: #2f3699;
+.signup-button:focus,
+.signup-button:active {
+  color: white;
 }
+
+.signup-button:hover::before,
+.signup-button:focus::before,
+.signup-button:active::before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+nav .signup-button,
+.demo-button {
+  margin: 10px;
+  padding: 11px 15px;
+}
+
+//
 
 .splash-content {
   display: flex;
   flex-direction: row;
-  margin: 100px 0;
+  margin: 10px 0;
   color: $text-gray;
+  padding-left: 5%;
+  padding-right: 5%;
+  align-items: center;
+  background: #f6efe8;
+  justify-content: space-between;
+  padding-top: 3%;
+}
+.splash-content-2 {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0;
+  color: $text-gray;
+  padding-left: 10%;
+  padding-right: 8%;
+  align-items: center;
 }
 
 .splash-picture-col {
@@ -94,15 +145,41 @@ nav .signup-button,
   display: flex;
   height: 570px;
   width: 650px;
-  margin-left: -30px;
+  margin-left: -25px;
+}
+
+#splash-illustration-test {
+  display: flex;
+  height: 500x;
+  width: 650px;
+  margin-left: -25px;
+  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
+.text-col {
 }
 
 .text-col h1 {
-  font-family: serif;
   font-size: 75px;
   font-weight: bold;
   color: $h1-navy;
   margin-bottom: 20px;
+}
+
+.text-col p {
+  font-size: 20px;
+  line-height: 1.8;
+}
+.text-col-2 h1 {
+  font-size: 65px;
+  font-weight: bold;
+  color: $h1-navy;
+  margin-bottom: 20px;
+}
+
+.text-col-2 p {
+  font-size: 20px;
+  line-height: 1.8;
+  width: 80%;
 }
 
 .text-col .signup-button,
@@ -110,21 +187,26 @@ nav .signup-button,
   display: inline-block;
   margin-top: 30px;
   margin-bottom: 15px;
-  padding: 19px 40px 20px;
+  padding: 18px 45px;
 }
 
-.text-col p {
+.text-col span {
   display: block;
   font-size: 15px;
-  font-weight: lighter;
-}
-
-.text-col .intro {
-  font-size: 20px;
-  line-height: 1.8;
 }
 
 .signin-link {
   color: $button-link-blue;
   text-decoration: underline;
+}
+
+.logout-button {
+  margin: 10px;
+  padding: 5px 8px;
+  top: 15px;
+  color: $link-gray;
+}
+
+.logout-button:hover {
+  color: $button-link-blue;
 }
