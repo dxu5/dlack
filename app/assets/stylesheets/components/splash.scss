@@ -53,12 +53,6 @@ $h1-navy: #333646;
 
 .signup-button,
 .demo-button {
-  //   border: 1px solid gray;
-  //   border-radius: 5px;
-  //   background-color: $button-link-blue;
-  //   color: white;
-  //   text-transform: uppercase;
-  //   font-size: 15px;
   display: inline-block;
   vertical-align: middle;
   -webkit-transform: translateZ(0);
@@ -123,7 +117,7 @@ $h1-navy: #333646;
 nav .signup-button,
 .demo-button {
   margin: 10px;
-  padding: 11px 15px;
+  padding: 14px 15px;
 }
 
 .splash-content {
@@ -175,6 +169,12 @@ nav .signup-button,
   font-weight: bold;
   color: $h1-navy;
   margin-bottom: 20px;
+}
+
+.login-button:hover,
+.logout-button:hover,
+.workspace-button:hover {
+  color: $button-link-blue;
 }
 
 .text-col p {
