@@ -6,6 +6,18 @@ class Header extends React.Component {
     super(props);
   }
 
+  getStartedButton() {
+    if (this.props.currentUser === undefined) {
+      return (
+        <Link className="signup-button" to="/signup">
+          Start Chatting
+        </Link>
+      );
+    } else {
+      return "";
+    }
+  }
+
   render() {
     return (
       <nav className="splash-nav">
@@ -20,13 +32,7 @@ class Header extends React.Component {
           >
             Sign In
           </Link>
-          <Link
-            className="signup-button"
-            to="/signup"
-            hidden={!!this.props.currentUser}
-          >
-            Start Chatting
-          </Link>
+          {this.getStartedButton()}
 
           <Link
             className="workspace-button"

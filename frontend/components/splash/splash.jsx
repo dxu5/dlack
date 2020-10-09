@@ -17,7 +17,7 @@ class Splash extends React.Component {
             <p className="intro">
               Teamwork can be hard, messy, complicated... and still the best way
               to work. Dlack is where teamwork thrives - a place where people
-              get work done, together
+              get work done. Together.
             </p>
             <Link className="signup-button" to="/signup">
               Try Dlack for free
