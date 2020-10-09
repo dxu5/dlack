@@ -1,0 +1,130 @@
+$button-link-blue: #3f46ad;
+$text-gray: #5b5e6d;
+$link-gray: #6d6f7b;
+$h1-navy: #333646;
+
+.splash {
+  margin: 0 auto;
+  max-width: 1250px;
+  font-family: "Poppins";
+}
+
+.splash-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  display: flex;
+  padding: 15px 30px;
+  height: 30px;
+  width: 130px;
+}
+
+.signup-login {
+  display: flex;
+}
+
+.signup-button,
+.demo-button {
+  border: 1px solid gray;
+  border-radius: 4px;
+  background-color: $button-link-blue;
+
+  font-weight: bold;
+  font-size: 13px;
+  color: white;
+  text-transform: uppercase;
+}
+
+nav .signup-button,
+.demo-button,
+.login-button,
+.logout-button {
+  margin: 15px;
+}
+
+nav .signup-button,
+.demo-button {
+  padding: 11px 15px;
+}
+
+.login-button,
+.logout-button,
+.workspace-button {
+  top: 15px;
+  padding: 9px;
+
+  border: 2px solid #a8a9b0;
+  border-radius: 5px;
+  color: $link-gray;
+  font-size: 16px;
+}
+
+.workspace-button {
+  height: fit-content;
+  position: relative;
+}
+
+.login-button:hover,
+.logout-button:hover,
+.workspace-button:hover {
+  color: $button-link-blue;
+}
+
+.signup-button:hover,
+.demo-button:hover {
+  background-color: #2f3699;
+}
+
+.splash-content {
+  display: flex;
+  flex-direction: row;
+  margin: 100px 0;
+  color: $text-gray;
+}
+
+.splash-picture-col {
+  margin-right: 60px;
+}
+
+#splash-illustration {
+  display: flex;
+  height: 570px;
+  width: 650px;
+  margin-left: -30px;
+}
+
+.text-col h1 {
+  font-family: serif;
+  font-size: 75px;
+  font-weight: bold;
+  color: $h1-navy;
+  margin-bottom: 20px;
+}
+
+.text-col .signup-button,
+.demo-button {
+  display: inline-block;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  padding: 19px 40px 20px;
+}
+
+.text-col p {
+  display: block;
+  font-size: 15px;
+  font-weight: lighter;
+}
+
+.text-col .intro {
+  font-size: 20px;
+  line-height: 1.8;
+}
+
+.signin-link {
+  color: $button-link-blue;
+  text-decoration: underline;
+}

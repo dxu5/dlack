@@ -12,18 +12,34 @@ class Header extends React.Component {
         <Link to="/">
           <img src="" alt="" />
         </Link>
-        <div>
-          <Link className="" to="/login" hidden={!!this.props.currentUser}>
+        <div className="signup-login">
+          <Link
+            className="login-button"
+            to="/login"
+            hidden={!!this.props.currentUser}
+          >
             Sign In
           </Link>
-          <Link className="" to="/signup" hidden={!!this.props.currentUser}>
+          <Link
+            className="signup-button"
+            to="/signup"
+            hidden={!!this.props.currentUser}
+          >
             Start Chatting
           </Link>
 
-          <Link className="" to="/" hidden={!this.props.currentUser}>
-            Check Out Workspace
+          <Link
+            className="workspace-button"
+            to="/"
+            hidden={!this.props.currentUser}
+          >
+            Check Out Your Workspace
           </Link>
-          <button onClick={this.props.logout} hidden={!this.props.currentUser}>
+          <button
+            className="logout-button"
+            onClick={this.props.logout}
+            hidden={!this.props.currentUser}
+          >
             Logout
           </button>
         </div>

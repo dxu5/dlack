@@ -17,15 +17,15 @@ class Splash extends React.Component {
           </div>
           <div className="text-col">
             <h1>Welcome to your new HQ</h1>
-            <p>
+            <p className="intro">
               Teamwork can be hard, messy, complicated... and still the best way
               to work. Dlack is a place where teamwork thrives - a place where
               people get work done, together
             </p>
-            <Link className="get-started-button" to="/signup">
+            <Link className="signup-button" to="/signup">
               Try Dlack for free
             </Link>
-            <button className="guest-login-button">See the demo</button>
+            <button className="demo-button">See the demo</button>
             <p>
               Have an account on Dlack?{" "}
               <Link className="signin-link" to="/signin">
