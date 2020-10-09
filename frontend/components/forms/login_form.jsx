@@ -39,6 +39,10 @@ class LoginForm extends React.Component {
     }
   }
 
+  componentWillMount() {
+    this.props.clearErrors();
+  }
+
   // determineType() {
   //   let final =
   //     this.props.formType === "Log In" ? (
