@@ -211,6 +211,7 @@ nav .signup-button,
 }
 .logout-button {
   margin-left: 1em;
+  padding: 0.685em;
 }
 
 .demo-button {
@@ -218,4 +219,8 @@ nav .signup-button,
   font-size: 16px;
   padding-top: 0.85em;
   padding-bottom: 0.85em;
+}
+
+nav .signup-button {
+  padding-bottom: 0.8em;
 }
