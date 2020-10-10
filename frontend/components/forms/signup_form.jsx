@@ -47,7 +47,7 @@ class SignupForm extends React.Component {
     return (
       <div className="signup">
         <Link to="/">
-          <img className="nav-logo" src={window.images.dlacklogo} />
+          <img className="signup-logo" src={window.images.dlacklogo} />
         </Link>
 
         <div className="signup-form">

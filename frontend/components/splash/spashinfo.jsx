@@ -8,6 +8,7 @@ class SplashInfo extends React.Component {
           <h1>Create a new team dynamic</h1>
           <p>Talk and communicate to team members with purpose</p>
         </div>
+        <ul className="splash-list"></ul>
         <div className="splash-part2">
           <div className="splash-content-2">
             <div className="text-col-2">
