@@ -1,11 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import HeaderContainer from "./header_container";
 import SplashInfo from "./spashinfo.jsx";
 
 class Splash extends React.Component {
   constructor(props) {
     super(props);
+    this.redirectDemo = this.redirectDemo.bind(this);
+  }
+
+  redirectDemo(e) {
+    e.preventDefault();
+    this.props.history.push({
+      pathname: "/login",
+      state: { demo: true },
+    });
   }
 
   render() {
@@ -23,7 +32,9 @@ class Splash extends React.Component {
             <Link className="signup-button" to="/signup">
               Try Dlack for free
             </Link>
-            <button className="demo-button">See the demo</button>
+            <button className="demo-button" onClick={this.redirectDemo}>
+              See the demo
+            </button>
             <p>
               Have an account on Dlack?{" "}
               <Link className="signup-alt" to="/login">

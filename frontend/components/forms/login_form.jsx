@@ -13,6 +13,14 @@ class LoginForm extends React.Component {
     this.handleDemo = this.handleDemo.bind(this);
   }
 
+  componentDidMount() {
+    if (this.props.history.location.state) {
+      if (this.props.history.location.state.demo) {
+        this.handleDemo();
+      }
+    }
+  }
+
   handleInput(type) {
     return (e) => {
       this.setState({ [type]: e.currentTarget.value });
@@ -45,7 +53,9 @@ class LoginForm extends React.Component {
   }
 
   handleDemo(e) {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
     let username = "dxu5";
     let password = "123456";
     this.setState({ username: "", password: "" }, () => {
@@ -62,7 +72,7 @@ class LoginForm extends React.Component {
         this.setState({ username: this.state.username + char }, () =>
           setTimeout(() => {
             _demoUser(username);
-          }, 75)
+          }, 100)
         );
       } else {
         _demoPass(password);
@@ -74,7 +84,7 @@ class LoginForm extends React.Component {
         this.setState({ password: this.state.password + char }, () =>
           setTimeout(() => {
             _demoPass(password);
-          }, 75)
+          }, 100)
         );
       } else {
         this.props.processForm(this.state);
