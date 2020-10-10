@@ -24,6 +24,23 @@ $h1-navy: #333646;
   height: 10%;
 }
 
+.logo-icons {
+  display: flex;
+  align-items: center;
+}
+.home-nav-icons {
+  padding-left: 1em;
+  -webkit-transition: color 1s;
+  -moz-transition: color 1s;
+  -ms-transition: color 1s;
+  -o-transition: color 1s;
+  transition: color 1s;
+}
+
+.home-nav-icons:hover {
+  color: red;
+}
+
 .nav-logo {
   display: flex;
   padding: 10px 30px;
