@@ -53,6 +53,36 @@ class LoginForm extends React.Component {
     });
   }
 
+  demoLogin(username, password) {
+    username = username.split("");
+    password = password.split("");
+    const _demoUser = (username) => {
+      if (username.length > 0) {
+        let char = username.shift();
+        this.setState({ username: this.state.username + char }, () =>
+          setTimeout(() => {
+            _demoUser(username);
+          }, 75)
+        );
+      } else {
+        _demoPass(password);
+      }
+    };
+    const _demoPass = (password) => {
+      if (password.length > 0) {
+        let char = password.shift();
+        this.setState({ password: this.state.password + char }, () =>
+          setTimeout(() => {
+            _demoPass(password);
+          }, 75)
+        );
+      } else {
+        this.props.processForm(this.state);
+      }
+    };
+    _demoUser(username);
+  }
+
   render() {
     return (
       <div className="login">
@@ -91,6 +121,7 @@ class LoginForm extends React.Component {
               type="submit"
               className="demo-button"
               value="Log In As Demo User"
+              onClick={this.handleDemo}
             />
           </form>
           <div>
