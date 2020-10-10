@@ -62,7 +62,7 @@ class SignupForm extends React.Component {
               className="auth-credentials"
               onChange={this.handleInput("username")}
               value={this.state.username}
-              placeholder="Your Username"
+              placeholder="Username Handle"
             />
             <br />
             <input

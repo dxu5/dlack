@@ -43,20 +43,6 @@ class LoginForm extends React.Component {
     this.props.clearErrors();
   }
 
-  // determineType() {
-  //   let final =
-  //     this.props.formType === "Log In" ? (
-  //       <div>
-  //         Got an account with us? <Link to="/login">Sign In</Link>
-  //       </div>
-  //     ) : (
-  //       <div>
-  //         Need an account with us? <Link to="signup">Sign Up</Link>
-  //       </div>
-  //     );
-  //   return final;
-  // }
-
   render() {
     return (
       <div className="login">
@@ -86,6 +72,12 @@ class LoginForm extends React.Component {
               placeholder="Your Password"
             />
             <input className="login-submit" type="submit" value="Log In" />
+            <input
+              className="demo-button"
+              type="submit"
+              value="Log In As Demo User"
+              // onClick={this.handleDemo}
+            />
           </form>
           <div>
             Need an account with us?{" "}
