@@ -57,7 +57,7 @@ $h1-navy: #333646;
   background: $button-link-blue;
   color: white;
   border-radius: 5px;
-  text-transform: uppercase;
+  text-transform: initial;
   border: 1px solid gray;
   -webkit-transition-property: color;
   transition-property: color;
