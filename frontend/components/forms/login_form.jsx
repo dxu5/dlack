@@ -10,6 +10,7 @@ class LoginForm extends React.Component {
       password: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   handleInput(type) {
@@ -43,6 +44,15 @@ class LoginForm extends React.Component {
     this.props.clearErrors();
   }
 
+  handleDemo(e) {
+    e.preventDefault();
+    let username = "dxu5";
+    let password = "123456";
+    this.setState({ username: "", password: "" }, () => {
+      this.demoLogin(username, password);
+    });
+  }
+
   render() {
     return (
       <div className="login">
@@ -52,7 +62,7 @@ class LoginForm extends React.Component {
         {this.renderErrors()}
         <div className="login-form">
           <h1>Sign In To Dlack</h1>
-          <form onSubmit={this.handleSubmit}>
+          <form>
             <p>
               Enter your <strong>username</strong> and <strong>password</strong>
               .
@@ -71,12 +81,16 @@ class LoginForm extends React.Component {
               value={this.state.password}
               placeholder="Your Password"
             />
-            <input className="login-submit" type="submit" value="Log In" />
             <input
-              className="demo-button"
+              className="login-submit"
+              onClick={this.handleSubmit}
               type="submit"
+              value="Log In"
+            />
+            <input
+              type="submit"
+              className="demo-button"
               value="Log In As Demo User"
-              // onClick={this.handleDemo}
             />
           </form>
           <div>
