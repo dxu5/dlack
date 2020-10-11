@@ -17,18 +17,18 @@ class SplashInfo extends React.Component {
             </div>
             <div>
               Dlack allows your team to effectively communicate in order to
-              produce the best results
+              produce the best results.
             </div>
           </div>
           <div className="section-description">
-            <i id="splash-icon" class="fas fa-chart-pie"></i>
+            <i id="splash-icon" class="fas fa-paper-plane"></i>
             <br />
             <div className="icon-header">
-              <strong>Increase Team Productivity</strong>
+              <strong>Work Happens Faster</strong>
             </div>
             <div>
-              Dlack allows your team to effectively communicate in order to
-              produce the best results
+              Our instant and streamlined messaging system allows for faster and
+              clearer communication.
             </div>
           </div>
           <div className="section-description">
