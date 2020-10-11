@@ -8,7 +8,41 @@ class SplashInfo extends React.Component {
           <h1>Create a new team dynamic</h1>
           <p>Talk and communicate to team members with purpose</p>
         </div>
-        <ul className="splash-list"></ul>
+        <ul className="splash-list">
+          <div className="section-description">
+            <i id="splash-icon" class="fas fa-chart-pie"></i>
+            <br />
+            <span>
+              <strong>Increase Team Productivity</strong>
+            </span>
+            <div>
+              Dlack allows your team to effectively communicate in order to
+              produce the best results
+            </div>
+          </div>
+          <div className="section-description">
+            <i id="splash-icon" class="fas fa-chart-pie"></i>
+            <br />
+            <span>
+              <strong>Increase Team Productivity</strong>
+            </span>
+            <div>
+              Dlack allows your team to effectively communicate in order to
+              produce the best results
+            </div>
+          </div>
+          <div className="section-description">
+            <i id="splash-icon" class="fas fa-chart-pie"></i>
+            <br />
+            <span>
+              <strong>Increase Team Productivity</strong>
+            </span>
+            <div>
+              Dlack allows your team to effectively communicate in order to
+              produce the best results
+            </div>
+          </div>
+        </ul>
         <div className="splash-part2">
           <div className="splash-content-2">
             <div className="text-col-2">
