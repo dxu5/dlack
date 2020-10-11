@@ -48,6 +48,11 @@ $h1-navy: #333646;
   width: 100px;
 }
 
+.signup-login {
+  display: flex;
+  align-items: center;
+}
+
 .login-button,
 .logout-button,
 .workspace-button {
@@ -257,4 +262,9 @@ nav .signup-button {
   font-weight: bold;
   padding-top: 1em;
   padding-bottom: 1em;
+}
+
+.login-button {
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
 }
