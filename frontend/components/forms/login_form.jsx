@@ -64,7 +64,6 @@ class LoginForm extends React.Component {
         //for some reason the demo button is not getting disabled
         let demoButton = document.getElementById("demo");
         demoButton.classList.add("disabled");
-        console.log(demoButton.classList);
       });
       let username = "dlack_demo";
       let password = "password";
