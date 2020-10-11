@@ -269,3 +269,15 @@ nav .signup-button {
   padding-top: 0.75em;
   padding-bottom: 0.75em;
 }
+
+@media screen and (max-width: 1300px) {
+  .splash-content,
+  .splash-content-2 {
+    display: block;
+  }
+  .text-col,
+  .splash-picture-col,
+  .text-col-2 {
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}
