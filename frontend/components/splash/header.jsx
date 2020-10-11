@@ -25,7 +25,7 @@ class Header extends React.Component {
           <Link to="/">
             <img className="nav-logo" src={window.images.dlacklogo} />
           </Link>
-          <div className="nav-icons">
+          <div id="class-icons" className="nav-icons">
             <a
               target="_blank"
               href="https://www.linkedin.com/in/derek-jinxiao-xu/"

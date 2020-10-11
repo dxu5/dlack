@@ -152,6 +152,7 @@ nav .signup-button,
   margin-right: 2%;
   height: 500px;
   width: 650px;
+  text-align: center;
 }
 
 #splash-illustration {
@@ -162,11 +163,9 @@ nav .signup-button,
 }
 
 #splash-illustration-test {
-  display: flex;
-  height: 500x;
-  width: 650px;
+  height: inherit;
+  width: inherit;
   margin-left: -25px;
-  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
 .text-col {
   width: 40%;
@@ -272,7 +271,7 @@ nav .signup-button {
   padding-bottom: 0.75em;
 }
 
-@media screen and (max-width: 1300px) {
+@media (max-width: 1300px) {
   .splash-content,
   .splash-content-2 {
     display: block;
@@ -285,11 +284,15 @@ nav .signup-button {
   }
 }
 
-@media screen and (max-width: 700) {
-  #splash-illustration {
+@media (max-width: 700) {
+  #splash-illustration,
+  #splash-illustration-test {
     position: relative;
     width: 100%;
     top: 0;
     height: auto;
+  }
+  .splash-nav .home-nav-icons {
+    display: none !important;
   }
 }
