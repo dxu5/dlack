@@ -8,6 +8,7 @@ class LoginForm extends React.Component {
     this.state = {
       username: "",
       password: "",
+      disabled: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
@@ -28,10 +29,12 @@ class LoginForm extends React.Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault();
-    this.props.processForm(this.state).then(() => {
-      this.props.history.push("/workspace");
-    });
+    if (!this.state.disabled) {
+      e.preventDefault();
+      this.props.processForm(this.state).then(() => {
+        this.props.history.push("/workspace");
+      });
+    }
   }
 
   renderErrors() {
@@ -53,14 +56,17 @@ class LoginForm extends React.Component {
   }
 
   handleDemo(e) {
-    if (e) {
-      e.preventDefault();
+    if (!this.state.disabled) {
+      if (e) {
+        e.preventDefault();
+      }
+      this.setState({ disabled: true });
+      let username = "dxu5";
+      let password = "123456";
+      this.setState({ username: "", password: "" }, () => {
+        this.demoLogin(username, password);
+      });
     }
-    let username = "dxu5";
-    let password = "123456";
-    this.setState({ username: "", password: "" }, () => {
-      this.demoLogin(username, password);
-    });
   }
 
   demoLogin(username, password) {
