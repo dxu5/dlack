@@ -128,14 +128,18 @@ class LoginForm extends React.Component {
               placeholder="Your Password"
             />
             <input
-              className="login-submit"
+              className={
+                this.state.disabled ? "login-submit disabled" : "login-submit"
+              }
               onClick={this.handleSubmit}
               type="submit"
               value="Log In"
             />
             <input
               type="submit"
-              className="demo-button"
+              className={
+                this.state.disabled ? "demo-button disabled" : "demo-button"
+              }
               value="Log In As Demo User"
               onClick={this.handleDemo}
             />
