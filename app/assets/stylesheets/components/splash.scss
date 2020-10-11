@@ -29,6 +29,7 @@ $h1-navy: #333646;
   align-items: center;
 }
 .home-nav-icons {
+  color: #3f0f3f;
   padding-left: 1em;
   -webkit-transition: color 1s;
   -moz-transition: color 1s;
@@ -38,7 +39,7 @@ $h1-navy: #333646;
 }
 
 .home-nav-icons:hover {
-  color: red;
+  color: #ef6f6c;
 }
 
 .nav-logo {
@@ -295,4 +296,9 @@ nav .signup-button {
   .splash-nav .home-nav-icons {
     display: none !important;
   }
+}
+
+.section-description {
+  line-height: 1.5;
+  color: #333646;
 }
