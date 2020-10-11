@@ -150,12 +150,14 @@ nav .signup-button,
 
 .splash-picture-col {
   margin-right: 2%;
+  height: 500px;
+  width: 650px;
 }
 
 #splash-illustration {
   display: flex;
-  height: 570px;
-  width: 650px;
+  height: 100%;
+  width: 100%;
   margin-left: -25px;
 }
 
@@ -280,5 +282,14 @@ nav .signup-button {
   .splash-picture-col,
   .text-col-2 {
     width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}
+
+@media screen and (max-width: 700) {
+  #splash-illustration {
+    position: relative;
+    width: 100%;
+    top: 0;
+    height: auto;
   }
 }
