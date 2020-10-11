@@ -87,10 +87,6 @@ form .demo-button:active {
   background-color: #ddd;
 }
 
-.disabled {
-  background-color: #ddd;
-}
-
 form .demo-button {
   text-transform: initial;
   margin-top: 0px;
@@ -102,4 +98,8 @@ form .demo-button {
 
 .signup-alt:hover {
   text-decoration: underline;
+}
+
+.disabled {
+  background-color: #ddd;
 }

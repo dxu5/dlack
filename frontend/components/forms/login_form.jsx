@@ -60,9 +60,15 @@ class LoginForm extends React.Component {
       if (e) {
         e.preventDefault();
       }
-      this.setState({ disabled: true });
-      let username = "dxu5";
-      let password = "123456";
+      this.setState({ disabled: true }, () => {
+        //for some reason the demo button is not getting disabled
+        let demoButton = document.getElementById("demo");
+        demoButton.classList.add("disabled");
+        console.log(demoButton.classList);
+      });
+      let username = "dlack_demo";
+      let password = "password";
+
       this.setState({ username: "", password: "" }, () => {
         this.demoLogin(username, password);
       });
@@ -137,9 +143,8 @@ class LoginForm extends React.Component {
             />
             <input
               type="submit"
-              className={
-                this.state.disabled ? "demo-button disabled" : "demo-button"
-              }
+              id="demo"
+              className="demo-button"
               value="Log In As Demo User"
               onClick={this.handleDemo}
             />
