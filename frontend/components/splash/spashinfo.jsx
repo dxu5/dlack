@@ -12,9 +12,9 @@ class SplashInfo extends React.Component {
           <div className="section-description">
             <i id="splash-icon" class="fas fa-chart-pie"></i>
             <br />
-            <span>
+            <div className="icon-header">
               <strong>Increase Team Productivity</strong>
-            </span>
+            </div>
             <div>
               Dlack allows your team to effectively communicate in order to
               produce the best results
@@ -23,9 +23,9 @@ class SplashInfo extends React.Component {
           <div className="section-description">
             <i id="splash-icon" class="fas fa-chart-pie"></i>
             <br />
-            <span>
+            <div className="icon-header">
               <strong>Increase Team Productivity</strong>
-            </span>
+            </div>
             <div>
               Dlack allows your team to effectively communicate in order to
               produce the best results
@@ -34,9 +34,9 @@ class SplashInfo extends React.Component {
           <div className="section-description">
             <i id="splash-icon" class="fas fa-chart-pie"></i>
             <br />
-            <span>
+            <div className="icon-header">
               <strong>Increase Team Productivity</strong>
-            </span>
+            </div>
             <div>
               Dlack allows your team to effectively communicate in order to
               produce the best results

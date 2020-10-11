@@ -238,7 +238,8 @@ nav .signup-button {
 }
 
 .splash-list {
-  margin-top: 8em;
+  margin-top: 5em;
+  margin-bottom: 3em;
   display: flex;
   justify-content: space-around;
 }
@@ -249,4 +250,10 @@ nav .signup-button {
 
 #splash-icon {
   font-size: 5em;
+}
+
+.icon-header {
+  font-weight: bold;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
