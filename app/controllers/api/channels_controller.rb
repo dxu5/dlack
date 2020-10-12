@@ -38,7 +38,6 @@ class Api::ChannelsController < ApplicationController
     def show
         @channel = Channel.find_by(id: params[:id])
         if @channel
-            debugger
             render :show #need to create this json jbuilder file!
         else
             render json: ["Channel Not Found"], status: 404
