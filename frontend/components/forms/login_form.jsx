@@ -62,7 +62,6 @@ class LoginForm extends React.Component {
         e.preventDefault();
       }
       this.setState({ disabled: true }, () => {
-        //for some reason the demo button is not getting disabled
         let demoButton = document.getElementById("demo");
         demoButton.classList.add("disabled");
       });

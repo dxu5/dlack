@@ -10,7 +10,7 @@ class SplashInfo extends React.Component {
         </div>
         <ul className="splash-list">
           <div className="section-description">
-            <i id="splash-icon" class="fas fa-poll"></i>
+            <i id="splash-icon" className="fas fa-poll"></i>
             <br />
             <div className="icon-header">
               <strong>Increase Team Productivity</strong>
@@ -21,7 +21,7 @@ class SplashInfo extends React.Component {
             </div>
           </div>
           <div className="section-description">
-            <i id="splash-icon" class="far fa-paper-plane"></i>
+            <i id="splash-icon" className="far fa-paper-plane"></i>
             <br />
             <div className="icon-header">
               <strong>Work Happens Faster</strong>
