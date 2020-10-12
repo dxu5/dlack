@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy]
     resources :channels, only: [:create, :show]
+    resources :messages, only:[:create]
   end
   root to: 'static_pages#root'
 end
