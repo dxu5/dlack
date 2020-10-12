@@ -293,8 +293,12 @@ nav .signup-button {
     top: 0;
     height: auto;
   }
+  //both of these don't work for some reason
   .splash-nav .home-nav-icons {
     display: none !important;
+  }
+  .splash-list {
+    display: block !important;
   }
 }
 
