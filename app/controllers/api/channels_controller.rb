@@ -5,18 +5,29 @@ class Api::ChannelsController < ApplicationController
         # Channel title if dm will be a string with usernames
         
         possibleUsers = params["user_ids"].split(",").map {|num| num.to_i}
-        #title of dm channels is done
+        #title of dm channels is done (includes all parties username in the title)
         if @channel.is_dm
             users = []
             possibleUsers.each do |id|
-                if id != current_user.id
-                    users.push(User.find_by(id: id).username)
-                end
+                users.push(User.find_by(id: id).username)
             end
             @channel.title = users.join(", ")
         end
 
         if @channel.save
+            #this will create the userChannels necessary for this channel and its users
+            #if it is not private, will create permissions here for all users?
+            if @channel.is_private
+                possibleUsers.each do |userId|
+                    UserChannel.create(user_id: userId, channel_id: @channel.id)
+                end
+            else
+                @users = User.all
+                @user.each do |user|
+                    UserChannel.create(user_id: user.id, channel_id: @channel.id)
+                end
+            end
+            debugger
         else
             render json: @channel.errors.full_messages, status: 422
         end
