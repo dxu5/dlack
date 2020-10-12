@@ -17,6 +17,11 @@ class User < ApplicationRecord
 
     after_initialize :ensure_session_token
 
+    has_many :messages,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: :Message
+
     def self.find_by_credentials(username, password)
         user = User.find_by(username: username)
         return nil if user.nil?
