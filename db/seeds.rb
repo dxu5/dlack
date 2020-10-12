@@ -8,10 +8,15 @@
 
 User.destroy_all
 Channel.destroy_all
+UserChannel.destroy_all
 #Will need to manually create all channels and joins!!
-# general = Channel.create!(title: "General", is_private: false, is_dm: false)
+general = Channel.create!(title: "General", is_private: false, is_dm: false)
 demo_user = User.create!(username: "dlack_demo", password: "password")
 user1 = User.create!(username: "dxu5", password: "password")
 user2 = User.create!(username: "dxu6", password: "password")
+userChannel1 = UserChannel.create!(user_id: demo_user.id, channel_id: general.id)
+userChannel2 = UserChannel.create!(user_id: user1.id, channel_id: general.id)
+userChannel3 = UserChannel.create!(user_id: user2.id, channel_id: general.id)
+
 
 
