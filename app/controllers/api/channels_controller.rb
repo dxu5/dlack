@@ -3,8 +3,9 @@ class Api::ChannelsController < ApplicationController
         @channel = Channel.new(channel_params)
         # Will pass user_ids as a param ("user_ids") and will use that!
         # Channel title if dm will be a string with usernames
-        
-        possibleUsers = params["user_ids"].split(",").map {|num| num.to_i}
+        if params["user_ids"]
+            possibleUsers = params["user_ids"].split(",").map {|num| num.to_i}
+        end
         #title of dm channels is done (includes all parties username in the title)
         if @channel.is_dm
             users = []
@@ -23,11 +24,12 @@ class Api::ChannelsController < ApplicationController
                 end
             else
                 @users = User.all
-                @user.each do |user|
+                @users.each do |user|
                     UserChannel.create(user_id: user.id, channel_id: @channel.id)
                 end
             end
-            debugger
+            #Need to render show json jbuilder here
+            render :show
         else
             render json: @channel.errors.full_messages, status: 422
         end
