@@ -1,4 +1,5 @@
 json.channel do
+    #wrap in id
     json.extract! @channel, :id, :title, :is_dm, :is_private
 end
 
