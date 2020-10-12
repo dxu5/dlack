@@ -12,4 +12,8 @@
 class Channel < ApplicationRecord
     validates :title, presence: true
     has_many :messages
+    has_many :user_channels
+    has_many :users,
+    through: :user_channels,
+    source: :user
 end
