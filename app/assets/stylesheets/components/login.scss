@@ -64,6 +64,11 @@ form .demo-button {
   font-size: 20px;
 }
 
+.login-submit,
+form .demo-button {
+  width: 342px;
+}
+
 .auth-credentials {
   border: 1px solid #777;
   text-align: left;
@@ -105,4 +110,10 @@ form .demo-button {
   color: #d30404;
   font-size: 1em;
   padding: 1em;
+}
+
+@media (max-width: 1000px) {
+  .login-form {
+    width: 450px;
+  }
 }
