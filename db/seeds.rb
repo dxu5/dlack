@@ -11,4 +11,5 @@ User.destroy_all
 demo_user = User.create!(username: "dlack_demo", password: "password")
 user1 = User.create!(username: "dxu5", password: "password")
 user2 = User.create!(username: "dxu6", password: "password")
+# general = Channel.create!(title: "General", is_private: false, is_dm: false)
 

@@ -11,6 +11,9 @@
 #
 class Channel < ApplicationRecord
     validates :title, presence: true
+    validates :is_private, inclusion: { in: [ true, false ] }
+    validates :is_dm, inclusion: { in: [ true, false ] }
+
     has_many :messages
     has_many :user_channels
     has_many :users,
