@@ -34,14 +34,17 @@ class Api::ChannelsController < ApplicationController
             render json: @channel.errors.full_messages, status: 422
         end
     end
+
     def show
         @channel = Channel.find_by(id: params[:id])
         if @channel
+            debugger
             render :show #need to create this json jbuilder file!
         else
             render json: ["Channel Not Found"], status: 404
         end
     end
+
     private
     def channel_params
         params.require(:channel).permit(:title, :is_private, :is_dm)
