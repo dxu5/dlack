@@ -6,7 +6,6 @@ export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
 
 export const receiveCurrentUser = ({ currentUser, channels }) => {
-  debugger;
   return {
     type: RECEIVE_CURRENT_USER,
     currentUser,
