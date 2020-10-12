@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import HeaderContainer from "../splash/header_container.js";
 
 class SignupForm extends React.Component {
   constructor(props) {
