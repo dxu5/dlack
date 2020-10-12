@@ -10,4 +10,5 @@
 #  updated_at :datetime         not null
 #
 class Channel < ApplicationRecord
+    validates :title, :is_private, :is_dm, presence: true
 end
