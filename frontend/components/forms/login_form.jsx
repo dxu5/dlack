@@ -110,49 +110,51 @@ class LoginForm extends React.Component {
         <div className="header">
           <HeaderContainer />
         </div>
-        {this.renderErrors()}
-        <div className="login-form">
-          <h1>Sign In To Dlack</h1>
-          <form>
-            <p>
-              Enter your <strong>username</strong> and <strong>password</strong>
-              .
-            </p>
-            <input
-              type="text"
-              className="auth-credentials"
-              onChange={this.handleInput("username")}
-              value={this.state.username}
-              placeholder="Your Username"
-            />
-            <input
-              type="password"
-              className="auth-credentials"
-              onChange={this.handleInput("password")}
-              value={this.state.password}
-              placeholder="Your Password"
-            />
-            <input
-              className={
-                this.state.disabled ? "login-submit disabled" : "login-submit"
-              }
-              onClick={this.handleSubmit}
-              type="submit"
-              value="Log In"
-            />
-            <input
-              type="submit"
-              id="demo"
-              className="demo-button"
-              value="Log In As Demo User"
-              onClick={this.handleDemo}
-            />
-          </form>
-          <div>
-            Need an account with us?{" "}
-            <Link className="signup-alt" to="signup">
-              Sign Up
-            </Link>
+        <div className="login-section">
+          {this.renderErrors()}
+          <div className="login-form">
+            <h1>Sign In To Dlack</h1>
+            <form>
+              <p>
+                Enter your <strong>username</strong> and{" "}
+                <strong>password</strong>.
+              </p>
+              <input
+                type="text"
+                className="auth-credentials"
+                onChange={this.handleInput("username")}
+                value={this.state.username}
+                placeholder="Your Username"
+              />
+              <input
+                type="password"
+                className="auth-credentials"
+                onChange={this.handleInput("password")}
+                value={this.state.password}
+                placeholder="Your Password"
+              />
+              <input
+                className={
+                  this.state.disabled ? "login-submit disabled" : "login-submit"
+                }
+                onClick={this.handleSubmit}
+                type="submit"
+                value="Log In"
+              />
+              <input
+                type="submit"
+                id="demo"
+                className="demo-button"
+                value="Log In As Demo User"
+                onClick={this.handleDemo}
+              />
+            </form>
+            <div>
+              Need an account with us?{" "}
+              <Link className="signup-alt" to="signup">
+                Sign Up
+              </Link>
+            </div>
           </div>
         </div>
       </div>
