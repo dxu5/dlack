@@ -41,6 +41,7 @@ class LoginForm extends React.Component {
     if (this.props.errors.length > 0) {
       return (
         <div className="errors">
+          <i id="error-icon" className="fas fa-exclamation-triangle"></i>
           <ul>
             {this.props.errors.map((error, idx) => {
               return <li key={idx}>{error}</li>;
