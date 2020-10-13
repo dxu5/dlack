@@ -1,12 +1,16 @@
 import React from "react";
 import DMIndexItemContainer from "./dm_index_item_container.js";
-class ChannelIndex extends React.Component {
+import { openModal } from "../../actions/modal_actions";
+import { connect } from "react-redux";
+import Modal from "./modal.jsx";
+class DmIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       open: true,
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleModal = this.handleModal.bind(this);
   }
 
   dms() {
@@ -29,6 +33,10 @@ class ChannelIndex extends React.Component {
     this.setState({ open: !this.state.open });
   }
 
+  handleModal() {
+    this.props.openCreateModal();
+  }
+
   render() {
     return (
       <div className="channel-index">
@@ -43,12 +51,27 @@ class ChannelIndex extends React.Component {
           </div>
 
           <h2 onClick={this.handleClick}>Direct Messages</h2>
-          <div className="create-channel">+</div>
+          <div className="create-channel" onClick={this.handleModal}>
+            +
+          </div>
         </div>
+        <Modal />
         <div className="channels-ul">{this.renderList()}</div>
       </div>
     );
   }
 }
 
-export default ChannelIndex;
+const mapStateToProps = (state) => {
+  return {
+    modal: state.ui.modal,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    openCreateModal: () => dispatch(openModal("dm")),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DmIndex);
