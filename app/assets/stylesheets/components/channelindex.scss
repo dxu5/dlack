@@ -1,4 +1,5 @@
 .channel-index {
+  border-top: 1px solid lightgray;
   line-height: 26px;
   font-size: 16px;
 }
@@ -27,6 +28,8 @@
   font-size: 24px;
   opacity: 0.64;
   cursor: pointer;
+  align-items: flex-end;
+  box-sizing: border-box;
 }
 // .create-dm-button will maybe be the same look
 
