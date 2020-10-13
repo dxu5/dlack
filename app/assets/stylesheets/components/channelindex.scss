@@ -9,7 +9,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 1em 15px;
+  padding: 0 15px;
+  padding-top: 1em;
   color: rgb(202, 196, 201);
   max-height: 29px;
 }
@@ -53,7 +54,7 @@
 
 .channel-li {
   height: 26px;
-  padding: 0px 1em;
+  padding: 0px 1.5em;
   font-size: 16px;
   color: rgb(202, 196, 201);
   cursor: pointer;
@@ -76,4 +77,11 @@
 #selected-channel-symbol {
   color: white;
   opacity: 1;
+}
+
+.caret-container {
+  height: 1.6em;
+  width: 1em;
+  margin: 0 auto;
+  align-self: center;
 }

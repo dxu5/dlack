@@ -33,12 +33,15 @@ class ChannelIndex extends React.Component {
     return (
       <div className="channel-index">
         <div className="channels-header">
-          <i
-            id="caret"
-            className={
-              this.state.open ? "fas fa-caret-down" : "fas fa-caret-right"
-            }
-          ></i>
+          <div className="caret-container">
+            <i
+              id="caret"
+              className={
+                this.state.open ? "fas fa-caret-down" : "fas fa-caret-right"
+              }
+            ></i>
+          </div>
+
           <h2 onClick={this.handleClick}>Direct Messages</h2>
           <div className="create-channel">+</div>
         </div>
