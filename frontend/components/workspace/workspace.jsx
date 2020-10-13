@@ -7,10 +7,22 @@ class Workspace extends React.Component {
     this.state = {};
   }
 
+  componentDidMount() {
+    let channelIds = this.props.channels.map((channel) => {
+      return channel.id;
+    });
+    debugger;
+    if (
+      channelIds.includes(Number(this.props.match.params.channelId)) === false
+    ) {
+      this.props.history.push("/");
+    }
+  }
+
   render() {
     return (
       <div className="workspace">
-        <SidenavContainer />
+        <SidenavContainer channels={this.props.channels} />
       </div>
     );
   }

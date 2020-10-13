@@ -6,12 +6,17 @@ class Sidenav extends React.Component {
   }
   render() {
     return (
-      <div>
-        <div>
+      <div className="nav-col">
+        <div className="general-sidebar">
           <h1>Welcome</h1>
           <h2>{this.props.currentUser.username}</h2>
-          <button onClick={this.props.logout}>Logout</button>
+          <button className="nav-logout-button" onClick={this.props.logout}>
+            Logout
+          </button>
         </div>
+
+        {/* render channels here */}
+        {/* render dms here */}
       </div>
     );
   }

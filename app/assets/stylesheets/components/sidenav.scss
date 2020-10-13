@@ -1,0 +1,40 @@
+$index-purple: #4d394b;
+$index-gray: #cac4c9;
+
+.general-sidebar {
+  padding: 0 15px;
+}
+
+.nav-col {
+  display: flex;
+  flex-direction: column;
+  min-width: 220px;
+  height: 100vh;
+  overflow: scroll;
+  padding-top: 10px;
+
+  background-color: $index-purple;
+  color: $index-gray;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.general-sidebar h1 {
+  padding: 5px 0;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.general-sidebar h2 {
+  padding: 3px 0;
+}
+
+.nav-logout-button {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.nav-logout-button:hover {
+  opacity: 1;
+}

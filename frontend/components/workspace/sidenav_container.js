@@ -3,9 +3,10 @@ import { connect } from "react-redux";
 import { logout } from "../../actions/session_actions.js";
 import Sidenav from "./sidenav.jsx";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     currentUser: state.entities.users[state.session.currentUserId],
+    channels: ownProps.channels,
   };
 };
 
