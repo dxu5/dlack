@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { closeModal } from "../../actions/modal_actions";
 import { clearErrors } from "../../actions/session_actions.js";
-import createChannelForm from "./create_channel_form.jsx";
+import createDmForm from "./create_dm_form.jsx";
 
 const mapStateToProps = ({ errors, entities, session }) => {
   return {
