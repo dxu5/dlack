@@ -1,12 +1,18 @@
 import React from "react";
+import SidenavContainer from "./sidenav_container.js";
 
 class Workspace extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {};
   }
 
   render() {
-    return <div>we are rendering</div>;
+    return (
+      <div className="workspace">
+        <SidenavContainer />
+      </div>
+    );
   }
 }
 
