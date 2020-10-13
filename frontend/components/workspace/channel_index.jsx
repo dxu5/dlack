@@ -55,6 +55,7 @@ class ChannelIndex extends React.Component {
             +
           </div>
         </div>
+        <Modal />
         <div className="channels-ul">{this.renderList()}</div>
       </div>
     );
@@ -69,7 +70,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    openCreateModal: () => dispatch(openModal("create")),
+    openCreateModal: () => dispatch(openModal("channel")),
   };
 };
 
