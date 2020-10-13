@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import debounce from "../../util/general_util";
 
 class CreateChannelForm extends React.Component {
   constructor(props) {
@@ -10,14 +11,25 @@ class CreateChannelForm extends React.Component {
       is_private: false,
       is_dm: false,
     };
+    this.debounced = debounce(function () {
+      console.log("wowowowowowow");
+    }, 250);
     // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
-    return (e) =>
-      this.setState({
-        [field]: e.currentTarget.value,
-      });
+    return (e) => {
+      if (field === "users") {
+        this.setState(
+          {
+            [field]: e.currentTarget.value,
+          },
+          this.debounced
+        );
+      } else {
+        this.setState({ [field]: e.currentTarget.value });
+      }
+    };
   }
 
   //   handleSubmit(e) {

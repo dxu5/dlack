@@ -4,6 +4,7 @@ import { login, logout, signup } from "./actions/session_actions.js";
 import { searchUsers } from "./actions/search_actions.js";
 import configureStore from "./store/store.js";
 import Root from "./components/root.jsx";
+import debounce from "./util/general_util.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   let root = document.getElementById("root");
@@ -23,6 +24,12 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
+  window.addEventListener(
+    "resize",
+    debounce(function () {
+      console.log("wowowowowowow");
+    }, 250)
+  );
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   window.login = login;
