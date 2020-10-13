@@ -3,8 +3,9 @@ import React from "react";
 import { closeModal } from "../../actions/modal_actions";
 import createChannelForm from "./create_channel_form.jsx";
 
-const mapStateToProps = ({ errors }) => {
+const mapStateToProps = ({ errors, entities }) => {
   return {
+    totalUsers: Object.values(entities.users),
     errors: errors.session,
   };
 };

@@ -4,6 +4,7 @@ import debounce from "../../util/general_util";
 import { connect } from "react-redux";
 import { searchUsers } from "../../actions/search_actions.js";
 import { createChannel } from "../../actions/channel_actions.js";
+import SearchUsersList from "./search_users_list.jsx";
 
 class CreateChannelForm extends React.Component {
   constructor(props) {
@@ -61,6 +62,20 @@ class CreateChannelForm extends React.Component {
     );
   }
 
+  parseUsers() {
+    if (this.state.users !== "") {
+      let searched = [];
+      this.props.totalUsers.forEach((user) => {
+        if (user.username.startsWith(this.state.users)) {
+          searched.push(user);
+        }
+      });
+      return searched;
+    } else {
+      return [];
+    }
+  }
+
   render() {
     return (
       <div className="channel-form-container">
@@ -98,17 +113,20 @@ class CreateChannelForm extends React.Component {
             </label>
             <br />
             {!this.state.is_private ? null : (
-              <label className="channel-create-name">
-                Users
-                <br />
-                <input
-                  type="text"
-                  placeholder="e.g. Derek, Hailey, Robert"
-                  value={this.state.users}
-                  onChange={this.update("users")}
-                  className="create-channel-title-input"
-                />
-              </label>
+              <div>
+                <label className="channel-create-name">
+                  Users
+                  <br />
+                  <input
+                    type="text"
+                    placeholder="e.g. Derek, Hailey, Robert"
+                    value={this.state.users}
+                    onChange={this.update("users")}
+                    className="create-channel-title-input"
+                  />
+                </label>
+                <SearchUsersList users={this.parseUsers()} />
+              </div>
             )}
 
             <label className="private">
