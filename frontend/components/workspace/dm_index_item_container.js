@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    currentUser: state.entities.users[state.session.currentUserId],
     channel: ownProps.channel,
     channels: state.entities.channels,
   };

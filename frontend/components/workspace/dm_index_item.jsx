@@ -7,10 +7,12 @@ class DMIndexItem extends React.Component {
   }
 
   handleSymbol() {
-    if (this.props.channel.is_private) {
-      return <i className="fas fa-lock"></i>;
+    let title = this.formatTitle();
+    let users = title.split(", ");
+    if (users.length > 1) {
+      return <span>{users.length}</span>;
     } else {
-      return "#";
+      return <span>&#x25CB;</span>;
     }
   }
 
@@ -21,19 +23,31 @@ class DMIndexItem extends React.Component {
   }
 
   handleTitle() {
-    if (this.props.channel.title.length > 25) {
+    let title = this.formatTitle();
+    if (title.length > 25) {
       return (
         <div className="channel-title" id={`${this.selected()}-symbol`}>
-          {this.props.channel.title.slice(0, 21).concat("...")}
+          {title.slice(0, 21).concat("...")}
         </div>
       );
     } else {
       return (
         <div className="channel-title" id={`${this.selected()}-symbol`}>
-          {this.props.channel.title}
+          {title}
         </div>
       );
     }
+  }
+
+  formatTitle() {
+    let newTitle = [];
+    let oldTitle = this.props.channel.title.split(", ");
+    for (let i = 0; i < oldTitle.length; i++) {
+      if (oldTitle[i] != this.props.currentUser.username) {
+        newTitle.push(oldTitle[i]);
+      }
+    }
+    return newTitle.join(", ");
   }
 
   render() {
