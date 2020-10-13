@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import React from "react";
 import { closeModal } from "../../actions/modal_actions";
+import { clearErrors } from "../../actions/session_actions.js";
 import createChannelForm from "./create_channel_form.jsx";
 
 const mapStateToProps = ({ errors, entities, session }) => {
@@ -13,7 +14,10 @@ const mapStateToProps = ({ errors, entities, session }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    closeModal: () => dispatch(closeModal()),
+    closeModal: () => {
+      dispatch(clearErrors());
+      dispatch(closeModal());
+    },
   };
 };
 
