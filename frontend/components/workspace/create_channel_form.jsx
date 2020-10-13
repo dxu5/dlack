@@ -52,11 +52,18 @@ class CreateChannelForm extends React.Component {
       };
       this.props.createChannel(channel).then(this.props.closeModal);
     } else {
+      let users = Object.keys(this.state.selected);
+      if (!users.includes(this.props.currentUserId)) {
+        users.push(this.props.currentUserId);
+      }
+      users = users.join(",");
       const channel = {
         title: this.state.title,
-        is_private: true,
+        is_private: false,
         is_dm: false,
+        user_ids: users,
       };
+      this.props.createChannel(channel).then(this.props.closeModal);
     }
   }
 
@@ -84,9 +91,9 @@ class CreateChannelForm extends React.Component {
     }
   }
 
-  handleClick(name) {
+  handleClick(user) {
     this.setState({
-      selected: { ...this.state.selected, [name]: true },
+      selected: { ...this.state.selected, [user.id]: user },
       users: "",
     });
   }
@@ -133,8 +140,8 @@ class CreateChannelForm extends React.Component {
                   Users
                   <br />
                   <ul>
-                    {Object.keys(this.state.selected).map((name) => {
-                      return <li>{name}</li>;
+                    {Object.values(this.state.selected).map((user) => {
+                      return <li>{user.username}</li>;
                     })}
                   </ul>
                   <input

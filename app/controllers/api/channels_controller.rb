@@ -3,8 +3,8 @@ class Api::ChannelsController < ApplicationController
         @channel = Channel.new(channel_params)
         # Will pass user_ids as a param ("user_ids") and will use that!
         # Channel title if dm will be a string with usernames
-        if params["user_ids"]
-            possibleUsers = params["user_ids"].split(",").map {|num| num.to_i}
+        if params["channel"]["user_ids"]
+            possibleUsers = params["channel"]["user_ids"].split(",").map {|num| num.to_i}
         end
         #title of dm channels is done (includes all parties username in the title)
         if @channel.is_dm
