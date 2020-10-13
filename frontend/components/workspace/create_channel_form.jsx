@@ -69,7 +69,7 @@ class CreateChannelForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
+      <ul className="channel-errors">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>{error}</li>
         ))}
@@ -119,7 +119,6 @@ class CreateChannelForm extends React.Component {
             #deadlines.
           </p>
 
-          {this.renderErrors()}
           <div className="channel-form">
             <br />
             <label className="channel-create-name">
@@ -158,6 +157,7 @@ class CreateChannelForm extends React.Component {
                 />
               </div>
             )}
+            {this.renderErrors()}
 
             <label className="private">
               <p>
