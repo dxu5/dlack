@@ -1,4 +1,10 @@
 class Api::UsersController < ApplicationController
+    def index
+        if params[:search]
+            @users = User.where("username LIKE :prefix", prefix: "#{params[:search]}%")
+            render :index
+        end
+    end
     def create
         @user = User.new(user_params)
         if @user.save
