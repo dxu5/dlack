@@ -10,7 +10,11 @@ class DMIndexItem extends React.Component {
     let title = this.formatTitle();
     let users = title.split(", ");
     if (users.length > 1) {
-      return <span className="dm-square">{users.length}</span>;
+      return (
+        <span id={`${this.selected()}-symbol`} className="dm-square">
+          {users.length}
+        </span>
+      );
     } else {
       return <i className="fas fa-circle dm-circle"></i>;
     }
@@ -18,7 +22,7 @@ class DMIndexItem extends React.Component {
 
   selected() {
     return this.props.channel.id === Number(this.props.match.params.channelId)
-      ? "selected-channel"
+      ? "selected-dm"
       : "";
   }
 
