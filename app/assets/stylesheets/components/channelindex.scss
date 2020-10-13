@@ -28,3 +28,42 @@
 .create-channel:hover {
   opacity: 1;
 }
+
+.channel-symbol {
+  max-height: 26px;
+  max-width: 9px;
+  margin-right: 7px;
+  color: #969096;
+}
+.channel-li li {
+  display: flex;
+}
+
+.channel-li {
+  max-height: 26px;
+  max-width: 200px;
+  height: 26px;
+  padding: 0px 12px;
+  font-size: 16px;
+  color: rgb(202, 196, 201);
+  cursor: pointer;
+}
+
+.channel-li:hover {
+  background: #3e313c;
+}
+
+.channel-title {
+  color: #969096;
+  margin-left: 0.3em;
+}
+
+#selected-channel {
+  background: #4c9689;
+  color: white;
+}
+
+#selected-channel-symbol {
+  color: white;
+  opacity: 1;
+}

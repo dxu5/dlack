@@ -11,7 +11,6 @@ class Workspace extends React.Component {
     let channelIds = this.props.channels.map((channel) => {
       return channel.id;
     });
-    debugger;
     if (
       channelIds.includes(Number(this.props.match.params.channelId)) === false
     ) {

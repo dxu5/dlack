@@ -8,22 +8,30 @@ class ChannelIndexItem extends React.Component {
 
   handleSymbol() {
     if (this.props.channel.is_private) {
-      return <div>&#128274;</div>;
+      return <i className="fas fa-lock"></i>;
     } else {
       return "#";
     }
   }
 
   render() {
+    const selected =
+      this.props.channel.id === Number(this.props.match.params.channelId)
+        ? "selected-channel"
+        : "";
     return (
-      <Link to={`/channels/${this.props.channel.id}`}>
-        <div>
+      <div className="channel-li" id={selected}>
+        <Link to={`/channels/${this.props.channel.id}`}>
           <li>
-            <div>{this.handleSymbol()}</div>
-            <div>{this.props.channel.title}</div>
+            <div className="channel-symbol" id={`${selected}-symbol`}>
+              {this.handleSymbol()}
+            </div>
+            <div className="channel-title" id={`${selected}-symbol`}>
+              {this.props.channel.title}
+            </div>
           </li>
-        </div>
-      </Link>
+        </Link>
+      </div>
     );
   }
 }
