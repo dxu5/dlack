@@ -1,18 +1,20 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import debounce from "../../util/general_util";
+import { connect } from "react-redux";
+import { searchUsers } from "../../actions/search_actions.js";
 
 class CreateChannelForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       title: "",
-      password: "",
+      users: "",
       is_private: false,
       is_dm: false,
     };
     this.debounced = debounce(function () {
-      console.log("wowowowowowow");
+      this.props.searchUsers(this.state.users);
     }, 250);
     // this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -24,7 +26,11 @@ class CreateChannelForm extends React.Component {
           {
             [field]: e.currentTarget.value,
           },
-          this.debounced
+          () => {
+            if (this.state.users != "") {
+              this.debounced();
+            }
+          }
         );
       } else {
         this.setState({ [field]: e.currentTarget.value });
@@ -86,13 +92,13 @@ class CreateChannelForm extends React.Component {
             <br />
             {!this.state.is_private ? null : (
               <label className="channel-create-name">
-                Title
+                Users
                 <br />
                 <input
                   type="text"
-                  placeholder="# e.g. discussion-meetings"
-                  value={this.state.title}
-                  onChange={this.update("title")}
+                  placeholder="e.g. Derek, Hailey, Robert"
+                  value={this.state.users}
+                  onChange={this.update("users")}
                   className="create-channel-title-input"
                 />
               </label>
@@ -126,11 +132,7 @@ class CreateChannelForm extends React.Component {
               </label>
             </label>
             <br />
-            <input
-              className="session-submit"
-              type="submit"
-              value={this.props.formType}
-            />
+            <input className="channel-create" type="submit" value="Create" />
           </div>
         </form>
       </div>
@@ -138,4 +140,16 @@ class CreateChannelForm extends React.Component {
   }
 }
 
-export default withRouter(CreateChannelForm);
+const mapStateToProps = (state) => {
+  return {};
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    searchUsers: (search) => dispatch(searchUsers(search)),
+  };
+};
+
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(CreateChannelForm)
+);

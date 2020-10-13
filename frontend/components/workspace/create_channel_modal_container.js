@@ -6,7 +6,6 @@ import createChannelForm from "./create_channel_form.jsx";
 const mapStateToProps = ({ errors }) => {
   return {
     errors: errors.session,
-    formType: "login",
   };
 };
 
