@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { login, logout, signup } from "./actions/session_actions.js";
+import { searchUsers } from "./util/search_api_util";
 import configureStore from "./store/store.js";
 import Root from "./components/root.jsx";
 
@@ -27,5 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.login = login;
   window.logout = logout;
   window.signup = signup;
+  window.searchUsers = searchUsers;
   ReactDOM.render(<Root store={store} />, root);
 });
