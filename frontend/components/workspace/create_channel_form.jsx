@@ -41,7 +41,11 @@ class CreateChannelForm extends React.Component {
       <div className="channel-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <div className="channel-modal-header">
-            <h1>Create a Channel</h1>
+            <h1>
+              {!this.state.is_private
+                ? "Create a Channel"
+                : "Create a Private Channel"}
+            </h1>
             <br />
             <div onClick={this.props.closeModal} className="close-x">
               x
@@ -68,15 +72,20 @@ class CreateChannelForm extends React.Component {
               />
             </label>
             <br />
-            <label>
-              Password:
-              <input
-                type="password"
-                value={this.state.password}
-                onChange={this.update("password")}
-                className="login-input"
-              />
-            </label>
+            {!this.state.is_private ? null : (
+              <label className="channel-create-name">
+                Title
+                <br />
+                <input
+                  type="text"
+                  placeholder="# e.g. discussion-meetings"
+                  value={this.state.title}
+                  onChange={this.update("title")}
+                  className="create-channel-title-input"
+                />
+              </label>
+            )}
+
             <label className="private">
               <p>
                 <strong>Make Private</strong>
@@ -93,6 +102,16 @@ class CreateChannelForm extends React.Component {
                   </>
                 )}
               </p>
+              <label className="switch">
+                <input
+                  type="checkbox"
+                  id="private"
+                  onClick={() =>
+                    this.setState({ is_private: !this.state.is_private })
+                  }
+                />
+                <span className="slider round"></span>
+              </label>
             </label>
             <br />
             <input
