@@ -1,0 +1,33 @@
+.channel-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.channel-form-container {
+  width: 520px;
+  height: 516px;
+  background: #f9f3e7;
+  border-radius: 8px;
+  box-shadow: 0 18px 48px 0 rgba(0, 0, 0, 0.2);
+  padding: 20px 28px;
+}
+
+.channel-modal-header h1 {
+  font-size: 2em;
+  font-weight: bold;
+  color: black;
+}
+
+.channel-modal-header div {
+  font-size: 1.5em;
+}
+
+.create-channel-description {
+  padding: 2px 0 20px 0;
+  color: #575754;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  margin-right: 5px;
+}
