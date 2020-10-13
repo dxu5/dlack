@@ -9,4 +9,4 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Workspace);
+export default connect(mapStateToProps, null)(Workspace);

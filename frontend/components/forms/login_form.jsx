@@ -32,7 +32,7 @@ class LoginForm extends React.Component {
     if (!this.state.disabled) {
       e.preventDefault();
       this.props.processForm(this.state).then(() => {
-        this.props.history.push("/workspace");
+        return this.props.history.push("/channels/1");
       });
     }
   }
@@ -98,7 +98,9 @@ class LoginForm extends React.Component {
           }, 100)
         );
       } else {
-        this.props.processForm(this.state);
+        this.props.processForm(this.state).then(() => {
+          return this.props.history.push("/channels/1");
+        });
       }
     };
     _demoUser(username);
