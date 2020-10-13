@@ -5,7 +5,7 @@ class CreateChannelForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
+      title: "",
       password: "",
     };
     // this.handleSubmit = this.handleSubmit.bind(this);
@@ -47,19 +47,22 @@ class CreateChannelForm extends React.Component {
           </div>
           <p className="create-channel-description">
             Channels are how you communicate with your team. The name of the
-            channel is one of the first steps to increasing productivity
+            channel is one of the first steps to increasing productivity - like
+            #deadlines.
           </p>
 
           {this.renderErrors()}
           <div className="channel-form">
             <br />
-            <label>
-              Username:
+            <label className="channel-create-name">
+              Title
+              <br />
               <input
                 type="text"
-                value={this.state.username}
-                onChange={this.update("username")}
-                className="login-input"
+                placeholder="# e.g. discussion-meetings"
+                value={this.state.title}
+                onChange={this.update("title")}
+                className="create-channel-title-input"
               />
             </label>
             <br />
