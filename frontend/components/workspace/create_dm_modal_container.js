@@ -20,4 +20,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(createChannelForm);
+export default connect(mapStateToProps, mapDispatchToProps)(createDmForm);
