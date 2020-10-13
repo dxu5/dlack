@@ -16,7 +16,7 @@ class CreateChannelForm extends React.Component {
     };
     this.debounced = debounce(function () {
       this.props.searchUsers(this.state.users);
-    }, 250);
+    }, 1000);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -28,7 +28,7 @@ class CreateChannelForm extends React.Component {
             [field]: e.currentTarget.value,
           },
           () => {
-            if (this.state.users != "") {
+            if (this.state.users !== "") {
               this.debounced();
             }
           }
@@ -49,8 +49,6 @@ class CreateChannelForm extends React.Component {
       };
       this.props.createChannel(channel).then(this.props.closeModal);
     }
-    // const user = Object.assign({}, this.state);
-    // this.props.processForm(user).then(this.props.closeModal);
   }
 
   renderErrors() {
@@ -75,7 +73,7 @@ class CreateChannelForm extends React.Component {
             </h1>
             <br />
             <div onClick={this.props.closeModal} className="close-x">
-              x
+              &#10005;
             </div>
           </div>
           <p className="create-channel-description">

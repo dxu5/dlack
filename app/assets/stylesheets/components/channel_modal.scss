@@ -7,7 +7,6 @@
 
 .channel-form-container {
   width: 520px;
-  height: 516px;
   background: #f9f3e7;
   border-radius: 8px;
   box-shadow: 0 18px 48px 0 rgba(0, 0, 0, 0.2);
@@ -67,6 +66,7 @@
 .private {
   display: flex;
   align-items: center;
+  margin-bottom: 2em;
 }
 
 // .slide-box {
@@ -149,6 +149,7 @@ input:checked + .slider:before {
 }
 
 .channel-create {
+  margin-top: 2em;
   position: absolute;
   right: 28px;
   bottom: 24px;
@@ -162,4 +163,9 @@ input:checked + .slider:before {
   border: none;
   background: #49c39e;
   font-family: "Poppins";
+  cursor: pointer;
+}
+
+.channel-create:hover {
+  background: #80d2de;
 }
