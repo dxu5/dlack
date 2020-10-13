@@ -7,6 +7,8 @@ class CreateChannelForm extends React.Component {
     this.state = {
       title: "",
       password: "",
+      is_private: false,
+      is_dm: false,
     };
     // this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -74,6 +76,23 @@ class CreateChannelForm extends React.Component {
                 onChange={this.update("password")}
                 className="login-input"
               />
+            </label>
+            <label className="private">
+              <p>
+                <strong>Make Private</strong>
+                <br />
+                {!this.state.is_private ? (
+                  <>
+                    When a channel is set to private, it can only be viewed by
+                    users who are in it.
+                  </>
+                ) : (
+                  <>
+                    <strong>This can't be undone.</strong> A private channel
+                    cannot be made public later on.
+                  </>
+                )}
+              </p>
             </label>
             <br />
             <input
