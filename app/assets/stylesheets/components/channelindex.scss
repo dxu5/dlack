@@ -13,9 +13,14 @@
   max-height: 29px;
 }
 
+#caret {
+  margin-right: 0.6em;
+}
+
 .channels-header h2 {
   font-weight: 400;
   width: 180px;
+  cursor: pointer;
 }
 
 .create-channel {
@@ -40,10 +45,8 @@
 }
 
 .channel-li {
-  max-height: 26px;
-  max-width: 200px;
   height: 26px;
-  padding: 0px 12px;
+  padding: 0px 1em;
   font-size: 16px;
   color: rgb(202, 196, 201);
   cursor: pointer;

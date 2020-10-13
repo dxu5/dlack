@@ -11,9 +11,9 @@ class Sidenav extends React.Component {
         <div className="general-sidebar">
           <h1>Welcome</h1>
           <h2>{this.props.currentUser.username}</h2>
-          <button className="nav-logout-button" onClick={this.props.logout}>
-            Logout
-          </button>
+          <div className="nav-logout-button" onClick={this.props.logout}>
+            Sign Out of Dlack
+          </div>
         </div>
 
         <ChannelIndex channels={this.props.channels} />
