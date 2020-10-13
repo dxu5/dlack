@@ -1,5 +1,8 @@
 import React from "react";
 import ChannelIndexItemContainer from "./channel_index_item_container.js";
+import { openModal } from "../../actions/modal_actions.js";
+import { connect } from "react-redux";
+import Modal from "./modal.jsx";
 class ChannelIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -7,6 +10,7 @@ class ChannelIndex extends React.Component {
       open: true,
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleModal = this.handleModal.bind(this);
   }
 
   channels() {
@@ -29,6 +33,10 @@ class ChannelIndex extends React.Component {
     this.setState({ open: !this.state.open });
   }
 
+  handleModal() {
+    this.props.openCreateModal();
+  }
+
   render() {
     return (
       <div className="channel-index">
@@ -43,7 +51,9 @@ class ChannelIndex extends React.Component {
           </div>
 
           <h2 onClick={this.handleClick}>Channels</h2>
-          <div className="create-channel">+</div>
+          <div className="create-channel" onClick={this.handleModal}>
+            +
+          </div>
         </div>
         <div className="channels-ul">{this.renderList()}</div>
       </div>
@@ -51,4 +61,16 @@ class ChannelIndex extends React.Component {
   }
 }
 
-export default ChannelIndex;
+const mapStateToProps = (state) => {
+  return {
+    modal: state.ui.modal,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    openCreateModal: () => dispatch(openModal("create")),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelIndex);
