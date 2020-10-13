@@ -10,9 +10,9 @@ class DMIndexItem extends React.Component {
     let title = this.formatTitle();
     let users = title.split(", ");
     if (users.length > 1) {
-      return <span>{users.length}</span>;
+      return <span className="dm-square">{users.length}</span>;
     } else {
-      return <span>&#x25CB;</span>;
+      return <i className="fas fa-circle dm-circle"></i>;
     }
   }
 
@@ -56,12 +56,10 @@ class DMIndexItem extends React.Component {
         ? "selected-channel"
         : "";
     return (
-      <div className="channel-li" id={selected}>
+      <div className="dm-li" id={selected}>
         <Link to={`/channels/${this.props.channel.id}`}>
           <li>
-            <div className="channel-symbol" id={`${selected}-symbol`}>
-              {this.handleSymbol()}
-            </div>
+            {this.handleSymbol()}
             {this.handleTitle()}
           </li>
         </Link>

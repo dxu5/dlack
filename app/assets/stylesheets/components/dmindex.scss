@@ -1,0 +1,46 @@
+.dm-square,
+.dm-circle {
+  display: flex;
+  max-height: 14px;
+  min-width: 15px;
+  width: 15px;
+
+  margin-right: 5px;
+  padding-top: 2px;
+
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.dm-square {
+  border-radius: 4px;
+  background: rgb(202, 196, 201);
+  opacity: 0.7;
+
+  font-size: 12px;
+  font-weight: 400;
+  color: #4d394b;
+}
+
+.dm-li li {
+  display: flex;
+  align-items: center;
+}
+
+.dm-li {
+  height: 26px;
+  padding: 0px 1em;
+  font-size: 16px;
+  color: rgb(202, 196, 201);
+  cursor: pointer;
+}
+
+.dm-li:hover {
+  background: #3e313c;
+}
+
+.dm-circle {
+  font-size: 0.75em;
+  color: #0c7a39;
+}
