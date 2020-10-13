@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import debounce from "../../util/general_util";
 import { connect } from "react-redux";
 import { searchUsers } from "../../actions/search_actions.js";
+import { createChannel } from "../../actions/channel_actions.js";
 
 class CreateChannelForm extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class CreateChannelForm extends React.Component {
     this.debounced = debounce(function () {
       this.props.searchUsers(this.state.users);
     }, 250);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
@@ -38,11 +39,19 @@ class CreateChannelForm extends React.Component {
     };
   }
 
-  //   handleSubmit(e) {
-  //     e.preventDefault();
-  //     const user = Object.assign({}, this.state);
-  //     this.props.processForm(user).then(this.props.closeModal);
-  //   }
+  handleSubmit(e) {
+    e.preventDefault();
+    if (!this.state.is_private) {
+      const channel = {
+        title: this.state.title,
+        is_private: false,
+        is_dm: false,
+      };
+      this.props.createChannel(channel).then(this.props.closeModal);
+    }
+    // const user = Object.assign({}, this.state);
+    // this.props.processForm(user).then(this.props.closeModal);
+  }
 
   renderErrors() {
     return (
@@ -146,6 +155,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    createChannel: (channel) => dispatch(createChannel(channel)),
     searchUsers: (search) => dispatch(searchUsers(search)),
   };
 };

@@ -8,7 +8,7 @@ const channelsReducer = (state = {}, action) => {
     case RECEIVE_CURRENT_USER:
       return action.channels;
     case RECEIVE_CHANNEL:
-      newState[action.channel.id] = action.channel;
+      newState[action.channel.channel.id] = action.channel.channel;
       return newState;
     default:
       return state;
