@@ -14,11 +14,13 @@ class CreateChannelForm extends React.Component {
       users: "",
       is_private: false,
       is_dm: false,
+      selected: {},
     };
     this.debounced = debounce(function () {
       this.props.searchUsers(this.state.users);
     }, 1000);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   update(field) {
@@ -49,6 +51,12 @@ class CreateChannelForm extends React.Component {
         is_dm: false,
       };
       this.props.createChannel(channel).then(this.props.closeModal);
+    } else {
+      const channel = {
+        title: this.state.title,
+        is_private: true,
+        is_dm: false,
+      };
     }
   }
 
@@ -74,6 +82,13 @@ class CreateChannelForm extends React.Component {
     } else {
       return [];
     }
+  }
+
+  handleClick(name) {
+    this.setState({
+      selected: { ...this.state.selected, [name]: true },
+      users: "",
+    });
   }
 
   render() {
@@ -117,6 +132,11 @@ class CreateChannelForm extends React.Component {
                 <label className="channel-create-name">
                   Users
                   <br />
+                  <ul>
+                    {Object.keys(this.state.selected).map((name) => {
+                      return <li>{name}</li>;
+                    })}
+                  </ul>
                   <input
                     type="text"
                     placeholder="e.g. Derek, Hailey, Robert"
@@ -125,7 +145,10 @@ class CreateChannelForm extends React.Component {
                     className="create-channel-title-input"
                   />
                 </label>
-                <SearchUsersList users={this.parseUsers()} />
+                <SearchUsersList
+                  users={this.parseUsers()}
+                  click={this.handleClick}
+                />
               </div>
             )}
 
