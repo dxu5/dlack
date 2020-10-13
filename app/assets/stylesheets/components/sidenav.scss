@@ -39,3 +39,16 @@ $index-gray: #cac4c9;
 .nav-logout-button:hover {
   opacity: 1;
 }
+
+.side-logo {
+  height: 2em;
+  width: 2em;
+}
+.welcome-message {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5em;
+}
+.welcome-message h1 {
+  margin-left: 0.4em;
+}

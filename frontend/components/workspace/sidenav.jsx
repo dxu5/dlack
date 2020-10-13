@@ -10,7 +10,11 @@ class Sidenav extends React.Component {
     return (
       <div className="nav-col">
         <div className="general-sidebar">
-          <h1>Welcome</h1>
+          <div className="welcome-message">
+            <img className="side-logo" src={window.images.dlack} />
+            <h1>Welcome</h1>
+          </div>
+
           <h2>{this.props.currentUser.username}</h2>
           <div className="nav-logout-button" onClick={this.props.logout}>
             Sign Out of Dlack
