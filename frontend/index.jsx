@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { login, logout, signup } from "./actions/session_actions.js";
-import { searchUsers } from "./util/search_api_util";
+import { searchUsers } from "./actions/search_actions.js";
 import configureStore from "./store/store.js";
 import Root from "./components/root.jsx";
 

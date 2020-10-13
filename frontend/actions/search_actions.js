@@ -8,7 +8,7 @@ export const receiveUsersSearch = (users) => {
   };
 };
 
-export const SearchUsers = (search) => (dispatch) => {
+export const searchUsers = (search) => (dispatch) => {
   return SearchAPIUtil.searchUsers(search).then((users) =>
     dispatch(receiveUsersSearch(users))
   );
