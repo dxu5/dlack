@@ -1,4 +1,5 @@
 import React from "react";
+import ChannelIndex from "./channel_index.jsx";
 
 class Sidenav extends React.Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class Sidenav extends React.Component {
           </button>
         </div>
 
-        {/* render channels here */}
+        <ChannelIndex channels={this.props.channels} />
         {/* render dms here */}
       </div>
     );
