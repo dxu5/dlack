@@ -14,6 +14,28 @@ class ChannelIndexItem extends React.Component {
     }
   }
 
+  renderDelete() {
+    if (
+      this.props.channel.owner_id === this.props.currentUserId &&
+      this.props.channel.title !== "General"
+    ) {
+      return (
+        <div
+          onClick={() => {
+            this.props.destroyChannel().then(() => {
+              this.props.history.push("/channels/1");
+            });
+          }}
+          className="delete-channel"
+        >
+          &#10005;
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
+
   render() {
     const selected =
       this.props.channel.id === Number(this.props.match.params.channelId)
@@ -23,12 +45,16 @@ class ChannelIndexItem extends React.Component {
       <div className="channel-li" id={selected}>
         <Link to={`/channels/${this.props.channel.id}`}>
           <li>
-            <div className="channel-symbol" id={`${selected}-symbol`}>
-              {this.handleSymbol()}
+            <div className="channel-list-header">
+              <div className="channel-symbol" id={`${selected}-symbol`}>
+                {this.handleSymbol()}
+              </div>
+              <div className="channel-title" id={`${selected}-symbol`}>
+                {this.props.channel.title}
+              </div>
             </div>
-            <div className="channel-title" id={`${selected}-symbol`}>
-              {this.props.channel.title}
-            </div>
+
+            {this.renderDelete()}
           </li>
         </Link>
       </div>

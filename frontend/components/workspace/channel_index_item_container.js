@@ -7,6 +7,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     channel: ownProps.channel,
     channels: state.entities.channels,
+    currentUserId: state.session.currentUserId,
   };
 };
 

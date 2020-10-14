@@ -43,6 +43,10 @@
   opacity: 1;
 }
 
+.channel-list-header {
+  display: flex;
+}
+
 .channel-symbol {
   max-height: 26px;
   max-width: 9px;
@@ -51,6 +55,7 @@
 }
 .channel-li li {
   display: flex;
+  justify-content: space-between;
 }
 
 .channel-li {
@@ -63,6 +68,14 @@
 
 .channel-li:hover {
   background: #3e313c;
+}
+
+.delete-channel {
+  color: whitesmoke;
+  display: none;
+}
+.channel-li:hover .delete-channel {
+  display: block;
 }
 
 .channel-title {
