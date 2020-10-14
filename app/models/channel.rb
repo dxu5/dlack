@@ -16,7 +16,7 @@ class Channel < ApplicationRecord
     validates :is_private, inclusion: { in: [ true, false ] }
     validates :is_dm, inclusion: { in: [ true, false ] }
 
-    has_many :messages
+    has_many :messages, dependent: :destroy
 
     has_many :user_channels, dependent: :destroy
 
