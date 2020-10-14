@@ -25,12 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-  window.addEventListener(
-    "resize",
-    debounce(function () {
-      console.log("wowowowowowow");
-    }, 250)
-  );
   window.getChannelInfo = getChannelInfo;
   window.getState = store.getState;
   window.dispatch = store.dispatch;

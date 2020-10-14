@@ -16,6 +16,13 @@ class Workspace extends React.Component {
     ) {
       this.props.history.push("/");
     }
+    this.props.getChannelInfo(this.props.match.params.channelId);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.channelId != this.props.match.params.channelId) {
+      this.props.getChannelInfo(this.props.match.params.channelId);
+    }
   }
 
   render() {
