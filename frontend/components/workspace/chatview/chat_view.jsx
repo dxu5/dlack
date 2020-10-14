@@ -15,13 +15,15 @@ class ChatView extends React.Component {
     }
     return selectedChannel;
   }
+  calculateUsers() {
+    return this.props.userChannels.length;
+  }
 
   render() {
     return (
       <ChatInfo
-        channels={this.props.channels}
-        userChannels={this.props.userChannels}
-        currentChannelId={this.props.match.params.channelId}
+        currentChannel={this.currentChannel()}
+        numUsers={this.calculateUsers()}
       />
     );
   }
