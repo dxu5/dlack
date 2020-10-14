@@ -81,7 +81,7 @@ class CreateChannelForm extends React.Component {
       return (
         <input
           type="text"
-          placeholder="&#xF023; e.g. discussion-meetings"
+          placeholder="&#xF023;  e.g. discussion-meetings"
           style={{ fontFamily: "Poppins, FontAwesome" }}
           value={this.state.title}
           onChange={this.update("title")}
