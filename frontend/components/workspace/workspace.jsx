@@ -1,5 +1,6 @@
 import React from "react";
 import SidenavContainer from "./sidenav_container.js";
+import ChatViewContainer from "./chatview/chat_view_container.js";
 
 class Workspace extends React.Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class Workspace extends React.Component {
     return (
       <div className="workspace">
         <SidenavContainer channels={this.props.channels} />
+        <ChatViewContainer channels={this.props.channels} />
       </div>
     );
   }
