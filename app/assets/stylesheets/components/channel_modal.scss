@@ -46,6 +46,20 @@
   font-family: "Poppins";
 }
 
+.create-channel-users-input {
+  margin: 7px 0 18px 0;
+  height: 44px;
+  width: 464px;
+  border: 1px solid #818179;
+  border-radius: 4px;
+  padding: 0px 12px 0px 12px;
+  font-size: 16px;
+  font-weight: 400;
+  transition: 0.1s;
+  font-family: "Poppins";
+  position: relative;
+}
+
 .channel-create-name {
   color: #575754;
 }

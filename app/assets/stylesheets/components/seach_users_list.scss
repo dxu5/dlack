@@ -5,10 +5,10 @@
   border-radius: 5px;
   background: #f9f3e7;
   position: absolute;
-  top: calc(100% - 24px);
-  left: -11px;
+  top: 65%;
   padding: 12px 0;
   overflow-y: auto;
+  z-index: 2;
 }
 
 .search-user {

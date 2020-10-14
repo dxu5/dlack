@@ -195,7 +195,7 @@ class CreateChannelForm extends React.Component {
                     placeholder="e.g. Derek, Hailey, Robert"
                     value={this.state.users}
                     onChange={this.update("users")}
-                    className="create-channel-title-input"
+                    className="create-channel-users-input"
                   />
                 </label>
                 <SearchUsersList
