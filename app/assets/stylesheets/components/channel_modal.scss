@@ -163,3 +163,27 @@ input:checked + .slider:before {
 .search-user {
   color: #575754;
 }
+
+.selected-users {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 32px;
+  width: 50px;
+  padding: 0px 10px 0px;
+  margin: 5px 5px 0px;
+  background: #cdd9d5;
+  border-radius: 3px;
+}
+
+.selected-delete {
+  margin-left: 0.25em;
+  cursor: pointer;
+}
+
+.selected-delete:hover {
+  color: #80d2de;
+  opacity: 1;
+}

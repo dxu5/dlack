@@ -21,6 +21,7 @@ class CreateChannelForm extends React.Component {
     }, 1000);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentWillUnmount() {
@@ -129,6 +130,17 @@ class CreateChannelForm extends React.Component {
     });
   }
 
+  handleDelete(username) {
+    for (const user in this.state.selected) {
+      if (this.state.selected[user].username === username) {
+        let newSelected = Object.assign({}, this.state.selected);
+        delete newSelected[user];
+
+        this.setState({ selected: newSelected });
+      }
+    }
+  }
+
   render() {
     return (
       <div className="channel-form-container">
@@ -165,7 +177,17 @@ class CreateChannelForm extends React.Component {
                   <br />
                   <ul>
                     {Object.values(this.state.selected).map((user) => {
-                      return <li>{user.username}</li>;
+                      return (
+                        <li className="selected-users">
+                          {user.username}{" "}
+                          <div
+                            onClick={() => this.handleDelete(user.username)}
+                            className="selected-delete"
+                          >
+                            &#10005;
+                          </div>
+                        </li>
+                      );
                     })}
                   </ul>
                   <input
