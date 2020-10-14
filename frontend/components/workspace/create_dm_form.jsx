@@ -47,15 +47,8 @@ class CreateDmForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (!this.state.is_private) {
-      const channel = {
-        title: this.state.title,
-        is_private: false,
-        is_dm: false,
-      };
-      this.props.createChannel(channel).then(this.props.closeModal);
-    } else {
-      let users = Object.keys(this.state.selected);
+    let users = Object.keys(this.state.selected);
+    if (users.length > 0) {
       if (!users.includes(this.props.currentUserId)) {
         users.push(this.props.currentUserId);
       }
