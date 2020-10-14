@@ -13,6 +13,7 @@ const mapStateToProps = ({ errors, entities, session }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    clearErrors: () => dispatch(clearErrors()),
     closeModal: () => {
       dispatch(clearErrors());
       dispatch(closeModal());

@@ -10,7 +10,11 @@ class SearchUsersList extends React.Component {
       <ul>
         {this.props.users.map((user) => {
           return (
-            <li onClick={() => this.props.click(user)} key={user.id}>
+            <li
+              className="search-user"
+              onClick={() => this.props.click(user)}
+              key={user.id}
+            >
               {user.username}
             </li>
           );

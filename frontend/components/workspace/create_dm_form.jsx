@@ -22,6 +22,10 @@ class CreateDmForm extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   update(field) {
     return (e) => {
       if (field === "users") {
