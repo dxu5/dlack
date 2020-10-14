@@ -76,6 +76,30 @@ class CreateChannelForm extends React.Component {
       </ul>
     );
   }
+  determineType() {
+    if (this.state.is_private) {
+      return (
+        <input
+          type="text"
+          placeholder="&#xF023; e.g. discussion-meetings"
+          style={{ fontFamily: "Poppins, FontAwesome" }}
+          value={this.state.title}
+          onChange={this.update("title")}
+          className="create-channel-title-input"
+        />
+      );
+    } else {
+      return (
+        <input
+          type="text"
+          placeholder="# e.g. discussion-meetings"
+          value={this.state.title}
+          onChange={this.update("title")}
+          className="create-channel-title-input"
+        />
+      );
+    }
+  }
 
   parseUsers() {
     if (this.state.users !== "") {
@@ -127,13 +151,7 @@ class CreateChannelForm extends React.Component {
             <label className="channel-create-name">
               Title
               <br />
-              <input
-                type="text"
-                placeholder="# e.g. discussion-meetings"
-                value={this.state.title}
-                onChange={this.update("title")}
-                className="create-channel-title-input"
-              />
+              {this.determineType()}
             </label>
             <br />
             {!this.state.is_private ? null : (
