@@ -25,3 +25,10 @@ export const createChannel = (channel) => (dispatch) => {
     (errors) => dispatch(receiveErrors(errors.responseJSON))
   );
 };
+
+export const getChannelInfo = (channelId) => (dispatch) => {
+  return ChannelAPIUtil.fetchChannel(channelId).then((payload) => {
+    debugger;
+    dispatch(receiveChannelInfo(payload));
+  });
+};
