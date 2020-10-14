@@ -10,7 +10,7 @@
 #  updated_at :datetime         not null
 #
 class Channel < ApplicationRecord
-    validates :title, presence: true
+    validates :title, presence: true, uniqueness: true
     validates :is_private, inclusion: { in: [ true, false ] }
     validates :is_dm, inclusion: { in: [ true, false ] }
 

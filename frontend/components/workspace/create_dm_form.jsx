@@ -10,9 +10,8 @@ class CreateDmForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
       users: "",
-      is_private: false,
+      is_private: true,
       is_dm: true,
       selected: {},
     };
@@ -58,9 +57,8 @@ class CreateDmForm extends React.Component {
       }
       users = users.join(",");
       const channel = {
-        title: this.state.title,
         is_private: false,
-        is_dm: false,
+        is_dm: true,
         user_ids: users,
       };
       this.props.createChannel(channel).then(this.props.closeModal);
@@ -103,89 +101,43 @@ class CreateDmForm extends React.Component {
       <div className="channel-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <div className="channel-modal-header">
-            <h1>
-              {!this.state.is_private
-                ? "Create a Channel"
-                : "Create a Private Channel"}
-            </h1>
+            <h1>Create a Direct Message or Group Chat</h1>
             <br />
             <div onClick={this.props.closeModal} className="close-x">
               &#10005;
             </div>
           </div>
           <p className="create-channel-description">
-            Channels are how you communicate with your team. The name of the
-            channel is one of the first steps to increasing productivity - like
-            #deadlines.
+            Direct messages or group chats help you focus your message even
+            more. They help you directly communicate with your teammates to
+            increase productivity.
           </p>
 
           <div className="channel-form">
             <br />
-            <label className="channel-create-name">
-              Title
-              <br />
-              <input
-                type="text"
-                placeholder="# e.g. discussion-meetings"
-                value={this.state.title}
-                onChange={this.update("title")}
-                className="create-channel-title-input"
-              />
-            </label>
-            <br />
-            {!this.state.is_private ? null : (
-              <div>
-                <label className="channel-create-name">
-                  Users
-                  <br />
-                  <ul>
-                    {Object.values(this.state.selected).map((user) => {
-                      return <li>{user.username}</li>;
-                    })}
-                  </ul>
-                  <input
-                    type="text"
-                    placeholder="e.g. Derek, Hailey, Robert"
-                    value={this.state.users}
-                    onChange={this.update("users")}
-                    className="create-channel-title-input"
-                  />
-                </label>
-                <SearchUsersList
-                  users={this.parseUsers()}
-                  click={this.handleClick}
-                />
-              </div>
-            )}
-            {this.renderErrors()}
-
-            <label className="private">
-              <p>
-                <strong>Make Private</strong>
+            <div>
+              <label className="channel-create-name">
+                Users
                 <br />
-                {!this.state.is_private ? (
-                  <>
-                    When a channel is set to private, it can only be viewed by
-                    users who are in it.
-                  </>
-                ) : (
-                  <>
-                    <strong>This can't be undone.</strong> A private channel
-                    cannot be made public later on.
-                  </>
-                )}
-              </p>
-              <label className="switch">
+                <ul>
+                  {Object.values(this.state.selected).map((user) => {
+                    return <li>{user.username}</li>;
+                  })}
+                </ul>
                 <input
-                  type="checkbox"
-                  id="private"
-                  onClick={() =>
-                    this.setState({ is_private: !this.state.is_private })
-                  }
+                  type="text"
+                  placeholder="e.g. Derek, Hailey, Robert"
+                  value={this.state.users}
+                  onChange={this.update("users")}
+                  className="create-channel-title-input"
                 />
-                <span className="slider round"></span>
               </label>
-            </label>
+              <SearchUsersList
+                users={this.parseUsers()}
+                click={this.handleClick}
+              />
+            </div>
+            {this.renderErrors()}
             <br />
             <input className="channel-create" type="submit" value="Create" />
           </div>
