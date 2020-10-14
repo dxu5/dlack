@@ -66,9 +66,13 @@ class CreateDmForm extends React.Component {
   renderErrors() {
     return (
       <ul className="dm-errors">
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>{error}</li>
-        ))}
+        {this.props.errors.map((error, i) => {
+          if (error === "Title has already been taken") {
+            return <li key={`error-${i}`}>Already have DMs with user(s)</li>;
+          } else {
+            return <li key={`error-${i}`}>{error}</li>;
+          }
+        })}
       </ul>
     );
   }
