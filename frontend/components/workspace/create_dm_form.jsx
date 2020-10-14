@@ -67,7 +67,7 @@ class CreateDmForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul className="channel-errors">
+      <ul className="dm-errors">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>{error}</li>
         ))}
@@ -98,25 +98,25 @@ class CreateDmForm extends React.Component {
 
   render() {
     return (
-      <div className="channel-form-container">
+      <div className="dm-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          <div className="channel-modal-header">
+          <div className="dm-modal-header">
             <h1>Create a Direct Message or Group Chat</h1>
             <br />
             <div onClick={this.props.closeModal} className="close-x">
               &#10005;
             </div>
           </div>
-          <p className="create-channel-description">
+          <p className="create-dm-description">
             Direct messages or group chats help you focus your message even
             more. They help you directly communicate with your teammates to
             increase productivity.
           </p>
 
-          <div className="channel-form">
+          <div className="dm-form">
             <br />
             <div>
-              <label className="channel-create-name">
+              <label className="dm-create-name">
                 Users
                 <br />
                 <ul>
@@ -129,7 +129,7 @@ class CreateDmForm extends React.Component {
                   placeholder="e.g. Derek, Hailey, Robert"
                   value={this.state.users}
                   onChange={this.update("users")}
-                  className="create-channel-title-input"
+                  className="create-dm-title-input"
                 />
               </label>
               <SearchUsersList
@@ -139,7 +139,7 @@ class CreateDmForm extends React.Component {
             </div>
             {this.renderErrors()}
             <br />
-            <input className="channel-create" type="submit" value="Create" />
+            <input className="dm-create" type="submit" value="Create" />
           </div>
         </form>
       </div>
