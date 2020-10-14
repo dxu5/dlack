@@ -6,7 +6,8 @@ class ChatView extends React.Component {
   }
 
   render() {
-    return <h1>chat info</h1>;
+    debugger;
+    return <h1>Chat View</h1>;
   }
 }
 
