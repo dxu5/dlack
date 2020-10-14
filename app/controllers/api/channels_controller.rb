@@ -15,6 +15,8 @@ class Api::ChannelsController < ApplicationController
             @channel.title = users.join(", ")
         end
 
+        @channel.owner_id = current_user.id
+
         if @channel.save
             #this will create the userChannels necessary for this channel and its users
             #if it is not private, will create permissions here for all users?

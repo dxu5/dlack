@@ -8,9 +8,11 @@
 #  is_dm      :boolean          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  owner_id   :integer
 #
 class Channel < ApplicationRecord
     validates :title, presence: true, uniqueness: true
+    validates :owner_id, presence: true
     validates :is_private, inclusion: { in: [ true, false ] }
     validates :is_dm, inclusion: { in: [ true, false ] }
 
