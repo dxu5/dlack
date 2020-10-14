@@ -70,7 +70,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    openCreateModal: () => dispatch(openModal("channel")),
+    openCreateModal: () => dispatch(openModal({ type: "channel" })),
   };
 };
 

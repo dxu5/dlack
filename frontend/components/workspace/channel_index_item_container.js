@@ -14,7 +14,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    openDeleteModal: () => dispatch(openModal("delete")),
+    openDeleteModal: () =>
+      dispatch(openModal({ type: "delete", data: ownProps.channel.id })),
     destroyChannel: () => dispatch(destroyChannel(ownProps.channel.id)),
   };
 };

@@ -29,7 +29,7 @@ class ChannelIndexItem extends React.Component {
         <div
           onClick={this.handleModal}
           // onClick={() => {
-          //   this.props.destroyChannel().then(() => {
+          //   .then(() => {
           //     this.props.history.push("/channels/1");
           //   });
           // }}
@@ -63,7 +63,6 @@ class ChannelIndexItem extends React.Component {
 
             {this.renderDelete()}
           </li>
-          <Modal />
         </Link>
       </div>
     );

@@ -3,12 +3,13 @@ import { closeModal } from "../../actions/modal_actions";
 import { connect } from "react-redux";
 import CreateChannelModalContainer from "./create_channel_modal_container.js";
 import CreateDmModalContainer from "./create_dm_modal_container.js";
+import DeleteChannelModalContainer from "./delete_channel_modal_container.js";
 function Modal({ modal, closeModal }) {
   if (!modal) {
     return null;
   }
   let component;
-  switch (modal) {
+  switch (modal.type) {
     case "channel":
       component = <CreateChannelModalContainer />;
       break;
@@ -16,7 +17,7 @@ function Modal({ modal, closeModal }) {
       component = <CreateDmModalContainer />;
       break;
     case "delete":
-      component = <h1>We are deleting</h1>;
+      component = <DeleteChannelModalContainer />;
       break;
     default:
       return null;
