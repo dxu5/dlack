@@ -1,0 +1,26 @@
+.channel-info-header {
+  height: 64px;
+  width: 85%;
+  border-bottom: 1px solid #d9cec1;
+  padding: 0px, 20px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.location-info {
+  height: 40px;
+  min-width: 386px;
+  position: relative;
+}
+
+.channel-info-title {
+  font-size: 13.5px;
+  margin-left: 11px;
+  margin-top: 1px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: -0.5px;
+}
