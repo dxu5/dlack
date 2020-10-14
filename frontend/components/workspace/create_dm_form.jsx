@@ -147,18 +147,20 @@ class CreateDmForm extends React.Component {
                     );
                   })}
                 </ul>
-                <input
-                  type="text"
-                  placeholder="e.g. Derek, Hailey, Robert"
-                  value={this.state.users}
-                  onChange={this.update("users")}
-                  className="create-dm-title-input"
-                />
+                <div className="dm-input">
+                  <input
+                    type="text"
+                    placeholder="e.g. Derek, Hailey, Robert"
+                    value={this.state.users}
+                    onChange={this.update("users")}
+                    className="create-dm-title-input"
+                  />
+                  <SearchDmUsersList
+                    users={this.parseUsers()}
+                    click={this.handleClick}
+                  />
+                </div>
               </label>
-              <SearchDmUsersList
-                users={this.parseUsers()}
-                click={this.handleClick}
-              />
             </div>
             {this.renderErrors()}
             <br />

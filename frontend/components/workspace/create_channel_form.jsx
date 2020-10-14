@@ -191,18 +191,20 @@ class CreateChannelForm extends React.Component {
                       );
                     })}
                   </ul>
-                  <input
-                    type="text"
-                    placeholder="e.g. Derek, Hailey, Robert"
-                    value={this.state.users}
-                    onChange={this.update("users")}
-                    className="create-channel-users-input"
-                  />
+                  <div className="channel-input">
+                    <input
+                      type="text"
+                      placeholder="e.g. Derek, Hailey, Robert"
+                      value={this.state.users}
+                      onChange={this.update("users")}
+                      className="create-channel-users-input"
+                    />
+                    <SearchUsersList
+                      users={this.parseUsers()}
+                      click={this.handleClick}
+                    />
+                  </div>
                 </label>
-                <SearchUsersList
-                  users={this.parseUsers()}
-                  click={this.handleClick}
-                />
               </div>
             )}
             {this.renderErrors()}
