@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import ChannelIndexItem from "./channel_index_item.jsx";
 import { destroyChannel } from "../../actions/channel_actions.js";
 import { withRouter } from "react-router-dom";
+import { openModal } from "../../actions/modal_actions";
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -13,6 +14,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
+    openDeleteModal: () => dispatch(openModal("delete")),
     destroyChannel: () => dispatch(destroyChannel(ownProps.channel.id)),
   };
 };
