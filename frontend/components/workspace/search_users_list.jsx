@@ -6,21 +6,25 @@ class SearchUsersList extends React.Component {
   }
 
   render() {
-    return (
-      <ul>
-        {this.props.users.map((user) => {
-          return (
-            <li
-              className="search-user"
-              onClick={() => this.props.click(user)}
-              key={user.id}
-            >
-              {user.username}
-            </li>
-          );
-        })}
-      </ul>
-    );
+    if (this.props.users.length > 0) {
+      return (
+        <ul className="users-search-list">
+          {this.props.users.map((user) => {
+            return (
+              <li
+                className="search-user"
+                onClick={() => this.props.click(user)}
+                key={user.id}
+              >
+                {user.username}
+              </li>
+            );
+          })}
+        </ul>
+      );
+    } else {
+      return null;
+    }
   }
 }
 

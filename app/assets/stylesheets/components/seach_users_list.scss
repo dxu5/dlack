@@ -1,0 +1,16 @@
+.users-search-list {
+  max-height: 264px;
+  width: 486px;
+  border: 1px solid #d9cec1;
+  border-radius: 5px;
+  background: #f9f3e7;
+  position: absolute;
+  top: calc(100% - 24px);
+  left: -11px;
+  padding: 12px 0;
+  overflow-y: auto;
+}
+
+.search-user {
+  cursor: pointer;
+}
