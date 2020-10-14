@@ -54,7 +54,7 @@ class CreateDmForm extends React.Component {
       }
       users = users.join(",");
       const channel = {
-        is_private: false,
+        is_private: true,
         is_dm: true,
         user_ids: users,
       };

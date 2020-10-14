@@ -63,7 +63,7 @@ class CreateChannelForm extends React.Component {
       users = users.join(",");
       const channel = {
         title: this.state.title,
-        is_private: false,
+        is_private: true,
         is_dm: false,
         user_ids: users,
       };
