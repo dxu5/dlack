@@ -112,7 +112,8 @@ class CreateChannelForm extends React.Component {
       this.props.totalUsers.forEach((user) => {
         if (
           user.username.startsWith(this.state.users) &&
-          this.props.currentUserId != user.id
+          this.props.currentUserId != user.id &&
+          this.state.selected[user.id] === undefined
         ) {
           searched.push(user);
         }
