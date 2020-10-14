@@ -4,7 +4,7 @@ import debounce from "../../util/general_util";
 import { connect } from "react-redux";
 import { searchUsers } from "../../actions/search_actions.js";
 import { createChannel } from "../../actions/channel_actions.js";
-import SearchUsersList from "./search_users_list.jsx";
+import SearchDmUsersList from "./search_dm_user_list.jsx";
 
 class CreateDmForm extends React.Component {
   constructor(props) {
@@ -154,7 +154,7 @@ class CreateDmForm extends React.Component {
                   className="create-dm-title-input"
                 />
               </label>
-              <SearchUsersList
+              <SearchDmUsersList
                 users={this.parseUsers()}
                 click={this.handleClick}
               />
