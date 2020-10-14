@@ -9,8 +9,11 @@ class ChatView extends React.Component {
   currentChannel() {
     let selectedChannel = null;
     for (const channel in this.props.channels) {
-      if (this.props.match.channelId === channel.id) {
-        selectedChannel = channel;
+      if (
+        Number(this.props.match.params.channelId) ===
+        this.props.channels[channel].id
+      ) {
+        selectedChannel = this.props.channels[channel];
       }
     }
     return selectedChannel;

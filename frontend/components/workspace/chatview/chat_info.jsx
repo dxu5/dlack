@@ -6,6 +6,7 @@ class ChatInfo extends React.Component {
   }
 
   render() {
+    debugger;
     return <div className="channel-info-header">hello</div>;
   }
 }
