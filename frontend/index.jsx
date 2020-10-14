@@ -5,7 +5,6 @@ import { searchUsers } from "./actions/search_actions.js";
 import { getChannelInfo } from "./actions/channel_actions.js";
 import configureStore from "./store/store.js";
 import Root from "./components/root.jsx";
-import debounce from "./util/general_util.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   let root = document.getElementById("root");

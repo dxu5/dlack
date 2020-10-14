@@ -15,7 +15,9 @@ class Channel < ApplicationRecord
     validates :is_dm, inclusion: { in: [ true, false ] }
 
     has_many :messages
-    has_many :user_channels
+
+    has_many :user_channels, dependent: :destroy
+
     has_many :users,
     through: :user_channels,
     source: :user
