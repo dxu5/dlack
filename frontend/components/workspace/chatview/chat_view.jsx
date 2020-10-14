@@ -19,7 +19,16 @@ class ChatView extends React.Component {
     return selectedChannel;
   }
   calculateUsers() {
-    return this.props.userChannels.length;
+    let count = 0;
+    for (let i = 0; i < this.props.userChannels.length; i++) {
+      if (
+        Number(this.props.match.params.channelId) ===
+        this.props.userChannels[i].channel_id
+      ) {
+        count += 1;
+      }
+    }
+    return count;
   }
 
   render() {

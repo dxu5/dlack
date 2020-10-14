@@ -23,4 +23,26 @@
   font-weight: 700;
   line-height: 22px;
   letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+}
+
+.channel-type-icon {
+  margin-right: 0.2em;
+}
+
+.channel-type-icon-2 {
+  margin-right: 0.2em;
+  margin-bottom: 0.21em;
+}
+
+.channel-people {
+  margin-top: 0.2em;
+  font-size: 14px;
+  letter-spacing: 1.4px;
+  margin-left: 11px;
+  display: flex;
+}
+.channel-people-icon {
+  margin-right: 0.2em;
 }
