@@ -187,3 +187,7 @@ input:checked + .slider:before {
   color: #80d2de;
   opacity: 1;
 }
+
+.selected-users-list {
+  display: flex;
+}

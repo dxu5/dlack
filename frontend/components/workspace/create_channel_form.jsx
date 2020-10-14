@@ -175,10 +175,10 @@ class CreateChannelForm extends React.Component {
                 <label className="channel-create-name">
                   Users
                   <br />
-                  <ul>
+                  <ul className="selected-users-list">
                     {Object.values(this.state.selected).map((user) => {
                       return (
-                        <li className="selected-users">
+                        <li className="selected-users" key={user.id}>
                           {user.username}{" "}
                           <div
                             onClick={() => this.handleDelete(user.username)}
