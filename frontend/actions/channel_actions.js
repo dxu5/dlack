@@ -18,6 +18,13 @@ export const receiveChannelInfo = (payload) => {
   };
 };
 
+export const deleteChannel = (channelId) => {
+  return {
+    type: DELETE_CHANNEL,
+    channelId,
+  };
+};
+
 export const createChannel = (channel) => (dispatch) => {
   return ChannelAPIUtil.createChannel(channel).then(
     (channel) => {
@@ -30,5 +37,11 @@ export const createChannel = (channel) => (dispatch) => {
 export const getChannelInfo = (channelId) => (dispatch) => {
   return ChannelAPIUtil.fetchChannel(channelId).then((payload) => {
     dispatch(receiveChannelInfo(payload));
+  });
+};
+
+export const destroyChannel = (channelId) => (dispatch) => {
+  return ChannelAPIUtil.deleteChannel(channelId).then(() => {
+    dispatch(deleteChannel(channelId));
   });
 };
