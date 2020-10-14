@@ -15,6 +15,9 @@ function Modal({ modal, closeModal }) {
     case "dm":
       component = <CreateDmModalContainer />;
       break;
+    case "delete":
+      component = <h1>We are deleting</h1>;
+      break;
     default:
       return null;
   }

@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Modal from "./modal.jsx";
 
 class ChannelIndexItem extends React.Component {
   constructor(props) {
     super(props);
+    this.handleModal = this.handleModal.bind(this);
   }
 
   handleSymbol() {
@@ -14,6 +16,10 @@ class ChannelIndexItem extends React.Component {
     }
   }
 
+  handleModal() {
+    this.props.openDeleteModal();
+  }
+
   renderDelete() {
     if (
       this.props.channel.owner_id === this.props.currentUserId &&
@@ -21,11 +27,12 @@ class ChannelIndexItem extends React.Component {
     ) {
       return (
         <div
-          onClick={() => {
-            this.props.destroyChannel().then(() => {
-              this.props.history.push("/channels/1");
-            });
-          }}
+          onClick={this.handleModal}
+          // onClick={() => {
+          //   this.props.destroyChannel().then(() => {
+          //     this.props.history.push("/channels/1");
+          //   });
+          // }}
           className="delete-channel"
         >
           &#10005;
@@ -56,6 +63,7 @@ class ChannelIndexItem extends React.Component {
 
             {this.renderDelete()}
           </li>
+          <Modal />
         </Link>
       </div>
     );
