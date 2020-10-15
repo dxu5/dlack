@@ -6,9 +6,9 @@ class MessageIndex extends React.Component {
   }
 
   renderMessages() {
-    return Object.values(this.props.messages).map((message) => {
+    return Object.values(this.props.messages).map((message, idx) => {
       let user = this.props.users[message.author_id];
-      return <MessageIndexItem user={user} messaage={message} />;
+      return <MessageIndexItem user={user} message={message} key={idx} />;
     });
   }
 
