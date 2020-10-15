@@ -61,14 +61,19 @@
   position: absolute;
   align-self: flex-end;
   bottom: -46px;
-  height: 20px;
-  width: 24px;
+  height: 36px;
+  width: 38px;
   border-radius: 4px;
   padding: 7px;
   margin: 5px;
   background: #418065;
   color: #f9f3e7;
   cursor: pointer;
+  border: none;
+}
+
+.message-button:focus {
+  outline: 0;
 }
 
 .send-plane {

@@ -5,7 +5,6 @@ class MessageForm extends React.Component {
     super(props);
     this.state = {
       body: "",
-      channel_id: Number(this.props.match.params.channelId),
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -27,6 +26,7 @@ class MessageForm extends React.Component {
       return (
         <input
           type="text"
+          onChange={this.handleChange}
           placeholder={`Message  # ${this.props.currentChannel.title}`}
           value={this.state.body}
           className="message-text"
@@ -40,8 +40,11 @@ class MessageForm extends React.Component {
   }
 
   handleClick(e) {
-    this.props.createMessage(this.state);
-    this.setState({ body: "" });
+    const message = {
+      body: this.state.body,
+      channel_id: this.props.match.params.channelId,
+    };
+    this.props.createMessage(message).then(this.setState({ body: "" }));
   }
 
   render() {
@@ -50,9 +53,9 @@ class MessageForm extends React.Component {
         <form className="message-form">
           <div className="message-input">{this.determineType()}</div>
           {this.state.body !== "" ? (
-            <div className="message-button" onClick={this.handleClick}>
-              <i className="far fa-paper-plane send-plane"></i>
-            </div>
+            <button className="message-button" onClick={this.handleClick}>
+              <i class="far fa-paper-plane send-plane"></i>
+            </button>
           ) : null}
         </form>
         <div className="bottom-message-form"></div>
