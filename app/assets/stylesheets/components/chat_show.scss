@@ -1,4 +1,4 @@
-.show {
+.show-messages {
   height: 100%;
   width: 177%;
   padding-bottom: 28px;
@@ -17,4 +17,15 @@
   width: 100%;
   bottom: 0;
   margin-right: 5px;
+}
+
+.message-list-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow: hidden;
+  scroll-snap-align: start;
 }
