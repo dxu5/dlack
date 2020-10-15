@@ -10,9 +10,7 @@ class ChatShow extends React.Component {
     return (
       <div className="show-messages">
         <div className="chat-container">
-          <div className="message-list-container">
-            <MessageIndexContainer />
-          </div>
+          <MessageIndexContainer />
         </div>
       </div>
     );
