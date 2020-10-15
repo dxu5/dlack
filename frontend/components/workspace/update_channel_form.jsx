@@ -56,7 +56,9 @@ class UpdateChannelForm extends React.Component {
         is_private: false,
         is_dm: false,
       };
-      this.props.updateChannel(channel).then(this.props.closeModal);
+      this.props.updateChannel(channel).then(() => {
+        this.props.closeModal;
+      });
     } else {
       let users = Object.keys(this.state.selected);
       if (!users.includes(this.props.currentUserId)) {
@@ -64,6 +66,7 @@ class UpdateChannelForm extends React.Component {
       }
       users = users.join(",");
       const channel = {
+        id: this.props.currentChannelId,
         title: this.state.title,
         is_private: true,
         is_dm: false,
