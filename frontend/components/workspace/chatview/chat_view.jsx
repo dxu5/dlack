@@ -36,6 +36,7 @@ class ChatView extends React.Component {
       <ChatInfo
         currentChannel={this.currentChannel()}
         numUsers={this.calculateUsers()}
+        currentUserId={this.props.currentUser.id}
       />
     );
   }
