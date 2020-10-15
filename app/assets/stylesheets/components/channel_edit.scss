@@ -1,0 +1,21 @@
+.channel-edit {
+  margin-top: 2em;
+  position: absolute;
+  right: 28px;
+  bottom: 15px;
+  font-size: 14px;
+  height: 36px;
+  width: 80px;
+  padding: 1px 13px 0;
+  text-align: center;
+  color: #363634;
+  border-radius: 4px;
+  border: none;
+  background: #49c39e;
+  font-family: "Poppins";
+  cursor: pointer;
+}
+
+.channel-edit:hover {
+  background: #80d2de;
+}

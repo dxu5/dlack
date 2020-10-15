@@ -208,7 +208,7 @@ class UpdateChannelForm extends React.Component {
             )}
             {this.renderErrors()}
             <br />
-            <input className="channel-create" type="submit" value="Edit" />
+            <input className="channel-edit" type="submit" value="Edit" />
           </div>
         </form>
       </div>
