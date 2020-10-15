@@ -52,3 +52,17 @@
 .user-chat {
   width: 47%;
 }
+
+.user-profile {
+  min-width: 42px;
+  min-height: 42px;
+  width: 42px;
+  height: 42px;
+  border-radius: 4px;
+  margin-right: 0.5em;
+}
+
+.message-username {
+  display: block;
+  font-weight: 600;
+}

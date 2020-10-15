@@ -8,8 +8,11 @@ class MessageIndexItem extends React.Component {
   render() {
     return (
       <li className="user-message">
-        <img src={window.images.user} />
-        <div>{this.props.message.body}</div>
+        <img className="user-profile" src={window.images.user} />
+        <div className="message-details">
+          <h2 className="message-username">{this.props.user.username}</h2>
+          <p>{this.props.message.body}</p>
+        </div>
       </li>
     );
   }
