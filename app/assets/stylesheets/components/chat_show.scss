@@ -1,0 +1,20 @@
+.show {
+  height: 100%;
+  width: 177%;
+  padding-bottom: 28px;
+  background-color: #f9f3e7;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.chat-container {
+  flex: 1 1 auto;
+  max-height: 78.25vh;
+  min-height: 21.18vh;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  margin-right: 5px;
+}

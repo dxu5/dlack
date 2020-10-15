@@ -6,7 +6,11 @@ class ChatShow extends React.Component {
   }
 
   render() {
-    return <div>Chat Show is here</div>;
+    return (
+      <div className="show">
+        <div className="chat-container">Chat Show</div>
+      </div>
+    );
   }
 }
 
