@@ -10,7 +10,7 @@ json.users do
             json.extract! user, :id, :username
         end
     end
-    @channel.messages.each do |message|
+    @channel.messages.includes(:author).each do |message|
         json.set! message.author.id do
             json.extract! message.author, :id, :username
         end
@@ -28,7 +28,7 @@ end
 json.messages do 
     @channel.messages.each do |message|
         json.set! message.id do
-            json.extract! message, :body, :author_id, :channel_id
+            json.extract! message, :id, :body, :author_id, :channel_id
         end
     end
 end
