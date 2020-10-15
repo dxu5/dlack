@@ -9,6 +9,7 @@ const mapStateToProps = ({ errors, entities, session, ui }) => {
     totalUsers: Object.values(entities.users),
     errors: errors.session,
     currentChannel: entities.channels[ui.modal.data],
+    currentChannelId: ui.modal.data,
   };
 };
 

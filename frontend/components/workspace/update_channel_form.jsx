@@ -19,7 +19,7 @@ class UpdateChannelForm extends React.Component {
     this.debounced = debounce(function () {
       this.props.searchUsers(this.state.users);
     }, 1000);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
@@ -47,30 +47,31 @@ class UpdateChannelForm extends React.Component {
     };
   }
 
-  //   handleSubmit(e) {
-  //     e.preventDefault();
-  //     if (!this.state.is_private) {
-  //       const channel = {
-  //         title: this.state.title,
-  //         is_private: false,
-  //         is_dm: false,
-  //       };
-  //       this.props.createChannel(channel).then(this.props.closeModal);
-  //     } else {
-  //       let users = Object.keys(this.state.selected);
-  //       if (!users.includes(this.props.currentUserId)) {
-  //         users.push(this.props.currentUserId);
-  //       }
-  //       users = users.join(",");
-  //       const channel = {
-  //         title: this.state.title,
-  //         is_private: true,
-  //         is_dm: false,
-  //         user_ids: users,
-  //       };
-  //       this.props.createChannel(channel).then(this.props.closeModal);
-  //     }
-  //   }
+  handleSubmit(e) {
+    e.preventDefault();
+    if (!this.state.is_private) {
+      const channel = {
+        id: this.props.currentChannelId,
+        title: this.state.title,
+        is_private: false,
+        is_dm: false,
+      };
+      this.props.updateChannel(channel).then(this.props.closeModal);
+    } else {
+      let users = Object.keys(this.state.selected);
+      if (!users.includes(this.props.currentUserId)) {
+        users.push(this.props.currentUserId);
+      }
+      users = users.join(",");
+      const channel = {
+        title: this.state.title,
+        is_private: true,
+        is_dm: false,
+        user_ids: users,
+      };
+      this.props.createChannel(channel).then(this.props.closeModal);
+    }
+  }
 
   renderErrors() {
     return (
@@ -145,8 +146,7 @@ class UpdateChannelForm extends React.Component {
   render() {
     return (
       <div className="channel-form-container">
-        {/* onSubmit={this.handleSubmit} */}
-        <form className="login-form-box">
+        <form onSubmit={this.handleSubmit} className="login-form-box">
           <div className="channel-modal-header">
             <h1>Edit Your Channel</h1>
             <br />
@@ -206,7 +206,7 @@ class UpdateChannelForm extends React.Component {
             )}
             {this.renderErrors()}
             <br />
-            <input className="channel-create" type="submit" value="Create" />
+            <input className="channel-create" type="submit" value="Edit" />
           </div>
         </form>
       </div>
@@ -220,7 +220,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createChannel: (channel) => dispatch(updateChannel(channel)),
+    updateChannel: (channel) => dispatch(updateChannel(channel)),
     searchUsers: (search) => dispatch(searchUsers(search)),
   };
 };
