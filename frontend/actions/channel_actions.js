@@ -37,7 +37,7 @@ export const createChannel = (channel) => (dispatch) => {
 export const updateChannel = (channel) => (dispatch) => {
   return ChannelAPIUtil.updateChannel(channel).then(
     (channel) => {
-      dispatch(receiveChannel(channel));
+      dispatch(receiveChannelInfo(channel));
     },
     (errors) => {
       dispatch(receiveErrors(errors.responseJSON));

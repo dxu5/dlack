@@ -5,10 +5,7 @@ const userChannelsReducer = (state = {}, action) => {
   let newState = Object.assign({}, state);
   switch (action.type) {
     case RECEIVE_CHANNEL_INFO:
-      Object.values(action.payload.userChannels).forEach((userChannel) => {
-        newState[userChannel.id] = userChannel;
-      });
-      return newState;
+      return action.payload.userChannels;
     default:
       return state;
   }
