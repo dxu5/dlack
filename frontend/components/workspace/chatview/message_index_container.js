@@ -24,7 +24,7 @@ const findUsers = (messages, currentChannel, users) => {
       channelUsers[user.id] = user;
     }
   }
-  return user;
+  return channelUsers;
 };
 
 const findMessages = (messages, currentChannel) => {

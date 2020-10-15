@@ -1,4 +1,5 @@
 import React from "react";
+import MessageIndexContainer from "./message_index_container.js";
 
 class ChatShow extends React.Component {
   constructor(props) {
@@ -9,7 +10,9 @@ class ChatShow extends React.Component {
     return (
       <div className="show-messages">
         <div className="chat-container">
-          <div className="message-list-container">Chat View</div>
+          <div className="message-list-container">
+            <MessageIndexContainer />
+          </div>
         </div>
       </div>
     );
