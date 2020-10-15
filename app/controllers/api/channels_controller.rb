@@ -44,19 +44,22 @@ class Api::ChannelsController < ApplicationController
             possibleUsers = params["channel"]["user_ids"].split(",").map {|num| num.to_i}
         end
         if @channel.update(channel_params)   
-            @userChannels.each do |user_channel|
-                if possibleUsers.include?(user_channel.user_id) == false
-                    user_channel.destroy
+            if params["channel"]["user_ids"]
+                @userChannels.each do |user_channel|
+                    if possibleUsers.include?(user_channel.user_id) == false
+                        user_channel.destroy
+                    end
                 end
-            end
-            userids = []
-            @userChannels.each do |user_channel|
-                userids.push(user_channel.user_id)
-            end
-            possibleUsers.each do |user_id|
-                if userids.include?(user_id) == false
-                    UserChannel.create(user_id: userId, channel_id: @channel.id)
+                userids = []
+                @userChannels.each do |user_channel|
+                    userids.push(user_channel.user_id)
                 end
+                possibleUsers.each do |user_id|
+                    if !userids.include?(user_id)
+                        UserChannel.create(user_id: user_id, channel_id: @channel.id)
+                    end
+                end
+                @channel = Channel.find_by(id: params[:id])
             end
             render :show
         else
