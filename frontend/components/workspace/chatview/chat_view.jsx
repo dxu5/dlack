@@ -1,5 +1,6 @@
 import React from "react";
 import ChatInfo from "./chat_info.jsx";
+import ChatShow from "./chat_show.jsx";
 
 class ChatView extends React.Component {
   constructor(props) {
@@ -36,11 +37,14 @@ class ChatView extends React.Component {
       return null;
     } else {
       return (
-        <ChatInfo
-          currentChannel={this.currentChannel()}
-          numUsers={this.calculateUsers()}
-          currentUserId={this.props.currentUser.id}
-        />
+        <div>
+          <ChatInfo
+            currentChannel={this.currentChannel()}
+            numUsers={this.calculateUsers()}
+            currentUserId={this.props.currentUser.id}
+          />
+          <ChatShow />
+        </div>
       );
     }
   }
