@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import debounce from "../../util/general_util";
 import { connect } from "react-redux";
 import { searchUsers } from "../../actions/search_actions.js";
-import { createChannel } from "../../actions/channel_actions.js";
+import { updateChannel } from "../../actions/channel_actions.js";
 import SearchUsersList from "./search_users_list.jsx";
 
 class UpdateChannelForm extends React.Component {
@@ -12,14 +12,14 @@ class UpdateChannelForm extends React.Component {
     this.state = {
       title: this.props.currentChannel.title,
       users: "",
-      is_private: false,
+      is_private: this.props.currentChannel.is_private,
       is_dm: false,
       selected: {},
     };
     this.debounced = debounce(function () {
       this.props.searchUsers(this.state.users);
     }, 1000);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
@@ -47,30 +47,30 @@ class UpdateChannelForm extends React.Component {
     };
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    if (!this.state.is_private) {
-      const channel = {
-        title: this.state.title,
-        is_private: false,
-        is_dm: false,
-      };
-      this.props.createChannel(channel).then(this.props.closeModal);
-    } else {
-      let users = Object.keys(this.state.selected);
-      if (!users.includes(this.props.currentUserId)) {
-        users.push(this.props.currentUserId);
-      }
-      users = users.join(",");
-      const channel = {
-        title: this.state.title,
-        is_private: true,
-        is_dm: false,
-        user_ids: users,
-      };
-      this.props.createChannel(channel).then(this.props.closeModal);
-    }
-  }
+  //   handleSubmit(e) {
+  //     e.preventDefault();
+  //     if (!this.state.is_private) {
+  //       const channel = {
+  //         title: this.state.title,
+  //         is_private: false,
+  //         is_dm: false,
+  //       };
+  //       this.props.createChannel(channel).then(this.props.closeModal);
+  //     } else {
+  //       let users = Object.keys(this.state.selected);
+  //       if (!users.includes(this.props.currentUserId)) {
+  //         users.push(this.props.currentUserId);
+  //       }
+  //       users = users.join(",");
+  //       const channel = {
+  //         title: this.state.title,
+  //         is_private: true,
+  //         is_dm: false,
+  //         user_ids: users,
+  //       };
+  //       this.props.createChannel(channel).then(this.props.closeModal);
+  //     }
+  //   }
 
   renderErrors() {
     return (
@@ -145,7 +145,8 @@ class UpdateChannelForm extends React.Component {
   render() {
     return (
       <div className="channel-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
+        {/* onSubmit={this.handleSubmit} */}
+        <form className="login-form-box">
           <div className="channel-modal-header">
             <h1>Edit Your Channel</h1>
             <br />
@@ -154,9 +155,9 @@ class UpdateChannelForm extends React.Component {
             </div>
           </div>
           <p className="create-channel-description">
-            Channels are how you communicate with your team. The name of the
-            channel is one of the first steps to increasing productivity - like
-            #deadlines.
+            As the owner of the channel, you can take charge of the team. Rename
+            the channel or move around some people in order to keep your team
+            productive.
           </p>
 
           <div className="channel-form">
@@ -204,34 +205,6 @@ class UpdateChannelForm extends React.Component {
               </div>
             )}
             {this.renderErrors()}
-
-            <label className="private">
-              <p>
-                <strong>Make Private</strong>
-                <br />
-                {!this.state.is_private ? (
-                  <>
-                    When a channel is set to private, it can only be viewed by
-                    users who are in it.
-                  </>
-                ) : (
-                  <>
-                    <strong>This can't be undone.</strong> A private channel
-                    cannot be made public later on.
-                  </>
-                )}
-              </p>
-              <label className="switch">
-                <input
-                  type="checkbox"
-                  id="private"
-                  onClick={() =>
-                    this.setState({ is_private: !this.state.is_private })
-                  }
-                />
-                <span className="slider round"></span>
-              </label>
-            </label>
             <br />
             <input className="channel-create" type="submit" value="Create" />
           </div>
@@ -247,7 +220,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createChannel: (channel) => dispatch(createChannel(channel)),
+    createChannel: (channel) => dispatch(updateChannel(channel)),
     searchUsers: (search) => dispatch(searchUsers(search)),
   };
 };
