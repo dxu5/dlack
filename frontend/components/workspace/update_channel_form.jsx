@@ -14,8 +14,9 @@ class UpdateChannelForm extends React.Component {
       users: "",
       is_private: this.props.currentChannel.is_private,
       is_dm: false,
-      selected: {},
+      selected: this.props.currentUsers,
     };
+
     this.debounced = debounce(function () {
       this.props.searchUsers(this.state.users);
     }, 1000);
@@ -56,9 +57,7 @@ class UpdateChannelForm extends React.Component {
         is_private: false,
         is_dm: false,
       };
-      this.props.updateChannel(channel).then(() => {
-        this.props.closeModal;
-      });
+      this.props.updateChannel(channel).then(this.props.closeModal);
     } else {
       let users = Object.keys(this.state.selected);
       if (!users.includes(this.props.currentUserId)) {
