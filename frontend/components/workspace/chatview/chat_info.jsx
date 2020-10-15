@@ -1,8 +1,12 @@
 import React from "react";
+import { openModal } from "../../../actions/modal_actions";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 class ChatInfo extends React.Component {
   constructor(props) {
     super(props);
+    this.handleModal = this.handleModal.bind(this);
   }
 
   handleTitleType() {
@@ -18,6 +22,10 @@ class ChatInfo extends React.Component {
     }
   }
 
+  handleModal() {
+    this.props.openUpdateModal();
+  }
+
   renderButton() {
     if (
       this.props.currentChannel &&
@@ -26,7 +34,7 @@ class ChatInfo extends React.Component {
       this.props.currentChannel.title !== "General"
     ) {
       return (
-        <div className="edit-channel-button">
+        <div onClick={this.handleModal} className="edit-channel-button">
           <i className="fas fa-edit"></i>
           <span>Edit Channel</span>
         </div>
@@ -57,4 +65,24 @@ class ChatInfo extends React.Component {
   }
 }
 
-export default ChatInfo;
+const mapStateToProps = (state) => {
+  return {
+    modal: state.ui.modal,
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    openUpdateModal: () =>
+      dispatch(
+        openModal({
+          type: "update",
+          currentChannelId: ownProps.match.params.channelId,
+        })
+      ),
+  };
+};
+
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(ChatInfo)
+);

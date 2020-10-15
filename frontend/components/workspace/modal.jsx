@@ -19,6 +19,9 @@ function Modal({ modal, closeModal }) {
     case "delete":
       component = <DeleteChannelModalContainer />;
       break;
+    case "update":
+      component = <h1>Hello Edit</h1>;
+      break;
     default:
       return null;
   }
