@@ -41,11 +41,13 @@ class ChatInfo extends React.Component {
             {this.props.currentChannel.title}
           </h2>
         </div>
-        <div className="channel-people">
-          <i className="far fa-user channel-people-icon"></i>
-          <div className="channel-members">{this.props.numUsers} Members</div>
+        <div className="right-channel-header">
+          <div className="channel-people">
+            <i className="far fa-user channel-people-icon"></i>
+            <div className="channel-members">{this.props.numUsers} Members</div>
+          </div>
+          {this.renderButton()}
         </div>
-        {this.renderButton()}
       </div>
     );
   }
