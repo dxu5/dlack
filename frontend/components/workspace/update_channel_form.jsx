@@ -71,7 +71,7 @@ class UpdateChannelForm extends React.Component {
         is_dm: false,
         user_ids: users,
       };
-      this.props.createChannel(channel).then(this.props.closeModal);
+      this.props.updateChannel(channel).then(this.props.closeModal);
     }
   }
 

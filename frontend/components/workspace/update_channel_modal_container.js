@@ -30,7 +30,6 @@ const getUsers = (userChannels, currentChannelId, users, currentUserId) => {
         users[userChannels[userChannel].user_id];
     }
   }
-  debugger;
   return final;
 };
 
