@@ -77,7 +77,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(
         openModal({
           type: "update",
-          currentChannelId: ownProps.match.params.channelId,
+          data: ownProps.match.params.channelId,
         })
       ),
   };

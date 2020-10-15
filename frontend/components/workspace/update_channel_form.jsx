@@ -10,7 +10,7 @@ class UpdateChannelForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
+      title: this.props.currentChannel.title,
       users: "",
       is_private: false,
       is_dm: false,
@@ -147,11 +147,7 @@ class UpdateChannelForm extends React.Component {
       <div className="channel-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
           <div className="channel-modal-header">
-            <h1>
-              {!this.state.is_private
-                ? "Create a Channel"
-                : "Create a Private Channel"}
-            </h1>
+            <h1>Edit Your Channel</h1>
             <br />
             <div onClick={this.props.closeModal} className="close-x">
               &#10005;
