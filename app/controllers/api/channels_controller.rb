@@ -37,6 +37,14 @@ class Api::ChannelsController < ApplicationController
         end
     end
 
+    def update
+        @channel = Channel.find_by(id: params[:id])
+        @userChannels = @channel.user_channels
+        if params["channel"]["user_ids"]
+            possibleUsers = params["channel"]["user_ids"].split(",").map {|num| num.to_i}
+        end
+    end
+
     def show
         @channel = Channel.find_by(id: params[:id])
         if @channel
