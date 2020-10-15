@@ -5,6 +5,7 @@ import { searchUsers } from "./actions/search_actions.js";
 import { getChannelInfo } from "./actions/channel_actions.js";
 import configureStore from "./store/store.js";
 import Root from "./components/root.jsx";
+import { createMessage } from "./actions/message_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
   let root = document.getElementById("root");
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.login = login;
   window.logout = logout;
   window.signup = signup;
+  window.createMessage = createMessage;
   window.searchUsers = searchUsers;
   ReactDOM.render(<Root store={store} />, root);
 });

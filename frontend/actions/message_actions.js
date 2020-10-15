@@ -9,7 +9,7 @@ export const receiveMessage = (message) => {
   };
 };
 
-export const createMessage = (message) => {
+export const createMessage = (message) => (dispatch) => {
   return MessageAPIUtil.createMessage(message).then((message) => {
     dispatch(receiveMessage(message));
   });

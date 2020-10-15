@@ -26,7 +26,8 @@
   flex-direction: column-reverse;
   align-items: flex-start;
   justify-content: flex-start;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
   scroll-snap-align: start;
   list-style: none;
 }
