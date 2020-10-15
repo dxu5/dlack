@@ -6,9 +6,12 @@ class ChatInfo extends React.Component {
   }
 
   handleTitleType() {
-    if (this.props.currentChannel.is_dm) {
+    if (this.props.currentChannel && this.props.currentChannel.is_dm) {
       return <i className="fas fa-user-friends channel-type-icon-2"></i>;
-    } else if (this.props.currentChannel.is_private) {
+    } else if (
+      this.props.currentChannel &&
+      this.props.currentChannel.is_private
+    ) {
       return <i className="fas fa-lock channel-type-icon-2"></i>;
     } else {
       return <div className="channel-type-icon">#</div>;
@@ -17,6 +20,7 @@ class ChatInfo extends React.Component {
 
   renderButton() {
     if (
+      this.props.currentChannel &&
       this.props.currentUserId === this.props.currentChannel.owner_id &&
       !this.props.currentChannel.is_dm &&
       this.props.currentChannel.title !== "General"

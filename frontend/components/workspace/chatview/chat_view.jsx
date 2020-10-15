@@ -32,13 +32,17 @@ class ChatView extends React.Component {
   }
 
   render() {
-    return (
-      <ChatInfo
-        currentChannel={this.currentChannel()}
-        numUsers={this.calculateUsers()}
-        currentUserId={this.props.currentUser.id}
-      />
-    );
+    if (this.currentChannel() === null) {
+      return null;
+    } else {
+      return (
+        <ChatInfo
+          currentChannel={this.currentChannel()}
+          numUsers={this.calculateUsers()}
+          currentUserId={this.props.currentUser.id}
+        />
+      );
+    }
   }
 }
 
