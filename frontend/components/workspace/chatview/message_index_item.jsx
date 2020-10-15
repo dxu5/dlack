@@ -6,7 +6,12 @@ class MessageIndexItem extends React.Component {
   }
 
   render() {
-    return <li className="user-message">{this.props.message.body}</li>;
+    return (
+      <li className="user-message">
+        <img src={window.images.user} />
+        <div>{this.props.message.body}</div>
+      </li>
+    );
   }
 }
 
