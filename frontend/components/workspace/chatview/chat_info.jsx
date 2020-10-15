@@ -22,10 +22,10 @@ class ChatInfo extends React.Component {
             {this.handleTitleType()}
             {this.props.currentChannel.title}
           </h2>
-          <div className="channel-people">
-            <i class="far fa-user channel-people-icon"></i>
-            <div>{this.props.numUsers}</div>
-          </div>
+        </div>
+        <div className="channel-people">
+          <i className="far fa-user channel-people-icon"></i>
+          <div className="channel-members">{this.props.numUsers} Members</div>
         </div>
       </div>
     );

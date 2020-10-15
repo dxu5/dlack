@@ -17,9 +17,9 @@
 }
 
 .channel-info-title {
-  font-size: 13.5px;
+  font-size: 16.5px;
   margin-left: 11px;
-  margin-top: 1px;
+  margin-top: 0.6em;
   font-weight: 700;
   line-height: 22px;
   letter-spacing: -0.5px;
@@ -37,12 +37,15 @@
 }
 
 .channel-people {
-  margin-top: 0.2em;
-  font-size: 14px;
+  margin-top: 0.4em;
+  font-size: 16.5px;
   letter-spacing: 1.4px;
   margin-left: 11px;
   display: flex;
+  align-items: center;
+  margin-right: 2em;
 }
 .channel-people-icon {
   margin-right: 0.2em;
+  padding-bottom: 0.25em;
 }
