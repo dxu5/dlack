@@ -43,6 +43,25 @@ class Api::ChannelsController < ApplicationController
         if params["channel"]["user_ids"]
             possibleUsers = params["channel"]["user_ids"].split(",").map {|num| num.to_i}
         end
+        if @channel.update(channel_params)   
+            @userChannels.each do |user_channel|
+                if possibleUsers.include?(user_channel.user_id) == false
+                    user_channel.destroy
+                end
+            end
+            userids = []
+            @userChannels.each do |user_channel|
+                userids.push(user_channel.user_id)
+            end
+            possibleUsers.each do |user_id|
+                if userids.include?(user_id) == false
+                    UserChannel.create(user_id: userId, channel_id: @channel.id)
+                end
+            end
+            render :show
+        else
+            render json: @channel.errors.full_messages, status: 422
+        end
     end
 
     def show
