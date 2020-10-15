@@ -1,6 +1,6 @@
 import React from "react";
 import MessageIndexContainer from "./message_index_container.js";
-
+import MessageFormContainer from "./message_form_container.js";
 class ChatShow extends React.Component {
   constructor(props) {
     super(props);
