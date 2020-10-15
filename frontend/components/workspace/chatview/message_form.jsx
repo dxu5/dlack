@@ -49,9 +49,11 @@ class MessageForm extends React.Component {
       <div className="channel-message-form">
         <form className="message-form">
           <div className="message-input">{this.determineType()}</div>
-          <div className="message-button" onClick={this.handleClick}>
-            <i className="far fa-paper-plane send-plane"></i>
-          </div>
+          {this.state.body !== "" ? (
+            <div className="message-button" onClick={this.handleClick}>
+              <i className="far fa-paper-plane send-plane"></i>
+            </div>
+          ) : null}
         </form>
         <div className="bottom-message-form"></div>
       </div>
