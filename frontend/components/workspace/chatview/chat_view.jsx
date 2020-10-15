@@ -37,7 +37,7 @@ class ChatView extends React.Component {
       return null;
     } else {
       return (
-        <div>
+        <div className="user-chat">
           <ChatInfo
             currentChannel={this.currentChannel()}
             numUsers={this.calculateUsers()}
