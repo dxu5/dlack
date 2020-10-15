@@ -61,15 +61,16 @@
   position: absolute;
   align-self: flex-end;
   bottom: -46px;
-  height: 32px;
-  width: 32px;
+  height: 20px;
+  width: 24px;
   border-radius: 4px;
   padding: 7px;
   margin: 5px;
   background: #418065;
   color: #f9f3e7;
+  cursor: pointer;
 }
 
 .send-plane {
-  font-size: 16px;
+  font-size: 22px;
 }
