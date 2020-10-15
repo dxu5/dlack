@@ -11,7 +11,7 @@
 }
 
 .message-form {
-  padding: 9px 0px 1px;
+  padding: 1px 0px 1px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -47,11 +47,29 @@
 .bottom-message-form {
   border-radius: 0px 0px 4px 4px;
   border-top: 1px solid #d9cec1;
-  height: 31px;
+  height: 38px;
   margin-top: 4px;
   width: 100%;
   display: block;
   position: relative;
   bottom: 1px;
   background: #ede3d5;
+}
+
+.message-button {
+  z-index: 1;
+  position: absolute;
+  align-self: flex-end;
+  bottom: -46px;
+  height: 32px;
+  width: 32px;
+  border-radius: 4px;
+  padding: 7px;
+  margin: 5px;
+  background: #418065;
+  color: #f9f3e7;
+}
+
+.send-plane {
+  font-size: 16px;
 }

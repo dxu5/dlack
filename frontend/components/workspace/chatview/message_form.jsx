@@ -7,12 +7,15 @@ class MessageForm extends React.Component {
       body: "",
       channel_id: Number(this.props.match.params.channelId),
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   determineType() {
     if (this.props.currentChannel.is_private) {
       return (
         <input
+          onChange={this.handleChange}
           type="text"
           placeholder={`Message 🔒 ${this.props.currentChannel.title}`}
           style={{ fontFamily: "Poppins, FontAwesome" }}
@@ -32,11 +35,23 @@ class MessageForm extends React.Component {
     }
   }
 
+  handleChange(e) {
+    this.setState({ body: e.currentTarget.value });
+  }
+
+  handleClick(e) {
+    this.props.createMessage(this.state);
+    this.setState({ body: "" });
+  }
+
   render() {
     return (
       <div className="channel-message-form">
         <form className="message-form">
           <div className="message-input">{this.determineType()}</div>
+          <div className="message-button" onClick={this.handleClick}>
+            <i className="far fa-paper-plane send-plane"></i>
+          </div>
         </form>
         <div className="bottom-message-form"></div>
       </div>
