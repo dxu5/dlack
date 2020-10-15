@@ -38,6 +38,7 @@ class MessageForm extends React.Component {
         <form className="message-form">
           <div className="message-input">{this.determineType()}</div>
         </form>
+        <div className="bottom-message-form"></div>
       </div>
     );
   }

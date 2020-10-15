@@ -43,3 +43,15 @@
   border: none;
   font-family: "Poppins";
 }
+
+.bottom-message-form {
+  border-radius: 0px 0px 4px 4px;
+  border-top: 1px solid #d9cec1;
+  height: 31px;
+  margin-top: 4px;
+  width: 100%;
+  display: block;
+  position: relative;
+  bottom: 1px;
+  background: #ede3d5;
+}
