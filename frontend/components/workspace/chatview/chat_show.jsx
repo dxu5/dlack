@@ -11,6 +11,7 @@ class ChatShow extends React.Component {
       <div className="show-messages">
         <div className="chat-container">
           <MessageIndexContainer />
+          <MessageFormContainer />
         </div>
       </div>
     );
