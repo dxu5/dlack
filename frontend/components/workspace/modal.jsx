@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import CreateChannelModalContainer from "./create_channel_modal_container.js";
 import CreateDmModalContainer from "./create_dm_modal_container.js";
 import DeleteChannelModalContainer from "./delete_channel_modal_container.js";
+import UpdateChannelModalContainer from "./update_channel_modal_container.js";
 function Modal({ modal, closeModal }) {
   if (!modal) {
     return null;
@@ -20,7 +21,7 @@ function Modal({ modal, closeModal }) {
       component = <DeleteChannelModalContainer />;
       break;
     case "update":
-      component = <h1>Hello Edit</h1>;
+      component = <UpdateChannelModalContainer />;
       break;
     default:
       return null;
