@@ -13,7 +13,6 @@ class Listener extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    //CHECK WITH RYAN IF THIS IS OK??????? VERY IMPORTANT
     if (
       this.props.currentUser &&
       this.props.currentUser !== prevProps.currentUser
@@ -45,7 +44,6 @@ class Listener extends React.Component {
         this.createSockets(final);
       }
     }
-    //if no currentUser unsub sockets
   }
 
   componentWillUnmount() {
