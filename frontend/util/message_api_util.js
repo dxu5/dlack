@@ -14,3 +14,13 @@ export const deleteMessage = (messageId) => {
     url: `/api/messages/${messageId}`,
   });
 };
+
+export const updateMessage = (message) => {
+  return $.ajax({
+    method: "PATCH",
+    url: `/api/messages/${message.id}`,
+    data: {
+      message,
+    },
+  });
+};
