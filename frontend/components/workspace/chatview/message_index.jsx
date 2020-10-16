@@ -6,12 +6,34 @@ class MessageIndex extends React.Component {
   }
 
   renderMessages() {
+    let lastMessage = null;
     return Object.values(this.props.messages)
-      .reverse()
       .map((message, idx) => {
-        let user = this.props.users[message.author_id];
-        return <MessageIndexItem user={user} message={message} key={idx} />;
-      });
+        if (lastMessage && lastMessage.author_id === message.author_id) {
+          let user = this.props.users[message.author_id];
+          lastMessage = message;
+          return (
+            <MessageIndexItem
+              user={user}
+              message={message}
+              key={idx}
+              same={true}
+            />
+          );
+        } else {
+          let user = this.props.users[message.author_id];
+          lastMessage = message;
+          return (
+            <MessageIndexItem
+              user={user}
+              message={message}
+              key={idx}
+              same={false}
+            />
+          );
+        }
+      })
+      .reverse();
   }
 
   render() {
