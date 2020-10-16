@@ -13,7 +13,7 @@ class Listener extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    //CHECK WITH RYAN IF THIS IS OK???????
+    //CHECK WITH RYAN IF THIS IS OK??????? VERY IMPORTANT
     if (
       this.props.currentUser &&
       this.props.currentUser !== prevProps.currentUser
@@ -23,15 +23,18 @@ class Listener extends React.Component {
       this.chats &&
       prevProps.channelIds.length !== this.props.channelIds.length
     ) {
-      for (let i = 0; i < this.chats.length; i++) {
-        let channel = JSON.parse(this.chats[i].identifier);
+      let oldChannelIds = [];
+      let j = 0;
+      while (j < this.chats.length) {
+        let channel = JSON.parse(this.chats[j].identifier);
+        oldChannelIds.push(channel.channel_id);
         if (!this.props.channelIds.includes(channel.channel_id)) {
-          this.chats[i].unsubscribe();
+          this.chats[j].unsubscribe();
+          this.chats.splice(j, 1);
+        } else {
+          j += 1;
         }
       }
-      let oldChannelIds = this.chats.map((chat) => {
-        return JSON.parse(chat.identifier).channelId;
-      });
       let final = [];
       for (let i = 0; i < this.props.channelIds.length; i++) {
         if (!oldChannelIds.includes(this.props.channelIds[i])) {
@@ -42,6 +45,7 @@ class Listener extends React.Component {
         this.createSockets(final);
       }
     }
+    //if no currentUser unsub sockets
   }
 
   componentWillUnmount() {
