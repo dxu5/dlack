@@ -21,6 +21,13 @@ class Api::MessagesController < ApplicationController
             render json: @message.errors.full_messages, status: 422
         end
     end
+
+    def destroy
+        @message = Message.find_by(id: params[:id])
+        @message.destroy
+        render json: ["destroyed"]
+    end
+
     private
     def message_params
         params.require(:message).permit(:body, :author_id, :channel_id)
