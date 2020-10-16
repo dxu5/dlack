@@ -6,7 +6,6 @@ class MessageIndexItem extends React.Component {
   }
 
   render() {
-    debugger;
     if (this.props.same === false) {
       return (
         <li className="user-message">
@@ -26,6 +25,7 @@ class MessageIndexItem extends React.Component {
           <div className="repeat-message-details">
             <p>{this.props.message.body}</p>
           </div>
+          <aside className="repeat-date">{this.props.message.updated_at}</aside>
         </li>
       );
     }

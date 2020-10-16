@@ -89,6 +89,7 @@
 
 .repeat-message-details {
   text-align: center;
+  margin-left: 0.2em;
 }
 
 .repeat-message:hover {
@@ -98,4 +99,19 @@
 .repeat-message-details p {
   font-size: 14px;
   margin-bottom: 0.6em;
+  margin-left: 0.1em;
+}
+
+.repeat-date {
+  height: 69%;
+  width: 73px;
+  margin-left: -73px;
+  text-align: right;
+  font-size: 11px;
+  color: #818179;
+  display: none;
+}
+
+.repeat-message:hover .repeat-date {
+  display: block;
 }
