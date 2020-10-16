@@ -24,9 +24,11 @@ class MessageIndexItem extends React.Component {
             </h2>
             <p>{this.props.message.body}</p>
           </div>
-          <div className="add-ons" onClick={this.handleDelete}>
-            <i class="fas fa-trash delete-icon"></i>
-          </div>
+          {this.props.message.author_id === this.props.currentUserId ? (
+            <div className="add-ons" onClick={this.handleDelete}>
+              <i class="fas fa-trash delete-icon"></i>
+            </div>
+          ) : null}
         </li>
       );
     } else {
@@ -35,9 +37,12 @@ class MessageIndexItem extends React.Component {
           <div className="repeat-message-details">
             <p>{this.props.message.body}</p>
           </div>
-          <div className="repeat-add-ons" onClick={this.handleDelete}>
-            <i class="fas fa-trash delete-icon"></i>
-          </div>
+          {this.props.message.author_id === this.props.currentUserId ? (
+            <div className="repeat-add-ons" onClick={this.handleDelete}>
+              <i class="fas fa-trash delete-icon"></i>
+            </div>
+          ) : null}
+
           <aside className="repeat-date">{this.props.message.updated_at}</aside>
         </li>
       );
