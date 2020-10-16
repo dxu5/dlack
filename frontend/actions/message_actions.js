@@ -9,6 +9,8 @@ export const receiveMessage = (message) => {
   };
 };
 
+//change to action cable!
+
 export const createMessage = (message) => (dispatch) => {
   return MessageAPIUtil.createMessage(message).then((message) => {
     dispatch(receiveMessage(message));
