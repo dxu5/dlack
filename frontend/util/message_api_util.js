@@ -8,7 +8,7 @@ export const createMessage = (message) => {
   });
 };
 
-export const destroyMessage = (messageId) => {
+export const deleteMessage = (messageId) => {
   return $.ajax({
     method: "DELETE",
     url: `/api/messages/${messageId}`,
