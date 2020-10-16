@@ -121,8 +121,6 @@
   position: absolute;
   top: -15px;
   left: calc(100vw - 344px);
-  height: 36px;
-  width: 36px;
   border: 1px solid #d9cec1;
   background: #f9f3e7;
   border-radius: 4px;
@@ -143,8 +141,6 @@
   position: absolute;
   top: -15px;
   left: calc(100vw - 351px);
-  height: 36px;
-  width: 36px;
   border: 1px solid #d9cec1;
   background: #f9f3e7;
   border-radius: 4px;
@@ -154,19 +150,29 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
 }
 
-.delete-icon {
-  font-size: 18px;
+.delete-icon,
+.edit-icon {
+  font-size: 20px;
+  margin-top: 0.3em;
 }
 
 .repeat-message:hover .repeat-add-ons {
   display: flex;
 }
 
-.repeat-add-ons:hover,
-.add-ons:hover {
+.trash-icon:hover,
+.pencil-icon:hover {
   background: #c0b7ab;
   color: #f9f3e7;
+}
+
+.trash-icon,
+.pencil-icon {
+  height: 36px;
+  width: 36px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 3px;
 }

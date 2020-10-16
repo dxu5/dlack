@@ -1,19 +1,40 @@
 import React from "react";
 import { connect } from "react-redux";
 import { deleteMessage } from "../../../actions/message_actions.js";
+import EditMessageForm from "./edit_message_form.jsx";
 
 class MessageIndexItem extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      edit: false,
+    };
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleOpen = this.handleOpen.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   handleDelete() {
     this.props.deleteMessage(this.props.message.id);
   }
 
+  handleClose() {
+    this.setState({ edit: false });
+  }
+
+  handleOpen() {
+    this.setState({ edit: true });
+  }
+
   render() {
-    if (this.props.same === false) {
+    if (this.state.edit) {
+      return (
+        <EditMessageForm
+          message={this.props.message}
+          handleClose={this.handleClose}
+        />
+      );
+    } else if (this.props.same === false) {
       return (
         <li className="user-message">
           <img className="user-profile" src={window.images.user} />
@@ -25,8 +46,13 @@ class MessageIndexItem extends React.Component {
             <p>{this.props.message.body}</p>
           </div>
           {this.props.message.author_id === this.props.currentUserId ? (
-            <div className="add-ons" onClick={this.handleDelete}>
-              <i className="fas fa-trash delete-icon"></i>
+            <div className="add-ons">
+              <div className="pencil-icon" onClick={this.handleOpen}>
+                <i className="fas fa-pencil-alt edit-icon"></i>
+              </div>
+              <div className="trash-icon" onClick={this.handleDelete}>
+                <i className="fas fa-trash delete-icon"></i>
+              </div>
             </div>
           ) : null}
         </li>
@@ -38,8 +64,13 @@ class MessageIndexItem extends React.Component {
             <p>{this.props.message.body}</p>
           </div>
           {this.props.message.author_id === this.props.currentUserId ? (
-            <div className="repeat-add-ons" onClick={this.handleDelete}>
-              <i className="fas fa-trash delete-icon"></i>
+            <div className="repeat-add-ons">
+              <div className="pencil-icon" onClick={this.handleOpen}>
+                <i className="fas fa-pencil-alt edit-icon"></i>
+              </div>
+              <div className="trash-icon" onClick={this.handleDelete}>
+                <i className="fas fa-trash delete-icon"></i>
+              </div>
             </div>
           ) : null}
 
