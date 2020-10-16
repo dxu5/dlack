@@ -24,7 +24,5 @@ export const createMessage = (message) => (dispatch) => {
 };
 
 export const deleteMessage = (messageId) => (dispatch) => {
-  return MessageAPIUtil.deleteMessage(messageId).then(() =>
-    dispatch(removeMessage(messageId))
-  );
+  return MessageAPIUtil.deleteMessage(messageId);
 };

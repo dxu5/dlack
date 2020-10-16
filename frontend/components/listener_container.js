@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Listener from "./listener.jsx";
-import { receiveMessage } from "../actions/message_actions";
+import { receiveMessage, removeMessage } from "../actions/message_actions";
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -13,6 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => ({
   receiveMessage: (message) => dispatch(receiveMessage(message)),
+  removeMessage: (message) => dispatch(removeMessage(message.id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Listener);

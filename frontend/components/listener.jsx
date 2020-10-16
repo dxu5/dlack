@@ -72,11 +72,18 @@ class Listener extends React.Component {
             console.log(`Disconnected!! from ${id}`);
           },
           received: (data) => {
-            let payload = {
-              message: data.message,
-              user: data.user,
-            };
-            this.props.receiveMessage(payload);
+            if (data.user) {
+              let payload = {
+                message: data.message,
+                user: data.user,
+              };
+              this.props.receiveMessage(payload);
+            } else {
+              let payload = {
+                message: data.message,
+              };
+              this.props.removeMessage(payload.message);
+            }
           },
         }
       );
