@@ -26,7 +26,7 @@ class MessageIndexItem extends React.Component {
           </div>
           {this.props.message.author_id === this.props.currentUserId ? (
             <div className="add-ons" onClick={this.handleDelete}>
-              <i class="fas fa-trash delete-icon"></i>
+              <i className="fas fa-trash delete-icon"></i>
             </div>
           ) : null}
         </li>
@@ -39,7 +39,7 @@ class MessageIndexItem extends React.Component {
           </div>
           {this.props.message.author_id === this.props.currentUserId ? (
             <div className="repeat-add-ons" onClick={this.handleDelete}>
-              <i class="fas fa-trash delete-icon"></i>
+              <i className="fas fa-trash delete-icon"></i>
             </div>
           ) : null}
 
