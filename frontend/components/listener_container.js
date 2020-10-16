@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
-import Listener from "./listener";
+import Listener from "./listener.jsx";
 import { receiveMessage } from "../actions/message_actions";
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    currentUser: state.session.currentUser,
+    currentUser: state.session.currentUserId,
     channelIds: Object.keys(state.entities.channels).map((id) => {
       return Number(id);
     }),

@@ -5,9 +5,11 @@ import SignupFormContainer from "./forms/signup_form_container.js";
 import WorkspaceContainer from "./workspace/workspace_container.js";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util.jsx";
+import ListenerContainer from "./listener_container.js";
 const App = () => {
   return (
     <div>
+      <ListenerContainer />
       <Switch>
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />

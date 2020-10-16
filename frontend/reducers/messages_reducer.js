@@ -11,10 +11,9 @@ const messagesReducer = (state = {}, action) => {
           newState[message.id] = message;
         });
       }
-
       return newState;
     case RECEIVE_MESSAGE:
-      newState[action.message.id] = action.message;
+      newState[action.payload.message.id] = action.payload.message;
       return newState;
     default:
       return state;
