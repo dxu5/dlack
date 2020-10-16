@@ -62,7 +62,7 @@ class Header extends React.Component {
 
           <Link
             className="workspace-button"
-            to="/"
+            to="/channels/1"
             hidden={!this.props.currentUser}
           >
             Check Out Your Workspace
