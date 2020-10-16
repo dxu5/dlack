@@ -1,8 +1,15 @@
 import React from "react";
+import { connect } from "react-redux";
+import { deleteMessage } from "../../../actions/message_actions.js";
 
 class MessageIndexItem extends React.Component {
   constructor(props) {
     super(props);
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  handleDelete() {
+    this.props.deleteMessage(this.props.message.id);
   }
 
   render() {
@@ -17,6 +24,9 @@ class MessageIndexItem extends React.Component {
             </h2>
             <p>{this.props.message.body}</p>
           </div>
+          <div className="add-ons" onClick={this.handleDelete}>
+            <i class="fas fa-trash delete-icon"></i>
+          </div>
         </li>
       );
     } else {
@@ -25,6 +35,9 @@ class MessageIndexItem extends React.Component {
           <div className="repeat-message-details">
             <p>{this.props.message.body}</p>
           </div>
+          <div className="repeat-add-ons" onClick={this.handleDelete}>
+            <i class="fas fa-trash delete-icon"></i>
+          </div>
           <aside className="repeat-date">{this.props.message.updated_at}</aside>
         </li>
       );
@@ -32,4 +45,16 @@ class MessageIndexItem extends React.Component {
   }
 }
 
-export default MessageIndexItem;
+const mapStateToProps = (state) => {
+  return {
+    currentUserId: state.session.currentUserId,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteMessage: (messageId) => dispatch(deleteMessage(messageId)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MessageIndexItem);

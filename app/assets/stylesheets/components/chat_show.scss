@@ -85,6 +85,7 @@
   flex-direction: row-reverse;
   align-items: flex-end;
   justify-content: flex-end;
+  position: relative;
 }
 
 .repeat-message-details {
@@ -114,4 +115,58 @@
 
 .repeat-message:hover .repeat-date {
   display: block;
+}
+
+.add-ons {
+  position: absolute;
+  top: -15px;
+  left: calc(100vw - 344px);
+  height: 36px;
+  width: 36px;
+  border: 1px solid #d9cec1;
+  background: #f9f3e7;
+  border-radius: 4px;
+  padding: 2px;
+  color: #818179;
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.user-message:hover .add-ons {
+  display: flex;
+}
+
+.repeat-add-ons {
+  position: absolute;
+  top: -15px;
+  left: calc(100vw - 351px);
+  height: 36px;
+  width: 36px;
+  border: 1px solid #d9cec1;
+  background: #f9f3e7;
+  border-radius: 4px;
+  padding: 2px;
+  color: #818179;
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.delete-icon {
+  font-size: 18px;
+}
+
+.repeat-message:hover .repeat-add-ons {
+  display: flex;
+}
+
+.repeat-add-ons:hover,
+.add-ons:hover {
+  background: #c0b7ab;
+  color: #f9f3e7;
 }
