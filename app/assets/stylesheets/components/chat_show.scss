@@ -32,6 +32,19 @@
   list-style: none;
 }
 
+.message-list-container::-webkit-scrollbar {
+  width: 9px;
+}
+
+.message-list-container::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #a5a39a;
+}
+
+.message-list-container::-webkit-scrollbar-track {
+  border-radius: 3px;
+}
+
 .user-message {
   min-height: 52px;
   width: 100%;
