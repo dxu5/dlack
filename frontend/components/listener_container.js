@@ -3,7 +3,7 @@ import Listener from "./listener.jsx";
 import {
   receiveMessage,
   removeMessage,
-  updateMessage,
+  receiveUpdateMessage,
 } from "../actions/message_actions";
 
 const mapStateToProps = (state, ownProps) => {
@@ -18,7 +18,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => ({
   receiveMessage: (message) => dispatch(receiveMessage(message)),
   removeMessage: (message) => dispatch(removeMessage(message.id)),
-  updateMessage: (message) => dispatch(updateMessage(message)),
+  receiveUpdateMessage: (message) => dispatch(receiveUpdateMessage(message)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Listener);

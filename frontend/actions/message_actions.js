@@ -36,7 +36,5 @@ export const deleteMessage = (messageId) => (dispatch) => {
 };
 
 export const updateMessage = (message) => (dispatch) => {
-  return MessageAPIUtil.updateMessage(message).then((message) => {
-    dispatch(receiveUpdateMessage(message));
-  });
+  return MessageAPIUtil.updateMessage(message);
 };

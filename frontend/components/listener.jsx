@@ -85,7 +85,7 @@ class Listener extends React.Component {
                 updated_at: data.message.updated_at,
                 updated: true,
               };
-              this.props.updateMessage(payload);
+              this.props.receiveUpdateMessage(payload);
             } else {
               let payload = {
                 message: data.message,
