@@ -30,6 +30,11 @@ json.messages do
         json.set! message.id do
             json.extract! message, :id, :body, :author_id, :channel_id 
             json.updated_at message.updated_at.strftime("%I:%M %p")
+            if message.updated_at != message.created_at
+                json.update true
+            else
+                json.update false
+            end
         end
     end
 end
