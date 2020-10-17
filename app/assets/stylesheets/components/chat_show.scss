@@ -1,6 +1,5 @@
 .show-messages {
   height: 100%;
-  width: calc(100vw - 35%);
   padding-bottom: 28px;
   background-color: #f9f3e7;
   display: flex;
@@ -64,7 +63,7 @@
 }
 
 .user-chat {
-  width: calc(100vw - 53%);
+  width: 100vw;
 }
 
 .user-profile {
