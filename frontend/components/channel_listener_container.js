@@ -1,6 +1,9 @@
 import { connect } from "react-redux";
 import ChannelListener from "./channel_listener.jsx";
-import { receiveCreatedChannel } from "../actions/channel_actions";
+import {
+  receiveCreatedChannel,
+  deleteChannel,
+} from "../actions/channel_actions";
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -9,6 +12,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
+  deleteChannel: (channelId) => dispatch(deleteChannel(channelId)),
   receiveChannel: (channel) => dispatch(receiveCreatedChannel(channel)),
 });
 

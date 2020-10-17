@@ -57,7 +57,5 @@ export const getChannelInfo = (channelId) => (dispatch) => {
 };
 
 export const destroyChannel = (channelId) => (dispatch) => {
-  return ChannelAPIUtil.deleteChannel(channelId).then(() => {
-    dispatch(deleteChannel(channelId));
-  });
+  return ChannelAPIUtil.deleteChannel(channelId);
 };
