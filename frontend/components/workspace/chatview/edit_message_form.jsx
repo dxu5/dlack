@@ -33,9 +33,11 @@ class EditMessageForm extends React.Component {
             <button className="edit-cancel" onClick={this.props.handleClose}>
               Cancel
             </button>
-            <div className="edit-submit" onClick={this.handleSubmit}>
-              Edit Message
-            </div>
+            {this.state.body === "" ? null : (
+              <div className="edit-submit" onClick={this.handleSubmit}>
+                Edit Message
+              </div>
+            )}
           </form>
           <div className="edit-form-bottom"></div>
         </div>
