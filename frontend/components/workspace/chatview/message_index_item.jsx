@@ -43,7 +43,12 @@ class MessageIndexItem extends React.Component {
               {this.props.user.username}
               <span className="timestamp">{this.props.message.updated_at}</span>
             </h2>
-            <p>{this.props.message.body}</p>
+            <p>
+              {this.props.message.body}
+              {this.props.message.update === true ? (
+                <span className="edited-message">(edited)</span>
+              ) : null}
+            </p>
           </div>
           {this.props.message.author_id === this.props.currentUserId ? (
             <div className="add-ons">
@@ -61,7 +66,12 @@ class MessageIndexItem extends React.Component {
       return (
         <li className="repeat-message">
           <div className="repeat-message-details">
-            <p>{this.props.message.body}</p>
+            <p>
+              {this.props.message.body}
+              {this.props.message.update === true ? (
+                <span className="edited-message">(edited)</span>
+              ) : null}
+            </p>
           </div>
           {this.props.message.author_id === this.props.currentUserId ? (
             <div className="repeat-add-ons">
