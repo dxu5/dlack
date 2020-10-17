@@ -31,7 +31,21 @@ class Api::ChannelsController < ApplicationController
                 end
             end
             #Need to render show json jbuilder here
-            render :show
+            channelUsers = @channel.users.ids
+            ActionCable
+                .server #given
+                .broadcast("channel:messages",#channel identifier
+                        channel: {      #broadcast both message and user //////   add user reducer receive message
+                            id: @channel.id,
+                            title: @channel.title,
+                            is_dm: @channel.is_dm,
+                            is_private: @channel.is_private,
+                            owner_id: @channel.owner_id
+                        },
+                        id: {
+                            channelUsers: channelUsers
+                        }
+                    )
         else
             render json: @channel.errors.full_messages, status: 422
         end

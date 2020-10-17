@@ -3,6 +3,7 @@ import {
   DELETE_CHANNEL,
   RECEIVE_CHANNEL_INFO,
   RECEIVE_CHANNEL,
+  CREATE_CHANNEL,
 } from "../actions/channel_actions";
 
 const channelsReducer = (state = {}, action) => {
@@ -13,6 +14,9 @@ const channelsReducer = (state = {}, action) => {
       return action.channels;
     case RECEIVE_CHANNEL:
       newState[action.channel.channel.id] = action.channel.channel;
+      return newState;
+    case CREATE_CHANNEL:
+      newState[action.channel.id] = action.channel;
       return newState;
     case DELETE_CHANNEL:
       delete newState[action.channelId];
