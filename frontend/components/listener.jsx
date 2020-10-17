@@ -76,6 +76,15 @@ class Listener extends React.Component {
                 user: data.user,
               };
               this.props.receiveMessage(payload);
+            } else if (data.message.update) {
+              let payload = {
+                id: data.message.id,
+                body: data.message.body,
+                author_id: data.message.author_id,
+                channel_id: data.message.channel_id,
+                updated_at: data.message.updated_at,
+              };
+              this.props.updateMessage(payload);
             } else {
               let payload = {
                 message: data.message,

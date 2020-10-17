@@ -37,7 +37,21 @@ class Api::MessagesController < ApplicationController
     def update
         @message = Message.find_by(id: params[:id])
         if @message.update(message_params)
-            render :show
+            ActionCable
+                .server #given
+                .broadcast("channel-#{@message.channel_id}:messages",#channel identifier
+                        message: {      #broadcast both message and user //////   add user reducer receive message
+                            id: @message.id,
+                            body: @message.body,
+                            author_id: @message.author_id,
+                            channel_id: @message.channel_id,
+                            updated_at: @message.updated_at.strftime("%I:%M %p"),
+                            update: true
+                        },
+                        user: {
+                            id: current_user.id,
+                            username: current_user.username
+                        })
         else
             render json: @message.errors.full_messages, status: 422
         end
