@@ -93,7 +93,15 @@ class Api::ChannelsController < ApplicationController
     def destroy
         @channel = Channel.find_by(id: params[:id])
         @channel.destroy
-        render json: ["destroyed"]
+        ActionCable
+                .server #given
+                .broadcast("channel:messages",#channel identifier
+                        channel: {      #broadcast both message and user //////   add user reducer receive message
+                            id: @channel.id,
+                            delete: true
+                        }
+
+                    )
     end
 
     private
