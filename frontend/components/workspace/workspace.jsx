@@ -15,7 +15,7 @@ class Workspace extends React.Component {
     if (
       channelIds.includes(Number(this.props.match.params.channelId)) === false
     ) {
-      this.props.history.push("/");
+      this.props.history.push("/channels/1");
     }
     this.props.getChannelInfo(this.props.match.params.channelId);
   }
@@ -23,6 +23,14 @@ class Workspace extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.channelId != this.props.match.params.channelId) {
       this.props.getChannelInfo(this.props.match.params.channelId);
+    }
+    let channelIds = this.props.channels.map((channel) => {
+      return channel.id;
+    });
+    if (
+      channelIds.includes(Number(this.props.match.params.channelId)) === false
+    ) {
+      this.props.history.push("/channels/1");
     }
   }
 
