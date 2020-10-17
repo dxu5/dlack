@@ -1,6 +1,6 @@
 .show-messages {
   height: 100%;
-  width: 177%;
+  width: calc(100vw - 35%);
   padding-bottom: 28px;
   background-color: #f9f3e7;
   display: flex;
@@ -120,7 +120,7 @@
 .add-ons {
   position: absolute;
   top: -15px;
-  left: calc(100vw - 344px);
+  left: calc(100vw - 30%);
   border: 1px solid #d9cec1;
   background: #f9f3e7;
   border-radius: 4px;
@@ -140,7 +140,7 @@
 .repeat-add-ons {
   position: absolute;
   top: -15px;
-  left: calc(100vw - 351px);
+  left: calc(100vw - 29.6%);
   border: 1px solid #d9cec1;
   background: #f9f3e7;
   border-radius: 4px;
