@@ -75,7 +75,17 @@ class Api::ChannelsController < ApplicationController
                 end
                 @channel = Channel.find_by(id: params[:id])
             end
-            render :show
+            #Might need to include userChannels or users are in it so if current user not in it -> dispatch the delete with the id 
+            #if new person or otherwise dont care and just dispatch the update action
+            userIds = @channel.users.ids
+            ActionCable
+                .server #given
+                .broadcast("channel:messages",#channel identifier
+                        payload: (ApplicationController.renderer.render 'api/channels/channel_show.json.jbuilder', assigns:{channel: @channel}),
+                        update: true,
+                        userIds: userIds
+                    )
+            
         else
             render json: @channel.errors.full_messages, status: 422
         end

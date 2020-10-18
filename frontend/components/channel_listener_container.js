@@ -3,6 +3,7 @@ import ChannelListener from "./channel_listener.jsx";
 import {
   receiveCreatedChannel,
   deleteChannel,
+  receiveChannelInfo,
 } from "../actions/channel_actions";
 
 const mapStateToProps = (state, ownProps) => {
@@ -12,6 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
+  receiveChannelInfo: (payload) => dispatch(receiveChannelInfo(payload)),
   deleteChannel: (channelId) => dispatch(deleteChannel(channelId)),
   receiveChannel: (channel) => dispatch(receiveCreatedChannel(channel)),
 });

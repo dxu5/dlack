@@ -40,7 +40,15 @@ class Listener extends React.Component {
           console.log(`Disconnected!! from channels`);
         },
         received: (data) => {
-          if (
+          if (data.update === true) {
+            if (data.userIds.includes(Number(this.props.currentUser))) {
+              let payload = JSON.parse(data.payload);
+              this.props.receiveChannelInfo(payload);
+            } else {
+              let channelId = JSON.parse(data.payload).channel.id;
+              this.props.deleteChannel(channelId);
+            }
+          } else if (
             data.id &&
             data.id.channelUsers.includes(Number(this.props.currentUser))
           ) {
