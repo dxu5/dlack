@@ -29,12 +29,5 @@ document.addEventListener("DOMContentLoaded", () => {
   window.getChannelInfo = getChannelInfo;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.login = login;
-  window.logout = logout;
-  window.signup = signup;
-  window.createMessage = createMessage;
-  window.searchUsers = searchUsers;
-  window.updateMessage = updateMessage;
-  window.updateUser = updateUser;
   ReactDOM.render(<Root store={store} />, root);
 });
