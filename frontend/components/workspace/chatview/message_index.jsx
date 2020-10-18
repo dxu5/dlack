@@ -5,6 +5,14 @@ class MessageIndex extends React.Component {
     super(props);
   }
 
+  // componentDidUpdate() {
+  //   this.scrollToBottom();
+  // }
+
+  // scrollToBottom() {
+  //   this.messagesEnd.scrollIntoView({ behavior: "smooth" });
+  // }
+
   renderMessages() {
     let lastMessage = null;
     return Object.values(this.props.messages)

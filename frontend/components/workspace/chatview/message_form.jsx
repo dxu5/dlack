@@ -44,7 +44,19 @@ class MessageForm extends React.Component {
       body: this.state.body,
       channel_id: this.props.match.params.channelId,
     };
-    this.props.createMessage(message).then(this.setState({ body: "" }));
+    this.props.createMessage(message).then(
+      this.setState({ body: "" }, () => {
+        if ($(".message-list-container")) {
+          $(".message-list-container ").animate(
+            {
+              scrollTop: $(".message-list-container li:first-child").position()
+                .top,
+            },
+            "slow"
+          );
+        }
+      })
+    );
   }
 
   render() {
