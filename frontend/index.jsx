@@ -6,6 +6,7 @@ import { getChannelInfo } from "./actions/channel_actions.js";
 import configureStore from "./store/store.js";
 import Root from "./components/root.jsx";
 import { createMessage, updateMessage } from "./actions/message_actions";
+import { updateUser } from "./actions/user_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
   let root = document.getElementById("root");
@@ -34,5 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.createMessage = createMessage;
   window.searchUsers = searchUsers;
   window.updateMessage = updateMessage;
+  window.updateUser = updateUser;
   ReactDOM.render(<Root store={store} />, root);
 });

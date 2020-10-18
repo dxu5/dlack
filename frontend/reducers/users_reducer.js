@@ -2,6 +2,7 @@ import { RECEIVE_CURRENT_USER } from "../actions/session_actions.js";
 import { RECEIVE_USERS_SEARCH } from "../actions/search_actions.js";
 import { RECEIVE_CHANNEL_INFO } from "../actions/channel_actions.js";
 import { RECEIVE_MESSAGE } from "../actions/message_actions.js";
+import { UPDATE_USER } from "../actions/user_actions.js";
 const usersReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = Object.assign({}, state);
@@ -21,6 +22,9 @@ const usersReducer = (state = {}, action) => {
       return newState;
     case RECEIVE_MESSAGE:
       newState[action.payload.user.id] = action.payload.user;
+      return newState;
+    case UPDATE_USER:
+      newState[action.payload.currentUser.id] = action.payload.currentUser;
       return newState;
     default:
       return state;
