@@ -12,3 +12,11 @@
 - Redux
 - Postgresql Database
 - HTML5 and SCSS
+
+## Key Features
+
+- Secure frontend to backend user authentication using BCrypt
+- Users can create or direct messages, and update or delete channels for those that they have permission to
+- Users can create, read, update, and delete messages
+- Message feed dynamically updates using web sockets to display all incoming messages
+- Full Notification System so users know when they receive a message
