@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         users: {
           [currentUser.currentUser.id]: currentUser.currentUser,
         },
+        notifications: currentUser.notifications,
       },
       session: { currentUserId: currentUser.currentUser.id },
     };
