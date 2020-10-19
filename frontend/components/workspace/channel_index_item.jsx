@@ -59,6 +59,9 @@ class ChannelIndexItem extends React.Component {
               <div className="channel-title" id={`${selected}-symbol`}>
                 {this.props.channel.title}
               </div>
+              {this.props.numNotifications === 0 ? null : (
+                <div>{this.props.numNotifications}</div>
+              )}
             </div>
 
             {this.renderDelete()}

@@ -14,9 +14,16 @@ class ChannelIndex extends React.Component {
   }
 
   channels() {
-    return this.props.channels.map((channel) => {
+    let notifications = this.createNotifications();
+    return this.props.channels.map((channel, idx) => {
       if (!channel.is_dm) {
-        return <ChannelIndexItemContainer channel={channel} key={channel.id} />;
+        return (
+          <ChannelIndexItemContainer
+            numNotifications={notifications[idx]}
+            channel={channel}
+            key={channel.id}
+          />
+        );
       }
     });
   }
