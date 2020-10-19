@@ -81,7 +81,7 @@ class Api::ChannelsController < ApplicationController
             ActionCable
                 .server #given
                 .broadcast("channel:messages",#channel identifier
-                        payload: (ApplicationController.renderer.render 'api/channels/channel_show.json.jbuilder', assigns:{channel: @channel}),
+                        payload: (ApplicationController.renderer.render 'api/channels/show.json.jbuilder', assigns:{channel: @channel}),
                         update: true,
                         userIds: userIds
                     )
