@@ -5,11 +5,12 @@ class Api::MessagesController < ApplicationController
         if @message.save
             channel = @message.channel
             users = channel.users
+            notifications = []
             users.each do |user|
-                if user.id == current_user.id
-                    Notification.create!(user_id: user.id, channel_id: channel.id, read: true)
+                if user.id == current_user.id  
+                    notifications.push(Notification.create!(user_id: user.id, channel_id: channel.id, read: true))
                 else
-                    Notification.create!(user_id: user.id, channel_id: channel.id, read: false)
+                    notifications.push(Notification.create!(user_id: user.id, channel_id: channel.id, read: false))
                 end
             end
             ActionCable
@@ -25,7 +26,8 @@ class Api::MessagesController < ApplicationController
                         user: {
                             id: current_user.id,
                             username: current_user.username
-                        }
+                        },
+                        notifications: notifications
                     )
         else
             render json: @message.errors.full_messages, status: 422

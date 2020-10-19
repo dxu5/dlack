@@ -71,9 +71,16 @@ class Listener extends React.Component {
           },
           received: (data) => {
             if (data.user) {
+              let notification;
+              for (let i = 0; i < data.notifications.length; i++) {
+                if (data.notifications[i].user_id === this.props.currentUser) {
+                  notification = data.notifications[i];
+                }
+              }
               let payload = {
                 message: data.message,
                 user: data.user,
+                notification: notification,
               };
               this.props.receiveMessage(payload);
             } else if (data.message.update) {
