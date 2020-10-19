@@ -28,10 +28,10 @@ class DMIndexItem extends React.Component {
 
   handleTitle() {
     let title = this.formatTitle();
-    if (title.length > 20) {
+    if (title.length > 18) {
       return (
         <div className="channel-title" id={`${this.selected()}-symbol`}>
-          {title.slice(0, 15).concat("...")}
+          {title.slice(0, 13).concat("...")}
         </div>
       );
     } else {
