@@ -93,6 +93,11 @@ class Api::ChannelsController < ApplicationController
 
     def show
         @channel = Channel.find_by(id: params[:id])
+        notifications = @channel.notifications.where(user_id: current_user.id)
+        notifications.each do |notification|
+            notification.read = true
+            notification.save!
+        end
         if @channel
             render :show #need to create this json jbuilder file!
         else
