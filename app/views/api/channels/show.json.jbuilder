@@ -38,3 +38,11 @@ json.messages do
         end
     end
 end
+
+json.notifications do 
+    @notifications.each do |notification|
+        json.set! notification.id do 
+            json.extract! notification, :id, :user_id, :channel_id, :read
+        end
+    end
+end

@@ -98,6 +98,7 @@ class Api::ChannelsController < ApplicationController
             notification.read = true
             notification.save!
         end
+        @notifications = @channel.notifications.where(user_id: current_user.id)
         if @channel
             render :show #need to create this json jbuilder file!
         else
