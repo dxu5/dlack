@@ -52,3 +52,16 @@ $index-gray: #cac4c9;
 .welcome-message h1 {
   margin-left: 0.4em;
 }
+
+.user-nav-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-edit {
+  cursor: pointer;
+}
+
+.user-edit:hover {
+  color: white;
+}

@@ -15,7 +15,10 @@ class Sidenav extends React.Component {
             <h1>Welcome</h1>
           </div>
 
-          <h2>{this.props.currentUser.username}</h2>
+          <h2 className="user-nav-info">
+            {this.props.currentUser.username}
+            <i className="fas fa-user-edit user-edit"></i>
+          </h2>
           <div className="nav-logout-button" onClick={this.props.logout}>
             Sign Out of Dlack
           </div>

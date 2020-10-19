@@ -23,6 +23,9 @@ function Modal({ modal, closeModal }) {
     case "update":
       component = <UpdateChannelModalContainer />;
       break;
+    case "user":
+      component = <h1>Edit User</h1>;
+      break;
     default:
       return null;
   }
