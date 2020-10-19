@@ -23,4 +23,6 @@ class Channel < ApplicationRecord
     has_many :users,
     through: :user_channels,
     source: :user
+
+    has_many :notifications
 end
