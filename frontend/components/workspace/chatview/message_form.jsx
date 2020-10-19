@@ -20,6 +20,7 @@ class MessageForm extends React.Component {
           style={{ fontFamily: "Poppins, FontAwesome" }}
           value={this.state.body}
           className="message-text"
+          onFocus={}
         />
       );
     } else {
@@ -30,6 +31,7 @@ class MessageForm extends React.Component {
           placeholder={`Message  # ${this.props.currentChannel.title}`}
           value={this.state.body}
           className="message-text"
+          onFocus={}
         />
       );
     }
