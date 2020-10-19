@@ -1,4 +1,4 @@
-<p align="center"><a href="https://dlack.herokuapp.com/#/"><img src="./app/assets/images/dlacklogo.png" width=250px/></a></p>
+<p align="center"><a target="_blank" href="https://dlack.herokuapp.com/#/"><img src="./app/assets/images/dlacklogo.png" width=250px/></a></p>
 
 <h1 align="center">Dlack</h1>
 
