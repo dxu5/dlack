@@ -21,6 +21,24 @@ class ChannelIndex extends React.Component {
     });
   }
 
+  createNotifications() {
+    let totalNotifications = [];
+    for (let i = 0; i < this.props.channels.length; i++) {
+      let count = 0;
+      for (const notificationId in this.props.notifications) {
+        let notification = this.props.notifications[notificationId];
+        if (
+          notification.channel_id === this.props.channels[i].id &&
+          notification.read === false
+        ) {
+          count += 1;
+        }
+      }
+      totalNotifications.push(count);
+    }
+    return totalNotifications;
+  }
+
   renderList() {
     if (this.state.open) {
       return <ul>{this.channels()}</ul>;
@@ -65,6 +83,7 @@ class ChannelIndex extends React.Component {
 const mapStateToProps = (state) => {
   return {
     modal: state.ui.modal,
+    notifications: state.entities.notifications,
   };
 };
 

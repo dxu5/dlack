@@ -74,7 +74,6 @@ class Listener extends React.Component {
               let payload = {
                 message: data.message,
                 user: data.user,
-                notification: data.notification,
               };
               this.props.receiveMessage(payload);
             } else if (data.message.update) {
