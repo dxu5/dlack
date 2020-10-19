@@ -23,7 +23,15 @@ class Api::UsersController < ApplicationController
 
     def update
         @user = User.find_by(id: params[:id])
+        old_username = @user.username
         if @user.update(user_params)
+            @dms = @user.channels.where(is_dm: true)
+            @dms.each do |dm|
+                old_title = dm.title.split(", ")
+                new_title = old_title.map { |x| x == old_username ? @user.username : x }.join(", ")
+                dm.title = new_title
+                dm.save!
+            end
             render :show
         else
             render json: @user.errors.full_messages, status: 422
