@@ -45,6 +45,7 @@
 
 .channel-list-header {
   display: flex;
+  align-items: center;
 }
 
 .channel-symbol {
@@ -98,4 +99,17 @@
   width: 1em;
   margin: 0 auto;
   align-self: center;
+}
+
+.numberCircle {
+  width: 30px;
+  line-height: 18px;
+  border-radius: 11px;
+  text-align: center;
+  font-size: 12px;
+  color: white;
+  background: #e01e5a;
+  font-weight: 700;
+  height: 70%;
+  margin-left: 0.7em;
 }

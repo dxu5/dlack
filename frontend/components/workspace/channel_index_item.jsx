@@ -60,7 +60,9 @@ class ChannelIndexItem extends React.Component {
                 {this.props.channel.title}
               </div>
               {this.props.numNotifications === 0 ? null : (
-                <div>{this.props.numNotifications}</div>
+                <div className="numberCircle">
+                  {this.props.numNotifications}
+                </div>
               )}
             </div>
 
