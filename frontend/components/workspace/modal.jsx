@@ -5,6 +5,7 @@ import CreateChannelModalContainer from "./create_channel_modal_container.js";
 import CreateDmModalContainer from "./create_dm_modal_container.js";
 import DeleteChannelModalContainer from "./delete_channel_modal_container.js";
 import UpdateChannelModalContainer from "./update_channel_modal_container.js";
+import UpdateUserForm from "./update_user_form.jsx";
 function Modal({ modal, closeModal }) {
   if (!modal) {
     return null;
@@ -24,7 +25,7 @@ function Modal({ modal, closeModal }) {
       component = <UpdateChannelModalContainer />;
       break;
     case "user":
-      component = <h1>Edit User</h1>;
+      component = <UpdateUserForm />;
       break;
     default:
       return null;

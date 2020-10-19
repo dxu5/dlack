@@ -23,10 +23,12 @@ class Sidenav extends React.Component {
 
           <h2 className="user-nav-info">
             {this.props.currentUser.username}
-            <i
-              onClick={this.handleModal}
-              className="fas fa-user-edit user-edit"
-            ></i>
+            {this.props.currentUser.username === "dlack_demo" ? null : (
+              <i
+                onClick={this.handleModal}
+                className="fas fa-user-edit user-edit"
+              ></i>
+            )}
           </h2>
           <div className="nav-logout-button" onClick={this.props.logout}>
             Sign Out of Dlack
