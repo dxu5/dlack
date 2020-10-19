@@ -5,6 +5,7 @@ import {
   RECEIVE_CHANNEL,
   CREATE_CHANNEL,
 } from "../actions/channel_actions";
+import { UPDATE_USER } from "../actions/user_actions";
 
 const channelsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -24,6 +25,8 @@ const channelsReducer = (state = {}, action) => {
     case RECEIVE_CHANNEL_INFO:
       newState[action.payload.channel.id] = action.payload.channel;
       return newState;
+    case UPDATE_USER:
+      return action.payload.channels;
     default:
       return state;
   }
