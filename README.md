@@ -2,7 +2,7 @@
 
 <h1 align="center">Dlack</h1>
 <p align="center">
-  <a href="#technologies">Technologies</a> •
+  <a href="#dlack-uses-these-technologies">Technologies</a> •
   <a href="#key-features">Key Features</a> •
 </p>
 
