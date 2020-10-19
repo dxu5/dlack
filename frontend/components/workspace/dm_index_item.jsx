@@ -28,10 +28,10 @@ class DMIndexItem extends React.Component {
 
   handleTitle() {
     let title = this.formatTitle();
-    if (title.length > 18) {
+    if (title.length > 15) {
       return (
         <div className="channel-title" id={`${this.selected()}-symbol`}>
-          {title.slice(0, 13).concat("...")}
+          {title.slice(0, 12).concat("...")}
         </div>
       );
     } else {
@@ -65,6 +65,9 @@ class DMIndexItem extends React.Component {
           <li>
             {this.handleSymbol()}
             {this.handleTitle()}
+            {this.props.numNotifications === 0 ? null : (
+              <div className="numberCircle">{this.props.numNotifications}</div>
+            )}
           </li>
         </Link>
       </div>

@@ -14,11 +14,36 @@ class DmIndex extends React.Component {
   }
 
   dms() {
-    return this.props.channels.map((channel) => {
+    let notifications = this.createNotifications();
+    return this.props.channels.map((channel, idx) => {
       if (channel.is_dm) {
-        return <DMIndexItemContainer channel={channel} key={channel.id} />;
+        return (
+          <DMIndexItemContainer
+            numNotifications={notifications[idx]}
+            channel={channel}
+            key={channel.id}
+          />
+        );
       }
     });
+  }
+
+  createNotifications() {
+    let totalNotifications = [];
+    for (let i = 0; i < this.props.channels.length; i++) {
+      let count = 0;
+      for (const notificationId in this.props.notifications) {
+        let notification = this.props.notifications[notificationId];
+        if (
+          notification.channel_id === this.props.channels[i].id &&
+          notification.read === false
+        ) {
+          count += 1;
+        }
+      }
+      totalNotifications.push(count);
+    }
+    return totalNotifications;
   }
 
   renderList() {
@@ -65,6 +90,7 @@ class DmIndex extends React.Component {
 const mapStateToProps = (state) => {
   return {
     modal: state.ui.modal,
+    notifications: state.entities.notifications,
   };
 };
 
