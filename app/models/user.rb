@@ -30,6 +30,9 @@ class User < ApplicationRecord
 
     has_many :notifications
 
+
+    has_one_attached :profile_picture
+    
     def self.find_by_credentials(username, password)
         user = User.find_by(username: username)
         return nil if user.nil?

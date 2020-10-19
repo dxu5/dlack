@@ -21,7 +21,7 @@
 
 ## Key Features
 
-- Secure frontend to backend user authentication using BCrypt
+- Secure frontend to backend user authentication using BCrypt Hashing
 - Users can create or direct messages, and update or delete channels for those that they have permission to
 - Users can create, read, update, and delete messages
 - Message feed dynamically updates using web sockets to display all incoming messages
