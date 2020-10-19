@@ -2,22 +2,13 @@
 
 <h1 align="center">Dlack</h1>
 
-Things you may want to cover:
+<p align="center">A web application implemented with websockets, Rails/PostgreSQL backend and React/Redux frontend stack. In order to increase productivity and get work done, users can create channels, direct messages, and group chats. Everything is done in real time.</p>
 
-- Ruby version
+## Dlack Uses These Technologies
 
-- System dependencies
-
-- Configuration
-
-- Database creation
-
-- Database initialization
-
-- How to run the test suite
-
-- Services (job queues, cache servers, search engines, etc.)
-
-- Deployment instructions
-
-- ...
+- Websockets: ActionCable
+- Ruby on Rails
+- React
+- Redux
+- Postgresql Database
+- HTML5 and SCSS
