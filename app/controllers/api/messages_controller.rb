@@ -3,6 +3,15 @@ class Api::MessagesController < ApplicationController
         @message = Message.new(message_params)
         @message.author_id = current_user.id
         if @message.save
+            channel = @message.channel
+            users = channel.users
+            users.each do |user|
+                if user.id == current_user.id
+                    Notification.create!(user_id: user.id, channel_id: channel.id, read: true)
+                else
+                    Notification.create!(user_id: user.id, channel_id: channel.id, read: false)
+                end
+            end
             ActionCable
                 .server #given
                 .broadcast("channel-#{@message.channel_id}:messages",#channel identifier
