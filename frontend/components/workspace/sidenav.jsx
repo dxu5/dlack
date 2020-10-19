@@ -5,7 +5,13 @@ import DMIndex from "./dm_index.jsx";
 class Sidenav extends React.Component {
   constructor(props) {
     super(props);
+    this.handleModal = this.handleModal.bind(this);
   }
+
+  handleModal() {
+    this.props.openEditUserModal();
+  }
+
   render() {
     return (
       <div className="nav-col">
@@ -17,7 +23,10 @@ class Sidenav extends React.Component {
 
           <h2 className="user-nav-info">
             {this.props.currentUser.username}
-            <i className="fas fa-user-edit user-edit"></i>
+            <i
+              onClick={this.handleModal}
+              className="fas fa-user-edit user-edit"
+            ></i>
           </h2>
           <div className="nav-logout-button" onClick={this.props.logout}>
             Sign Out of Dlack
