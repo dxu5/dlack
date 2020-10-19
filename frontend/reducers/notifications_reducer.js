@@ -6,7 +6,11 @@ const notificationsReducer = (state = {}, action) => {
   let newState = Object.assign({}, state);
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      return action.notifications;
+      if (action.notifications) {
+        return action.notifications;
+      } else {
+        return newState;
+      }
     case RECEIVE_CHANNEL_INFO:
       if (action.payload.notifications) {
         Object.values(action.payload.notifications).forEach((notification) => {
