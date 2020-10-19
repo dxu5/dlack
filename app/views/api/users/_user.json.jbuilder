@@ -8,10 +8,12 @@ json.channels do
         end
     end
 end
-json.notifications do
-    user.notifications.each do |notification|
-        json.set! notification.id do
-            json.extract! notification, :id, :user_id, :channel_id, :read
+if user.notifications.length > 0 
+    json.notifications do
+        user.notifications.each do |notification|
+            json.set! notification.id do
+                json.extract! notification, :id, :user_id, :channel_id, :read
+            end
         end
     end
 end
