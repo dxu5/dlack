@@ -12,6 +12,7 @@ class Api::MessagesController < ApplicationController
                     Notification.create!(user_id: user.id, channel_id: channel.id, read: false)
                 end
             end
+            notification = @message.channel.notifications.where(user_id: current_user.id)
             ActionCable
                 .server #given
                 .broadcast("channel-#{@message.channel_id}:messages",#channel identifier
@@ -25,7 +26,9 @@ class Api::MessagesController < ApplicationController
                         user: {
                             id: current_user.id,
                             username: current_user.username
-                        })
+                        },
+                        notification: notification
+                    )
         else
             render json: @message.errors.full_messages, status: 422
         end
