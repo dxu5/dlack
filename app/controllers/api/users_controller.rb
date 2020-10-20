@@ -32,6 +32,7 @@ class Api::UsersController < ApplicationController
                 dm.title = new_title
                 dm.save!
             end
+            # @user.profile_picture.attach(io: params[:user][:profile_picture], filename: params[:user][:file_name])
             render :show
         else
             render json: @user.errors.full_messages, status: 422

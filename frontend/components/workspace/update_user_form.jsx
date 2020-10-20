@@ -31,8 +31,9 @@ class UpdateUserForm extends React.Component {
     e.preventDefault();
     const formData = new FormData();
     formData.append("user[username]", this.state.username);
-    if (this.state.profile_picture) {
+    if (this.state.new_profile_picture) {
       formData.append("user[profile_picture]", this.state.new_profile_picture);
+      // formData.append("user[file_name]", this.state.username);
     }
     this.props
       .updateUser(formData, this.props.currentUser.id)
