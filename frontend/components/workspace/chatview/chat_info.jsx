@@ -53,7 +53,31 @@ class ChatInfo extends React.Component {
             {this.props.currentChannel.title}
           </h2>
         </div>
+
         <div className="right-channel-header">
+          <div id="class-icons" className="nav-icons">
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/in/derek-jinxiao-xu/"
+              className="home-nav-icons"
+            >
+              <i className="fab fa-linkedin fa-2x"></i>
+            </a>
+            <a
+              href="https://dxu5.github.io/"
+              target="_blank"
+              className="home-nav-icons"
+            >
+              <i className="fas fa-user-alt fa-2x"></i>
+            </a>
+            <a
+              href="https://github.com/dxu5"
+              target="_blank"
+              className="home-nav-icons"
+            >
+              <i className="fab fa-github fa-2x"></i>
+            </a>
+          </div>
           <div className="channel-people">
             <i className="far fa-user channel-people-icon"></i>
             <div className="channel-members">{this.props.numUsers} Members</div>
