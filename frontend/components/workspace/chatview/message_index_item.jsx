@@ -37,7 +37,7 @@ class MessageIndexItem extends React.Component {
     } else if (this.props.same === false) {
       return (
         <li className="user-message">
-          {this.props.user.profile_picture ? (
+          {this.props.user.profile_picture !== undefined ? (
             <img
               className="user-profile"
               src={this.props.user.profile_picture}

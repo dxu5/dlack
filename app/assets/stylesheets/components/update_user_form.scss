@@ -1,0 +1,15 @@
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.picture-box,
+.add-picture {
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+}
