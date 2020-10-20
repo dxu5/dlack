@@ -237,7 +237,17 @@ class CreateChannelForm extends React.Component {
               </label>
             </label>
             <br />
-            <input className="channel-create" type="submit" value="Create" />
+            {this.state.is_private === false ||
+            Object.keys(this.state.selected).length > 0 ? (
+              <input className="channel-create" type="submit" value="Create" />
+            ) : (
+              <input
+                disabled
+                className="dm-create-disabled"
+                type="submit"
+                value="Create"
+              />
+            )}
           </div>
         </form>
       </div>
