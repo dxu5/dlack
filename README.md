@@ -79,7 +79,7 @@ When a message is then created by a user, the controller action will then broadc
 
 ```rb
 # app/controllers/messages_controller.rb
-def update
+def create
   #After creating message:
   ActionCable
     .server #given
