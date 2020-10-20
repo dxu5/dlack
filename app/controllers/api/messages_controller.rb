@@ -58,6 +58,18 @@ class Api::MessagesController < ApplicationController
     def update
         @message = Message.find_by(id: params[:id])
         if @message.update(message_params)
+            if current_user.profile_picture.attached? == false
+                user = {
+                    id: current_user.id,
+                    username: current_user.username,
+                }
+            else
+                user = {
+                    id: current_user.id,
+                    username: current_user.username,
+                    profile_picture: url_for(current_user.profile_picture)
+                }
+            end
             ActionCable
                 .server #given
                 .broadcast("channel-#{@message.channel_id}:messages",#channel identifier
@@ -69,10 +81,7 @@ class Api::MessagesController < ApplicationController
                             updated_at: @message.updated_at.strftime("%I:%M %p"),
                             update: true
                         },
-                        user: {
-                            id: current_user.id,
-                            username: current_user.username
-                        })
+                        user: user)
         else
             render json: @message.errors.full_messages, status: 422
         end

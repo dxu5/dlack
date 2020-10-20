@@ -70,7 +70,17 @@ class Listener extends React.Component {
             console.log(`Disconnected!! from ${id}`);
           },
           received: (data) => {
-            if (data.user) {
+            if (data.message.update) {
+              let payload = {
+                id: data.message.id,
+                body: data.message.body,
+                author_id: data.message.author_id,
+                channel_id: data.message.channel_id,
+                updated_at: data.message.updated_at,
+                update: true,
+              };
+              this.props.receiveUpdateMessage(payload);
+            } else if (data.user) {
               let notification;
               for (let i = 0; i < data.notifications.length; i++) {
                 if (data.notifications[i].user_id === this.props.currentUser) {
@@ -83,16 +93,6 @@ class Listener extends React.Component {
                 notification: notification,
               };
               this.props.receiveMessage(payload);
-            } else if (data.message.update) {
-              let payload = {
-                id: data.message.id,
-                body: data.message.body,
-                author_id: data.message.author_id,
-                channel_id: data.message.channel_id,
-                updated_at: data.message.updated_at,
-                updated: true,
-              };
-              this.props.receiveUpdateMessage(payload);
             } else {
               let payload = {
                 message: data.message,
