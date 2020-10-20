@@ -68,6 +68,7 @@ class DmIndex extends React.Component {
         <div className="channels-header">
           <div onClick={this.handleClick} className="caret-container">
             <i
+              style={{ cursor: "pointer" }}
               id="caret"
               className={
                 this.state.open ? "fas fa-caret-down" : "fas fa-caret-right"
