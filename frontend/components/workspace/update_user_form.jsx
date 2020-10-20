@@ -116,6 +116,9 @@ class UpdateUserForm extends React.Component {
                 ) : (
                   <img src={window.images.user} className="add-picture" />
                 )}
+                <div className="middle">
+                  <div className="text">Update Photo</div>
+                </div>
               </div>
             </label>
             <br />
