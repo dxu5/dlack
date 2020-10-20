@@ -26,6 +26,7 @@ class Api::MessagesController < ApplicationController
                         user: {
                             id: current_user.id,
                             username: current_user.username
+                            profile_picture: url_for(current_user.profile_picture)
                         },
                         notifications: notifications
                     )
