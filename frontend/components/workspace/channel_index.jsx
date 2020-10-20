@@ -66,7 +66,7 @@ class ChannelIndex extends React.Component {
     return (
       <div className="channel-index">
         <div className="channels-header">
-          <div className="caret-container">
+          <div onClick={this.handleClick} className="caret-container">
             <i
               id="caret"
               className={

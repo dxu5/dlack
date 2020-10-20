@@ -1,4 +1,22 @@
 import React from "react";
+// import ReactQuill from "react-quill";
+
+// const toolbar = [
+//   [{ font: [] }],
+//   [{ size: ["small", false, "large", "huge"] }],
+//   ["bold", "italic", "underline", "strike"],
+//   [{ color: [] }, { background: [] }],
+//   ["blockquote"],
+//   ["image", "video"],
+//   [{ align: [] }],
+//   [{ list: "ordered" }, { list: "bullet" }, { list: "check" }],
+//   [{ script: "sub" }, { script: "super" }],
+//   ["clean"],
+// ];
+
+// const modules = {
+//   toolbar,
+// };
 
 class MessageForm extends React.Component {
   constructor(props) {
@@ -25,6 +43,13 @@ class MessageForm extends React.Component {
       );
     } else {
       return (
+        // <ReactQuill
+        //   modules={modules}
+        //   className="quill-editor"
+        //   value={this.state.body}
+        //   onChange={this.handleChange}
+        //   placeholder="Start writing, drag file, or encrypt your note"
+        // />
         <input
           type="text"
           onChange={this.handleChange}
@@ -39,6 +64,7 @@ class MessageForm extends React.Component {
 
   handleChange(e) {
     this.setState({ body: e.currentTarget.value });
+    // this.setState({ body: e });
   }
 
   handleClick(e) {
