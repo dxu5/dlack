@@ -26,3 +26,34 @@
 - Users can create, read, update, and delete messages
 - Message feed dynamically updates using web sockets to display all incoming messages
 - Full Notification System so users know when they receive a message
+
+### Live Chat
+
+Dlack utilizes ActionCable, a WebSocket framework for Rails, allowing open connections in order to edit, create, and delete messages and channels all in real-time
+
+```js
+// frontend/components/listener.jsx
+createSockets(channelIds) {
+  let result = channelIds.map((id) => {
+      return App.cable.subscriptions.create(
+        {
+          channel: "MessageChannel",
+          channel_id: id,
+        },
+        {
+          received: (data) => {
+           if (data.message.update) {
+              let payload = {
+                id: data.message.id,
+                body: data.message.body,
+                author_id: data.message.author_id,
+                channel_id: data.message.channel_id,
+                updated_at: data.message.updated_at,
+                updated: true,
+              };
+              this.props.receiveUpdateMessage(payload);
+            }
+          },
+        }
+}
+```
