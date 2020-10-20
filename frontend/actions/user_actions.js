@@ -10,8 +10,8 @@ export const receiveUpdateUser = (payload) => {
   };
 };
 
-export const updateUser = (user) => (dispatch) => {
-  return UserAPIUtil.updateUser(user).then(
+export const updateUser = (user, id) => (dispatch) => {
+  return UserAPIUtil.updateUser(user, id).then(
     (payload) => {
       dispatch(receiveUpdateUser(payload));
     },

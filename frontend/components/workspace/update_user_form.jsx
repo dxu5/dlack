@@ -24,7 +24,11 @@ class UpdateUserForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updateUser(this.state).then(this.props.closeModal);
+    const formData = new FormData();
+    formData.append("user[username]", this.state.username);
+    this.props
+      .updateUser(formData, this.props.currentUser.id)
+      .then(this.props.closeModal);
   }
 
   renderErrors() {
@@ -83,6 +87,7 @@ class UpdateUserForm extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
+    currentUserId: state.session.currentUserid,
     currentUser: state.entities.users[state.session.currentUserId],
     errors: state.errors.session,
   };
@@ -90,7 +95,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateUser: (user) => dispatch(updateUser(user)),
+    updateUser: (user, id) => dispatch(updateUser(user, id)),
     clearErrors: () => dispatch(clearErrors()),
     closeModal: () => {
       dispatch(clearErrors());
