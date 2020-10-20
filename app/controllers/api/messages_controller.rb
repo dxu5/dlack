@@ -13,6 +13,18 @@ class Api::MessagesController < ApplicationController
                     notifications.push(Notification.create!(user_id: user.id, channel_id: channel.id, read: false))
                 end
             end
+            if current_user.profile_picture.attached? == false
+                user = {
+                    id: current_user.id,
+                    username: current_user.username,
+                }
+            else
+                user = {
+                    id: current_user.id,
+                    username: current_user.username,
+                    profile_picture: url_for(current_user.profile_picture)
+                }
+            end
             ActionCable
                 .server #given
                 .broadcast("channel-#{@message.channel_id}:messages",#channel identifier
@@ -23,10 +35,7 @@ class Api::MessagesController < ApplicationController
                             channel_id: @message.channel_id,
                             updated_at: @message.updated_at.strftime("%I:%M %p"),
                         },
-                        user: {
-                            id: current_user.id,
-                            username: current_user.username
-                        },
+                        user: user,
                         notifications: notifications
                     )
         else
