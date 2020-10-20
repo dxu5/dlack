@@ -12,12 +12,23 @@
 
 ## Dlack Uses These Technologies
 
-- Websockets: ActionCable
+### Backend
+
 - Ruby on Rails
+- PostgreSQL
+
+### Frontend
+
 - React
 - Redux
-- Postgresql Database
-- HTML5 and SCSS
+- HTML
+- CSS
+
+### Other
+
+- AWS S3
+- ActiveCable (Websockets)
+- Webpack / Babel
 
 ## Key Features
 
