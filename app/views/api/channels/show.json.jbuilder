@@ -8,11 +8,17 @@ json.users do
     @channel.users.each do |user|
         json.set! user.id do
             json.extract! user, :id, :username
+            if user.profile_picture.attached?
+                json.profile_picture url_for(user.profile_picture)
+            end
         end
     end
     @channel.messages.includes(:author).each do |message|
         json.set! message.author.id do
             json.extract! message.author, :id, :username
+            if message.author.profile_picture.attached?
+                json.profile_picture url_for(message.author.profile_picture)
+            end
         end
     end
 end
