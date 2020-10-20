@@ -8,7 +8,11 @@ import { clearErrors } from "../../actions/session_actions.js";
 class UpdateUserForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { ...this.props.currentUser, profile_picture: null };
+    this.state = {
+      ...this.props.currentUser,
+      new_profile_picture: null,
+      imageUrl: null,
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
   }
@@ -28,7 +32,7 @@ class UpdateUserForm extends React.Component {
     const formData = new FormData();
     formData.append("user[username]", this.state.username);
     if (this.state.profile_picture) {
-      formData.append("user[profile_picture]", this.state.profile_picture);
+      formData.append("user[profile_picture]", this.state.new_profile_picture);
     }
     this.props
       .updateUser(formData, this.props.currentUser.id)
@@ -46,15 +50,20 @@ class UpdateUserForm extends React.Component {
   }
 
   handleFile(e) {
-    this.setState({ profile_picture: e.currentTarget.files[0] });
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({
+        new_profile_picture: file,
+        imageUrl: fileReader.result,
+      });
+    };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
   }
 
   render() {
-    const preview = this.state.imageUrl ? (
-      <img src={this.state.imageUrl} className="add-picture" />
-    ) : (
-      <img src={window.images.user} className="add-picture" htmlFor="file" />
-    );
     return (
       <div className="channel-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
@@ -92,10 +101,19 @@ class UpdateUserForm extends React.Component {
                   type="file"
                   name="file"
                   id="file"
-                  onChange={this.handlePhotoInput}
+                  onChange={this.handleFile}
                   className="inputfile"
                 />
-                <label htmlFor="file">{preview}</label>
+                {this.state.imageUrl ? (
+                  <img src={this.state.imageUrl} className="add-picture" />
+                ) : this.props.currentUser.profile_picture !== undefined ? (
+                  <img
+                    src={this.props.currentUser.profile_picture}
+                    className="add-picture"
+                  />
+                ) : (
+                  <img src={window.images.user} className="add-picture" />
+                )}
               </div>
             </label>
             <br />
