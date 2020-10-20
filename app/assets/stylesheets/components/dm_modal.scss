@@ -90,6 +90,22 @@
   font-family: "Poppins";
   cursor: pointer;
 }
+.dm-create-disabled {
+  margin-top: 2em;
+  position: absolute;
+  right: 28px;
+  bottom: 24px;
+  font-size: 14px;
+  height: 36px;
+  width: 80px;
+  padding: 1px 13px 0;
+  text-align: center;
+  color: #363634;
+  border-radius: 4px;
+  border: none;
+  background: lightgray;
+  font-family: "Poppins";
+}
 
 .dm-create:hover {
   background: #80d2de;

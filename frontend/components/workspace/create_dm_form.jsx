@@ -168,7 +168,16 @@ class CreateDmForm extends React.Component {
             </div>
             {this.renderErrors()}
             <br />
-            <input className="dm-create" type="submit" value="Create" />
+            {Object.keys(this.state.selected).length > 0 ? (
+              <input className="dm-create" type="submit" value="Create" />
+            ) : (
+              <input
+                disabled
+                className="dm-create-disabled"
+                type="submit"
+                value="Create"
+              />
+            )}
           </div>
         </form>
       </div>
