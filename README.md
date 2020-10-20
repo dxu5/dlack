@@ -57,3 +57,16 @@ createSockets(channelIds) {
         }
 }
 ```
+
+On the backend, cables are dynamically created using params (channel-id) sent from the frontend listener component:
+
+```rb
+# app/channels/message_channel.rb
+class MessageChannel < ApplicationCable::Channel
+  def subscribed
+    stream_from "channel-#{params["channel_id"]}:messages"
+  end
+
+  def unsubscribed; end
+end
+```
