@@ -15,9 +15,15 @@ demo_user = User.create!(username: "dlack_demo", password: "password")
 general = Channel.create!(title: "General", is_private: false, is_dm: false, owner_id: demo_user.id)
 user1 = User.create!(username: "dxu5", password: "password")
 user2 = User.create!(username: "dxu6", password: "password")
+user3 = User.create!(username: 'Derek', password: "password")
+user4 = User.create!(username: 'Hailey', password: "password")
+user5 = User.create!(username: 'Robert', password: "password")
 userChannel1 = UserChannel.create!(user_id: demo_user.id, channel_id: general.id)
 userChannel2 = UserChannel.create!(user_id: user1.id, channel_id: general.id)
 userChannel3 = UserChannel.create!(user_id: user2.id, channel_id: general.id)
+userChannel4 = UserChannel.create!(user_id: user3.id, channel_id: general.id)
+userChannel5 = UserChannel.create!(user_id: user4.id, channel_id: general.id)
+userChannel6 = UserChannel.create!(user_id: user5.id, channel_id: general.id)
 
 
 
