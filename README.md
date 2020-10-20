@@ -29,7 +29,11 @@
 
 ### Live Chat
 
-Dlack utilizes ActionCable, a WebSocket framework for Rails, allowing open connections in order to edit, create, and delete messages and channels all in real-time
+Dlack utilizes ActionCable, a WebSocket framework for Rails, allowing open connections in order to edit, create, and delete messages and channels all in real-time <br>
+View channels you've joined and communicate with other people - live! No need to refresh the page.<br>
+Insert Image/gif here
+<br>
+Connections are made via the code below:
 
 ```js
 // frontend/components/listener.jsx
@@ -68,5 +72,27 @@ class MessageChannel < ApplicationCable::Channel
   end
 
   def unsubscribed; end
+end
+```
+
+When a message is then created by a user, the controller action will then broadcast the response to all subscribed users:
+
+```rb
+# app/controllers/messages_controller.rb
+def update
+  #After creating message:
+  ActionCable
+    .server #given
+    .broadcast("channel-#{@message.channel_id}:messages",#channel identifier
+            message: {      #broadcast both message and user //////   add user reducer receive message
+                id: @message.id,
+                body: @message.body,
+                author_id: @message.author_id,
+                channel_id: @message.channel_id,
+                updated_at: @message.updated_at.strftime("%I:%M %p"),
+            },
+            user: user,
+            notifications: notifications
+          )
 end
 ```
