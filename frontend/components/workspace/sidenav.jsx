@@ -1,6 +1,7 @@
 import React from "react";
 import ChannelIndex from "./channel_index.jsx";
 import DMIndex from "./dm_index.jsx";
+import { Link } from "react-router-dom";
 
 class Sidenav extends React.Component {
   constructor(props) {
@@ -16,10 +17,12 @@ class Sidenav extends React.Component {
     return (
       <div className="nav-col">
         <div className="general-sidebar">
-          <div className="welcome-message">
-            <img className="side-logo" src={window.images.dlack} />
-            <h1>Welcome</h1>
-          </div>
+          <Link to="/channels/1">
+            <div className="welcome-message">
+              <img className="side-logo" src={window.images.dlack} />
+              <h1>Welcome</h1>
+            </div>
+          </Link>
 
           <h2 className="user-nav-info">
             {this.props.currentUser.username}
