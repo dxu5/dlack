@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { updateMessage } from "../../../actions/message_actions";
+import ReactQuill from "react-quill";
 class EditMessageForm extends React.Component {
   constructor(props) {
     super(props);
@@ -10,7 +11,8 @@ class EditMessageForm extends React.Component {
   }
 
   handleChange(e) {
-    this.setState({ body: e.currentTarget.value });
+    // this.setState({ body: e.currentTarget.value });
+    this.setState({ body: e });
   }
 
   handleSubmit() {
@@ -23,18 +25,25 @@ class EditMessageForm extends React.Component {
         <div className="edit-form-container">
           <form className="edit-message-form">
             <div className="edit-form-input-div">
-              <input
+              <ReactQuill
+                className="quill-editor"
+                value={this.state.body}
+                onChange={this.handleChange}
+                onFocus={this.props.getChannelInfo}
+              />
+              {/* <input
                 type="text"
                 onChange={this.handleChange}
                 value={this.state.body}
                 className="edit-form-input"
-              />
+              /> */}
             </div>
             <button className="edit-cancel" onClick={this.props.handleClose}>
               Cancel
             </button>
             {this.state.body === "" ||
-            this.state.body === this.props.message.body ? (
+            this.state.body === this.props.message.body ||
+            this.state.body === "<p><br></p>" ? (
               <div className="edit-submit-disabled">Edit Message</div>
             ) : (
               <div className="edit-submit" onClick={this.handleSubmit}>
@@ -42,7 +51,6 @@ class EditMessageForm extends React.Component {
               </div>
             )}
           </form>
-          <div className="edit-form-bottom"></div>
         </div>
       </div>
     );

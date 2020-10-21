@@ -35,7 +35,7 @@ class MessageForm extends React.Component {
           className="quill-editor"
           value={this.state.body}
           onChange={this.handleChange}
-          placeholder={`Message 🔒 ${this.props.currentChannel.title}`}
+          placeholder="Message this channel"
           onFocus={this.props.getChannelInfo}
         />
         // <input
@@ -54,7 +54,7 @@ class MessageForm extends React.Component {
           className="quill-editor"
           value={this.state.body}
           onChange={this.handleChange}
-          placeholder={`Message  # ${this.props.currentChannel.title}`}
+          placeholder="Message this channel"
           onFocus={this.props.getChannelInfo}
         />
         // <input
@@ -99,6 +99,7 @@ class MessageForm extends React.Component {
 
   render() {
     console.log(this.state);
+    console.log(this.props);
     return (
       <div className="channel-message-form">
         <div className="message-input">{this.determineType()}</div>
