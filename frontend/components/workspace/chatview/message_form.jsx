@@ -1,19 +1,6 @@
 import React from "react";
 import ReactQuill from "react-quill";
 
-// const toolbar = [
-//   [{ font: [] }],
-//   [{ size: ["small", false, "large", "huge"] }],
-//   ["bold", "italic", "underline", "strike"],
-//   [{ color: [] }, { background: [] }],
-//   ["blockquote"],
-//   ["image", "video"],
-//   [{ align: [] }],
-//   [{ list: "ordered" }, { list: "bullet" }, { list: "check" }],
-//   [{ script: "sub" }, { script: "super" }],
-//   ["clean"],
-// ];
-
 class MessageForm extends React.Component {
   constructor(props) {
     super(props);

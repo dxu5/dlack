@@ -8,6 +8,36 @@ class EditMessageForm extends React.Component {
     this.state = this.props.message;
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.checkChange = this.checkChange.bind(this);
+    const handleSubmit = this.handleSubmit;
+    const checkChange = this.checkChange;
+    this.bindings = {
+      tab: {
+        key: 13,
+        shiftKey: false,
+        handler: function () {
+          let body = $(".ql-editor").html();
+          let arr = body.split("<p><br></p>");
+          let parseBody = arr.filter((x) => x !== "");
+          if (
+            body !== "" &&
+            parseBody.length !== 0 &&
+            checkChange() === false
+          ) {
+            handleSubmit();
+          }
+        },
+      },
+    };
+    this.modules = {
+      keyboard: {
+        bindings: this.bindings,
+      },
+    };
+  }
+
+  checkChange() {
+    return this.state.body === this.props.message.body;
   }
 
   handleChange(e) {
@@ -35,6 +65,7 @@ class EditMessageForm extends React.Component {
                 value={this.state.body}
                 onChange={this.handleChange}
                 onFocus={this.props.getChannelInfo}
+                modules={this.modules}
               />
               {/* <input
                 type="text"
