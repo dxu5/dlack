@@ -89,3 +89,11 @@
   align-self: center;
   margin-bottom: 0.2em;
 }
+
+.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+  display: flex;
+  flex-direction: column;
+  bottom: 128%;
+  z-index: 2;
+  top: auto;
+}
