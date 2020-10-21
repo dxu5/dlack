@@ -26,16 +26,31 @@ class MessageForm extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.quillRef = React.createRef();
+  }
+
+  componentDidUpdate() {
+    if (this.props.currentChannel.is_private) {
+      $(".quill-editor .ql-blank").attr(
+        "data-placeholder",
+        `Message 🔒 ${this.props.currentChannel.title}`
+      );
+    } else {
+      $(".quill-editor .ql-blank").attr(
+        "data-placeholder",
+        `Message  # ${this.props.currentChannel.title}`
+      );
+    }
   }
 
   determineType() {
     if (this.props.currentChannel.is_private) {
       return (
         <ReactQuill
+          ref={this.quillRef}
           className="quill-editor"
           value={this.state.body}
           onChange={this.handleChange}
-          placeholder="Message this channel"
           onFocus={this.props.getChannelInfo}
         />
         // <input
@@ -51,10 +66,10 @@ class MessageForm extends React.Component {
     } else {
       return (
         <ReactQuill
+          ref={this.quillRef}
           className="quill-editor"
           value={this.state.body}
           onChange={this.handleChange}
-          placeholder="Message this channel"
           onFocus={this.props.getChannelInfo}
         />
         // <input

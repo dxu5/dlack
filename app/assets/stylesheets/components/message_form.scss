@@ -100,3 +100,7 @@
   background: #f9f3e7;
   font-family: "Poppins";
 }
+
+.ql-editor.ql-blank::before {
+  font-style: normal;
+}
