@@ -26,7 +26,6 @@ class MessageForm extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.quillRef = React.createRef();
   }
 
   componentDidUpdate() {
@@ -47,7 +46,6 @@ class MessageForm extends React.Component {
     if (this.props.currentChannel.is_private) {
       return (
         <ReactQuill
-          ref={this.quillRef}
           className="quill-editor"
           value={this.state.body}
           onChange={this.handleChange}
@@ -66,7 +64,6 @@ class MessageForm extends React.Component {
     } else {
       return (
         <ReactQuill
-          ref={this.quillRef}
           className="quill-editor"
           value={this.state.body}
           onChange={this.handleChange}
