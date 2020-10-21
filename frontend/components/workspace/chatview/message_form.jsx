@@ -14,10 +14,6 @@ import ReactQuill from "react-quill";
 //   ["clean"],
 // ];
 
-// const modules = {
-//   toolbar,
-// };
-
 class MessageForm extends React.Component {
   constructor(props) {
     super(props);
@@ -26,6 +22,26 @@ class MessageForm extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    const handleClick = this.handleClick;
+    this.bindings = {
+      tab: {
+        key: 13,
+        shiftKey: false,
+        handler: function () {
+          let body = $(".ql-editor").html();
+          let arr = body.split("<p><br></p>");
+          let parseBody = arr.filter((x) => x !== "");
+          if (body !== "" && parseBody.length !== 0) {
+            handleClick();
+          }
+        },
+      },
+    };
+    this.modules = {
+      keyboard: {
+        bindings: this.bindings,
+      },
+    };
   }
 
   componentDidUpdate() {
@@ -50,6 +66,7 @@ class MessageForm extends React.Component {
           value={this.state.body}
           onChange={this.handleChange}
           onFocus={this.props.getChannelInfo}
+          modules={this.modules}
         />
         // <input
         //   onChange={this.handleChange}
@@ -68,6 +85,7 @@ class MessageForm extends React.Component {
           value={this.state.body}
           onChange={this.handleChange}
           onFocus={this.props.getChannelInfo}
+          modules={this.modules}
         />
         // <input
         //   type="text"
