@@ -11,8 +11,15 @@ class EditMessageForm extends React.Component {
     this.checkChange = this.checkChange.bind(this);
     const handleSubmit = this.handleSubmit;
     const checkChange = this.checkChange;
+    const handleClose = this.props.handleClose;
     this.bindings = {
-      tab: {
+      escape: {
+        key: 27,
+        handler: function () {
+          handleClose();
+        },
+      },
+      enter: {
         key: 13,
         shiftKey: false,
         handler: function () {
@@ -64,7 +71,6 @@ class EditMessageForm extends React.Component {
                 className="quill-editor"
                 value={this.state.body}
                 onChange={this.handleChange}
-                onFocus={this.props.getChannelInfo}
                 modules={this.modules}
               />
               {/* <input
