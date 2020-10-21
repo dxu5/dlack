@@ -103,8 +103,6 @@ class MessageForm extends React.Component {
   }
 
   render() {
-    console.log(this.state);
-    console.log(this.props);
     return (
       <div className="channel-message-form">
         <div className="message-input">{this.determineType()}</div>

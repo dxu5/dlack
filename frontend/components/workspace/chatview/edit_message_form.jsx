@@ -19,6 +19,11 @@ class EditMessageForm extends React.Component {
     this.props.updateMessage(this.state).then(this.props.handleClose());
   }
 
+  parseBody() {
+    let arr = this.state.body.split("<p><br></p>");
+    return arr.filter((x) => x !== "");
+  }
+
   render() {
     return (
       <div className="message-edit">
@@ -43,7 +48,7 @@ class EditMessageForm extends React.Component {
             </button>
             {this.state.body === "" ||
             this.state.body === this.props.message.body ||
-            this.state.body === "<p><br></p>" ? (
+            this.parseBody().length === 0 ? (
               <div className="edit-submit-disabled">Edit Message</div>
             ) : (
               <div className="edit-submit" onClick={this.handleSubmit}>
