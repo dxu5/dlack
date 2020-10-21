@@ -97,13 +97,18 @@ class MessageForm extends React.Component {
     );
   }
 
+  parseBody() {
+    let arr = this.state.body.split("<p><br></p>");
+    return arr.filter((x) => x !== "");
+  }
+
   render() {
     console.log(this.state);
     console.log(this.props);
     return (
       <div className="channel-message-form">
         <div className="message-input">{this.determineType()}</div>
-        {this.state.body !== "" && this.state.body !== "<p><br></p>" ? (
+        {this.state.body !== "" && this.parseBody().length !== 0 ? (
           <button className="message-button" onClick={this.handleClick}>
             <i className="far fa-paper-plane send-plane"></i>
           </button>
