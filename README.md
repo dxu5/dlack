@@ -109,3 +109,10 @@ end
 ```
 
 A similar setup was utilized for updating and deleting messages so that changes would be reflected for users in real-time
+
+## Additional Resources
+
+- [Database Schema](https://github.com/dxu5/dlack/wiki/database-schema)
+- [Frontend API Endpoints/Components](https://github.com/dxu5/dlack/wiki/frontend-routes-and-components)
+- [Backend API Endpoints](https://github.com/dxu5/dlack/wiki/backend-routes)
+- [Sample State](https://github.com/dxu5/dlack/wiki/sample-state)
