@@ -9,13 +9,11 @@
 }
 
 .chat-container {
-  flex: 1 1 auto;
-  max-height: 78.25vh;
-  min-height: 21.18vh;
   position: relative;
   width: 100%;
   bottom: 0;
   margin-right: 5px;
+  height: calc(100vh - 164px);
 }
 
 .message-list-container {
