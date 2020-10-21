@@ -1,19 +1,39 @@
-.chat-container ol {
+.chat-container p ol {
   display: block;
   list-style-type: decimal;
-  margin-top: 1em;
-  margin-bottom: 1em;
   margin-left: 0;
   margin-right: 0;
   padding-left: 17px;
 }
 
-.chat-container ul {
+.chat-container p ul {
   display: block;
   list-style-type: disc;
-  margin-top: 1em;
-  margin-bottom: 1em;
   margin-left: 0;
   margin-right: 0;
   padding-left: 17px;
+}
+
+.chat-container p h1 {
+  display: block;
+  font-size: 2em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+.chat-container p h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+.chat-container p h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
 }
