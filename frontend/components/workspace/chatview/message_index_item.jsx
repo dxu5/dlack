@@ -47,16 +47,20 @@ class MessageIndexItem extends React.Component {
           )}
 
           <div className="message-details">
-            <h2 className="message-username">
-              {this.props.user.username}
-              <span className="timestamp">{this.props.message.updated_at}</span>
-            </h2>
-            <p>
-              {this.props.message.body}
-              {this.props.message.update === true ? (
-                <span className="edited-message">(edited)</span>
-              ) : null}
-            </p>
+            <div>
+              <h2 className="message-username">
+                {this.props.user.username}
+                <span className="timestamp">
+                  {this.props.message.updated_at}
+                </span>
+              </h2>
+              <p
+                dangerouslySetInnerHTML={{ __html: this.props.message.body }}
+              ></p>
+            </div>
+            {this.props.message.update === true ? (
+              <span className="edited-message">(edited)</span>
+            ) : null}
           </div>
           {this.props.message.author_id === this.props.currentUserId ? (
             <div className="add-ons">
@@ -74,12 +78,12 @@ class MessageIndexItem extends React.Component {
       return (
         <li className="repeat-message">
           <div className="repeat-message-details">
-            <p>
-              {this.props.message.body}
-              {this.props.message.update === true ? (
-                <span className="edited-message">(edited)</span>
-              ) : null}
-            </p>
+            <p
+              dangerouslySetInnerHTML={{ __html: this.props.message.body }}
+            ></p>
+            {this.props.message.update === true ? (
+              <span className="edited-message">(edited)</span>
+            ) : null}
           </div>
           {this.props.message.author_id === this.props.currentUserId ? (
             <div className="repeat-add-ons">

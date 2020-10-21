@@ -116,3 +116,7 @@ A similar setup was utilized for updating and deleting messages so that changes 
 - [Frontend API Endpoints/Components](https://github.com/dxu5/dlack/wiki/frontend-routes-and-components)
 - [Backend API Endpoints](https://github.com/dxu5/dlack/wiki/backend-routes)
 - [Sample State](https://github.com/dxu5/dlack/wiki/sample-state)
+
+---
+
+### Have feedback or looking for a developer? Send me an <a href="mailto:derek.j.xu@gmail.com">email</a> and let me know!

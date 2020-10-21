@@ -1,5 +1,5 @@
 import React from "react";
-// import ReactQuill from "react-quill";
+import ReactQuill from "react-quill";
 
 // const toolbar = [
 //   [{ font: [] }],
@@ -31,40 +31,47 @@ class MessageForm extends React.Component {
   determineType() {
     if (this.props.currentChannel.is_private) {
       return (
-        <input
-          onChange={this.handleChange}
-          type="text"
-          placeholder={`Message 🔒 ${this.props.currentChannel.title}`}
-          style={{ fontFamily: "Poppins, FontAwesome" }}
+        <ReactQuill
+          className="quill-editor"
           value={this.state.body}
-          className="message-text"
+          onChange={this.handleChange}
+          placeholder={`Message 🔒 ${this.props.currentChannel.title}`}
           onFocus={this.props.getChannelInfo}
         />
+        // <input
+        //   onChange={this.handleChange}
+        //   type="text"
+        //   placeholder={`Message 🔒 ${this.props.currentChannel.title}`}
+        //   style={{ fontFamily: "Poppins, FontAwesome" }}
+        //   value={this.state.body}
+        //   className="message-text"
+        //   onFocus={this.props.getChannelInfo}
+        // />
       );
     } else {
       return (
-        // <ReactQuill
-        //   modules={modules}
-        //   className="quill-editor"
-        //   value={this.state.body}
-        //   onChange={this.handleChange}
-        //   placeholder="Start writing, drag file, or encrypt your note"
-        // />
-        <input
-          type="text"
+        <ReactQuill
+          className="quill-editor"
+          value={this.state.body}
           onChange={this.handleChange}
           placeholder={`Message  # ${this.props.currentChannel.title}`}
-          value={this.state.body}
-          className="message-text"
           onFocus={this.props.getChannelInfo}
         />
+        // <input
+        //   type="text"
+        //   onChange={this.handleChange}
+        //   placeholder={`Message  # ${this.props.currentChannel.title}`}
+        //   value={this.state.body}
+        //   className="message-text"
+        //   onFocus={this.props.getChannelInfo}
+        // />
       );
     }
   }
 
   handleChange(e) {
-    this.setState({ body: e.currentTarget.value });
-    // this.setState({ body: e });
+    // this.setState({ body: e.currentTarget.value });
+    this.setState({ body: e });
   }
 
   handleClick(e) {
@@ -91,17 +98,15 @@ class MessageForm extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     return (
       <div className="channel-message-form">
-        <form className="message-form">
-          <div className="message-input">{this.determineType()}</div>
-          {this.state.body !== "" ? (
-            <button className="message-button" onClick={this.handleClick}>
-              <i className="far fa-paper-plane send-plane"></i>
-            </button>
-          ) : null}
-        </form>
-        <div className="bottom-message-form"></div>
+        <div className="message-input">{this.determineType()}</div>
+        {this.state.body !== "" && this.state.body !== "<p><br></p>" ? (
+          <button className="message-button" onClick={this.handleClick}>
+            <i className="far fa-paper-plane send-plane"></i>
+          </button>
+        ) : null}
       </div>
     );
   }
