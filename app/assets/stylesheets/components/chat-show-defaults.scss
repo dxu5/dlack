@@ -37,3 +37,13 @@
   margin-right: 0;
   font-weight: bold;
 }
+
+.chat-container p em {
+  font-style: italic;
+}
+
+.chat-container p a:link {
+  color: (internal value);
+  text-decoration: underline;
+  cursor: pointer;
+}
