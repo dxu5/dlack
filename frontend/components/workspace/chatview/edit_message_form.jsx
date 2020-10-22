@@ -41,6 +41,11 @@ class EditMessageForm extends React.Component {
         bindings: this.bindings,
       },
     };
+    this.input = React.createRef();
+  }
+
+  componentDidMount() {
+    this.input.current.focus();
   }
 
   checkChange() {
@@ -68,6 +73,7 @@ class EditMessageForm extends React.Component {
           <form className="edit-message-form">
             <div className="edit-form-input-div">
               <ReactQuill
+                ref={this.input}
                 className="quill-editor"
                 value={this.state.body}
                 onChange={this.handleChange}
