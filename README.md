@@ -5,7 +5,8 @@
   <a href="#dlack-uses-these-technologies">Technologies</a> •
   <a href="#key-features">Key Features</a> •
   <a href="#live-chat">Live Chat</a> •
-  <a href="#channels-and-direct-messages-crud">Channels and Direct Messages</a> 
+  <a href="#channels-and-direct-messages-crud">Channels and Direct Messages</a> •
+  <a href="#message-notifications">Notifications</a>
 </p>
 
 <p align="center">A web application implemented with websockets, Rails/PostgreSQL backend, and React/Redux frontend stack. In order to increase productivity and get work done, users can create channels, direct messages, and group chats. Everything is done in real time.</p>
