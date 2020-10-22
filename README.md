@@ -42,9 +42,11 @@
 
 <img src="./app/assets/images/message.gif" width=800px/>
 
-Dlack utilizes ActionCable, a WebSocket framework for Rails, allowing open connections in order to edit, create, and delete messages and channels all in real-time <br>
-View channels you've joined and communicate with other people - live! No need to refresh the page.<br>
-Insert Image/gif here
+Dlack utilizes ActionCable, a WebSocket framework for Rails, allowing open connections in order to edit, create, and delete messages and channels all in real-time
+<br>
+<br>
+View channels you've joined and communicate with other people - live! No need to refresh the page.
+<br>
 <br>
 Connections are made via the code below:
 
@@ -114,7 +116,7 @@ A similar setup was utilized for updating and deleting messages so that changes 
 
 ### Channels and Direct Messages (CRUD)
 
-<img src="./app/assets/images/demos/dmcreationdemo.gif" width=750px/>
+<img src="./app/assets/images/channel.gif" width=750px/>
 
 Users can create, edit, and delete public channels, private channels, direct messages, or group messages.
 When creating one of the above, users are presented my a highly versitile modal component that not only renders but stores relevant data.
