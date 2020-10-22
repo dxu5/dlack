@@ -119,4 +119,4 @@ A similar setup was utilized for updating and deleting messages so that changes 
 
 ---
 
-### Have feedback or looking for a developer? Send me an <a href="mailto:derek.j.xu@gmail.com">email</a> and let me know!
+### Have feedback or just want to chat? Send me an <a href="mailto:derek.j.xu@gmail.com">email</a>!
