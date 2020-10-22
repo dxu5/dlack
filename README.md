@@ -40,6 +40,8 @@
 
 ### Live Chat
 
+<img src="./app/assets/images/message.gif" width=800px/>
+
 Dlack utilizes ActionCable, a WebSocket framework for Rails, allowing open connections in order to edit, create, and delete messages and channels all in real-time <br>
 View channels you've joined and communicate with other people - live! No need to refresh the page.<br>
 Insert Image/gif here
