@@ -112,6 +112,68 @@ end
 
 A similar setup was utilized for updating and deleting messages so that changes would be reflected for users in real-time
 
+### Channels and Direct Messages (CRUD)
+
+<img src="./app/assets/images/demos/dmcreationdemo.gif" width=750px/>
+
+Users can create, edit, and delete public channels, private channels, direct messages, or group messages.
+When creating one of the above, users are presented my a highly versitile modal component that not only renders but stores relevant data.
+
+Private channels and all direct message types also include a user search feature that is throttled so that hits to the database are lessened.
+
+The modal is a functional component that opens a specific modal based on information passed in:
+
+```js
+//frontend/components/modal.jsx
+function Modal({ modal, closeModal }) {
+  if (!modal) {
+    return null;
+  }
+  let component;
+  switch (modal.type) {
+    case "channel":
+      component = <CreateChannelModalContainer />;
+      break;
+    case "dm":
+      component = <CreateDmModalContainer />;
+      break;
+    case "delete":
+      component = <DeleteChannelModalContainer />;
+      break;
+    case "update":
+      component = <UpdateChannelModalContainer />;
+      break;
+    case "user":
+      component = <UpdateUserForm />;
+      break;
+    default:
+      return null;
+  }
+}
+```
+
+For example, when a user wants to create a new channel a specific action is dispatched to the modal reducer, causing the modal to open the desired modal:
+
+```js
+//frontend/components/channel_index.jsx
+const mapStateToProps = (state) => {
+  return {
+    modal: state.ui.modal,
+    notifications: state.entities.notifications,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    openCreateModal: () => dispatch(openModal({ type: "channel" })),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelIndex);
+```
+
+After clicking the create button for either modal form, joins associations to link users to these channels are then created.
+
 ## Additional Resources
 
 - [Database Schema](https://github.com/dxu5/dlack/wiki/database-schema)
