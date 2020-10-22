@@ -178,6 +178,46 @@ export default connect(mapStateToProps, mapDispatchToProps)(ChannelIndex);
 
 After clicking the create button for either modal form, joins associations to link users to these channels are then created.
 
+### Message Notifications
+
+<img src="./app/assets/images/notifications.gif" width=800px/>
+
+When a user sends a message in a channel or direct message, all other users in that space will receive real time notifications that will pop up on their screens. The database stores a relational table called notifications that maps notifications to users and channels.
+
+This code snippet shows how notifications are broadcasted to users:
+
+```js
+// frontend/components/listener.jsx
+createSockets(channelIds) {
+  let result = channelIds.map((id) => {
+      return App.cable.subscriptions.create(
+        {
+          channel: "MessageChannel",
+          channel_id: id,
+        },
+        {
+          received: (data) => {
+           if (data.user) {
+              let notification;
+              for (let i = 0; i < data.notifications.length; i++) {
+                if (data.notifications[i].user_id === this.props.currentUser) {
+                  notification = data.notifications[i];
+                }
+              }
+              let payload = {
+                message: data.message,
+                user: data.user,
+                notification: notification,
+              };
+              this.props.receiveMessage(payload);
+            }
+          },
+        }
+}
+```
+
+Users can remove these notifications by visiting or typing in the channels.
+
 ## Additional Resources
 
 - [Database Schema](https://github.com/dxu5/dlack/wiki/database-schema)
