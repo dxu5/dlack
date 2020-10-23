@@ -219,6 +219,14 @@ createSockets(channelIds) {
 
 Users can remove these notifications by visiting or typing in the channels.
 
+# Future Features
+
+Given the 10-day timeline of this project, the key features above were created first. However, notable future work/features that I intend to add include:
+
+- Search for channels using finder
+- Dark theme
+- Workspaces to hold more channels
+
 ## Additional Resources
 
 - [Database Schema](https://github.com/dxu5/dlack/wiki/database-schema)
