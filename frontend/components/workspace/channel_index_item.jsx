@@ -34,6 +34,15 @@ class ChannelIndexItem extends React.Component {
     }
   }
 
+  handleTitle() {
+    let title = this.props.channel.title;
+    if (title.length > 12) {
+      return title.slice(0, 9).concat("...");
+    } else {
+      return title;
+    }
+  }
+
   render() {
     const selected =
       this.props.channel.id === Number(this.props.match.params.channelId)
@@ -48,7 +57,7 @@ class ChannelIndexItem extends React.Component {
                 {this.handleSymbol()}
               </div>
               <div className="channel-title" id={`${selected}-symbol`}>
-                {this.props.channel.title}
+                {this.handleTitle()}
               </div>
               {this.props.numNotifications === 0 ? null : (
                 <div className="numberCircle">
