@@ -29,6 +29,7 @@
 
 ### Other
 
+- React-Quill
 - AWS S3
 - ActiveCable (Websockets)
 - Webpack / Babel
@@ -36,7 +37,7 @@
 ## Key Features
 
 - Secure frontend to backend user authentication using BCrypt Hashing
-- Users can create or direct messages, and update or delete channels for those that they have permission to
+- Users can create channels or direct messages, and update or delete channels for those that they have permission to
 - Users can create, read, update, and delete messages
 - Message feed dynamically updates using web sockets to display all incoming messages
 - Full Notification System so users know when they receive a message
@@ -45,7 +46,7 @@
 
 <img src="./app/assets/images/message.gif" width=800px/>
 
-Dlack utilizes ActionCable, a WebSocket framework for Rails, allowing open connections in order to edit, create, and delete messages and channels all in real-time
+Dlack utilizes ActionCable, a WebSocket framework for Rails, which creates open connections to edit, create, and delete messages and channels all in real-time.
 <br>
 <br>
 View channels you've joined and communicate with other people - live! No need to refresh the page.
@@ -98,11 +99,10 @@ When a message is then created by a user, the controller action will then broadc
 ```rb
 # app/controllers/messages_controller.rb
 def create
-  #After creating message:
   ActionCable
-    .server #given
-    .broadcast("channel-#{@message.channel_id}:messages",#channel identifier
-            message: {      #broadcast both message and user //////   add user reducer receive message
+    .server
+    .broadcast("channel-#{@message.channel_id}:messages",
+            message: {
                 id: @message.id,
                 body: @message.body,
                 author_id: @message.author_id,
@@ -122,11 +122,11 @@ A similar setup was utilized for updating and deleting messages so that changes 
 <img src="./app/assets/images/channel.gif" width=750px/>
 
 Users can create, edit, and delete public channels, private channels, direct messages, or group messages.
-When creating one of the above, users are presented my a highly versitile modal component that not only renders but stores relevant data.
+When creating one of the above, users are presented by a highly versitile modal component that not only renders but also stores relevant data.
 
-Private channels and all direct message types also include a user search feature that is throttled so that hits to the database are lessened.
+Private channels and all direct message types include a user search feature that is throttled so that hits to the database are lessened.
 
-The modal is a functional component that opens a specific modal based on information passed in:
+The modal is a functional component that opens a specific form-modal based on information passed in:
 
 ```js
 //frontend/components/modal.jsx
@@ -157,7 +157,7 @@ function Modal({ modal, closeModal }) {
 }
 ```
 
-For example, when a user wants to create a new channel a specific action is dispatched to the modal reducer, causing the modal to open the desired modal:
+For example, when a user wants to create a new channel, a specific action is dispatched to the modal reducer, causing the modal to open the desired modal:
 
 ```js
 //frontend/components/channel_index.jsx
@@ -177,7 +177,7 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(mapStateToProps, mapDispatchToProps)(ChannelIndex);
 ```
 
-After clicking the create button for either modal form, joins associations to link users to these channels are then created.
+After clicking the create button for either modal form, associations and table rows to link users to these channels are then created.
 
 ### Message Notifications
 
