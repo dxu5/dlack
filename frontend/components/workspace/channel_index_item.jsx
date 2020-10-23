@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Modal from "./modal.jsx";
 
 class ChannelIndexItem extends React.Component {
   constructor(props) {
@@ -26,15 +25,7 @@ class ChannelIndexItem extends React.Component {
       this.props.channel.title !== "General"
     ) {
       return (
-        <div
-          onClick={this.handleModal}
-          // onClick={() => {
-          //   .then(() => {
-          //     this.props.history.push("/channels/1");
-          //   });
-          // }}
-          className="delete-channel"
-        >
+        <div onClick={this.handleModal} className="delete-channel">
           &#10005;
         </div>
       );

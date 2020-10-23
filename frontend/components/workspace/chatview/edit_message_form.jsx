@@ -53,7 +53,6 @@ class EditMessageForm extends React.Component {
   }
 
   handleChange(e) {
-    // this.setState({ body: e.currentTarget.value });
     this.setState({ body: e });
   }
 
@@ -79,12 +78,6 @@ class EditMessageForm extends React.Component {
                 onChange={this.handleChange}
                 modules={this.modules}
               />
-              {/* <input
-                type="text"
-                onChange={this.handleChange}
-                value={this.state.body}
-                className="edit-form-input"
-              /> */}
             </div>
             <button className="edit-cancel" onClick={this.props.handleClose}>
               Cancel

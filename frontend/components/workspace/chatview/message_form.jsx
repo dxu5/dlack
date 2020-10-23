@@ -55,15 +55,6 @@ class MessageForm extends React.Component {
           onFocus={this.props.getChannelInfo}
           modules={this.modules}
         />
-        // <input
-        //   onChange={this.handleChange}
-        //   type="text"
-        //   placeholder={`Message 🔒 ${this.props.currentChannel.title}`}
-        //   style={{ fontFamily: "Poppins, FontAwesome" }}
-        //   value={this.state.body}
-        //   className="message-text"
-        //   onFocus={this.props.getChannelInfo}
-        // />
       );
     } else {
       return (
@@ -74,20 +65,11 @@ class MessageForm extends React.Component {
           onFocus={this.props.getChannelInfo}
           modules={this.modules}
         />
-        // <input
-        //   type="text"
-        //   onChange={this.handleChange}
-        //   placeholder={`Message  # ${this.props.currentChannel.title}`}
-        //   value={this.state.body}
-        //   className="message-text"
-        //   onFocus={this.props.getChannelInfo}
-        // />
       );
     }
   }
 
   handleChange(e) {
-    // this.setState({ body: e.currentTarget.value });
     this.setState({ body: e });
   }
 
