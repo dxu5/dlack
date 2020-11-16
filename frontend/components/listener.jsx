@@ -54,8 +54,6 @@ class Listener extends React.Component {
   }
 
   createSockets(channelIds) {
-    console.log("Running create socket");
-
     let result = channelIds.map((id) => {
       return App.cable.subscriptions.create(
         {
@@ -63,12 +61,8 @@ class Listener extends React.Component {
           channel_id: id,
         },
         {
-          connected: () => {
-            console.log(`Connected!! to ${id}`);
-          },
-          disconnected: () => {
-            console.log(`Disconnected!! from ${id}`);
-          },
+          connected: () => {},
+          disconnected: () => {},
           received: (data) => {
             if (data.message.update) {
               let payload = {

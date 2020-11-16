@@ -64,7 +64,6 @@ class UpdateUserForm extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className="channel-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">

@@ -26,19 +26,13 @@ class Listener extends React.Component {
   }
 
   createSocket() {
-    console.log("Running channel create socket");
-
     this.channel = App.cable.subscriptions.create(
       {
         channel: "ChannelChannel",
       },
       {
-        connected: () => {
-          console.log(`Connected!! to channels`);
-        },
-        disconnected: () => {
-          console.log(`Disconnected!! from channels`);
-        },
+        connected: () => {},
+        disconnected: () => {},
         received: (data) => {
           if (data.update === true) {
             if (data.userIds.includes(Number(this.props.currentUser))) {
