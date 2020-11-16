@@ -2,6 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import configureStore from "./store/store.js";
 import Root from "./components/root.jsx";
+import ReactGA from "react-ga";
+
+function initializeReactGA() {
+  ReactGA.initialize("G-JF0JPLLZHN");
+  ReactGA.pageview("/");
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   let root = document.getElementById("root");
@@ -22,5 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
+  initializeReactGA();
   ReactDOM.render(<Root store={store} />, root);
 });
